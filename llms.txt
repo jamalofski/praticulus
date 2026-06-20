@@ -7,9 +7,11 @@ Praticulus provides free browser-based tools for developers and technical users.
 
 ## Hubs (topic clusters)
 - [Developer tools](https://praticulus.com/developer/)
-- [Color tools](https://praticulus.com/color/)
 - [Security tools](https://praticulus.com/security/)
+- [Color tools](https://praticulus.com/color/)
 - [Converter tools](https://praticulus.com/converters/)
+- [Generator tools](https://praticulus.com/generators/)
+- [Text tools](https://praticulus.com/text/)
 
 ## Available tools
 
@@ -18,9 +20,21 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [Base64 Encoder/Decoder](https://praticulus.com/base64/)
 - [URL Encoder/Decoder](https://praticulus.com/url-encoder/)
 - [Hash Generator (MD5, SHA-1, SHA-256, SHA-512)](https://praticulus.com/hash-generator/)
+- [HMAC Generator (SHA-1, SHA-256, SHA-512)](https://praticulus.com/hmac-generator/)
 - [UUID Generator (v1, v4, v7)](https://praticulus.com/uuid-generator/)
-- [Regex Tester & Replace](https://praticulus.com/regex-tester/)
+- [Regex Tester & Explainer](https://praticulus.com/regex-tester/)
+- [Diff Checker](https://praticulus.com/diff-checker/)
+- [SQL Formatter](https://praticulus.com/sql-formatter/)
+- [YAML Formatter & Validator](https://praticulus.com/yaml-formatter/)
 - [Markdown Preview](https://praticulus.com/markdown-preview/)
+
+### [Security](https://praticulus.com/security/)
+- [Password Generator](https://praticulus.com/password-generator/)
+- [Hash Generator (MD5, SHA-1, SHA-256, SHA-512)](https://praticulus.com/hash-generator/)
+- [HMAC Generator (SHA-1, SHA-256, SHA-512)](https://praticulus.com/hmac-generator/)
+- [JWT Decoder](https://praticulus.com/jwt-decoder/)
+- [TOTP Generator](https://praticulus.com/totp-generator/)
+- [Certificate Decoder (X.509 PEM)](https://praticulus.com/cert-decoder/)
 
 ### [Color](https://praticulus.com/color/)
 - [Color Picker (HEX, RGB, HSL)](https://praticulus.com/color-picker/)
@@ -30,17 +44,23 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [CSS Gradient Generator (linear, radial, conic)](https://praticulus.com/gradient-generator/)
 - [Color Blender (smooth tonal transitions)](https://praticulus.com/color-blender/)
 
-### [Security](https://praticulus.com/security/)
-- [Password Generator](https://praticulus.com/password-generator/)
-- [Hash Generator](https://praticulus.com/hash-generator/)
-- [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
-
 ### [Converters](https://praticulus.com/converters/)
 - [Base64 Encoder/Decoder (text and files)](https://praticulus.com/base64/)
 - [URL Encoder/Decoder (percent-encoding, Unicode)](https://praticulus.com/url-encoder/)
 
+### [Generators](https://praticulus.com/generators/)
+- [Password Generator](https://praticulus.com/password-generator/)
+- [UUID Generator (v1, v4, v7)](https://praticulus.com/uuid-generator/)
+- [QR Code Generator](https://praticulus.com/qr-generator/)
+- [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
+
+### [Text](https://praticulus.com/text/)
+- [Markdown Preview](https://praticulus.com/markdown-preview/)
+- [Regex Tester & Explainer](https://praticulus.com/regex-tester/)
+- [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
+
 ## Key facts
-- 15 tools available and growing (60+ planned)
+- 23 tools available and growing (60+ planned)
 - Free, no account, no usage limits
 - Zero third-party origins: every script, style, font, and image is served from praticulus.com
 - No cookies, no analytics, no fingerprinting
