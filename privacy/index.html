@@ -89,6 +89,9 @@
       <h2>Client-side error reports</h2>
       <p>A lightweight script (<code>error-reporter.js</code>) reports JavaScript errors to our own server using <code>navigator.sendBeacon</code>. The payload contains the error message, the page URL, and the user-agent, never the data you entered into a tool. The endpoint lives on infrastructure we own; nothing is shared with third parties.</p>
 
+      <h2>Open source: audit it yourself</h2>
+      <p>Trust should not rely on what we say. The full source behind Praticulus is public at <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">github.com/jamalofski/praticulus</a> under the MIT license, so every claim on this page is auditable line by line.</p>
+
       <h2>Color picker eyedropper</h2>
       <p>The <a href="/color-picker/">Color Picker</a> exposes a "Pick from screen" button on supported browsers (Chrome, Edge, Opera) that uses the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper" target="_blank" rel="noopener"><code>window.EyeDropper</code></a> API. The browser asks for an explicit permission gesture, reads one pixel locally, and returns its HEX value to the page. No screen capture, no image data, no network call.</p>
 
@@ -113,7 +116,7 @@
 
   <footer class="footer">
     <div class="container-wide">
-      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
       <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
     </div>
   </footer>

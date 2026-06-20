@@ -45,7 +45,7 @@ Praticulus provides free browser-based tools for developers and technical users.
 - Zero third-party origins: every script, style, font, and image is served from praticulus.com
 - No cookies, no analytics, no fingerprinting
 - Content language: English
-- License: proprietary (open-source repo planned)
+- License: MIT — source at https://github.com/jamalofski/praticulus
 
 ## Trust pages
 - [Privacy policy](https://praticulus.com/privacy/)
@@ -54,5 +54,6 @@ Praticulus provides free browser-based tools for developers and technical users.
 
 ## Links
 - [Website](https://praticulus.com/)
+- Repository: https://github.com/jamalofski/praticulus
 - Publisher: [Iris Digital](https://irisdigital.tech/)
 - Contact: contact@praticulus.com
