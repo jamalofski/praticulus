@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>JSON Formatter & Validator — Free Online Tool | Praticulus</title>
+  <meta name="description" content="Free online JSON formatter, validator, and minifier. Paste your JSON, format it with proper indentation, validate syntax, and minify. No signup required.">
+  <meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, format json online, validate json, pretty print json">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/json-formatter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JSON Formatter & Validator — Free Online Tool | Praticulus">
+  <meta property="og:description" content="Free online JSON formatter, validator, and minifier. Paste your JSON, format it with proper indentation, validate syntax, and minify. No signup required.">
+  <meta property="og:url" content="https://praticulus.com/json-formatter/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JSON Formatter and Validator",
+    "url": "https://praticulus.com/json-formatter/",
+    "description": "Free online JSON formatter, validator, and minifier. Paste your JSON, format it with proper indentation, validate syntax, and minify. No signup required.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://praticulus.com/developer/" },
+      { "@type": "ListItem", "position": 3, "name": "JSON Formatter & Validator", "item": "https://praticulus.com/json-formatter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/developer/">Developer Tools</a></li>
+        <li><span aria-current="page">JSON Formatter &amp; Validator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></div>
+      <h1>JSON Formatter & Validator</h1>
+      <p>Paste your JSON to format, validate, or minify it instantly. Everything runs locally in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input JSON</label>
+        <textarea id="input" placeholder='{"name":"Praticulus","version":1,"features":["format","validate","minify"]}'></textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-format">Format</button>
+          <button class="btn btn-secondary" id="btn-minify">Minify</button>
+          <button class="btn btn-secondary" id="btn-validate">Validate</button>
+          <select id="indent-select" class="select-indent">
+            <option value="2">2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+          <button class="btn btn-secondary" id="btn-upload">Upload</button>
+          <input type="file" id="file-upload" accept=".json,.txt" class="d-none">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <div class="flex gap-1">
+            <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+            <button class="btn btn-secondary btn-sm" id="btn-download">Download</button>
+          </div>
+        </div>
+        <div class="output-area" id="output" role="status" aria-live="polite">Formatted JSON will appear here...</div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is JSON?</h2>
+        <p class="seo-text">JSON (JavaScript Object Notation) is a lightweight data interchange format. It's easy for humans to read and write, and easy for machines to parse and generate. JSON is widely used in web APIs, configuration files, and data storage.</p>
+        <h3 class="seo-subheading">How to use this tool</h3>
+        <ul class="seo-text">
+          <li><strong>Format:</strong> Pretty-prints your JSON with 2-space indentation</li>
+          <li><strong>Minify:</strong> Removes all whitespace to create the smallest possible JSON string</li>
+          <li><strong>Validate:</strong> Checks if your JSON is syntactically valid and shows any errors</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Developer</h2>
+      <div class="related-grid">
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+        <a href="/uuid-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></span><span>UUID Generator</span></a>
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-regex"></use></svg></span><span>Regex Tester</span></a>
+      </div>
+      <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var status = document.getElementById('status');
+    var indentSelect = document.getElementById('indent-select');
+    var rawOutput = '';
+
+    function getIndent() {
+      var v = indentSelect.value;
+      return v === 'tab' ? '\t' : parseInt(v);
+    }
+
+    function escHtml(s) { return escapeHtml(s); }
+
+    function highlightJSON(line) {
+      var h = escHtml(line);
+      h = h.replace(/"([^"\\]*(\\.[^"\\]*)*)"\s*:/g, '<span class="json-key">"$1"</span>:');
+      h = h.replace(/:\s*"([^"\\]*(\\.[^"\\]*)*)"/g, ': <span class="json-str">"$1"</span>');
+      h = h.replace(/:\s*(-?\d+\.?\d*([eE][+-]?\d+)?)/g, ': <span class="json-num">$1</span>');
+      h = h.replace(/:\s*(true|false|null)/g, ': <span class="json-bool">$1</span>');
+      return h;
+    }
+
+    function renderWithLines(str) {
+      return str.split('\n').map(function(line, i) {
+        return '<div class="json-line"><span class="line-num">' + (i + 1) + '</span><span class="line-content">' + highlightJSON(line) + '</span></div>';
+      }).join('');
+    }
+
+    function posToLineCol(text, pos) {
+      var lines = text.substring(0, pos).split('\n');
+      return { line: lines.length, col: lines[lines.length - 1].length + 1 };
+    }
+
+    function fmtError(e, text) {
+      var m = e.message.match(/position\s+(\d+)/i);
+      if (m && text) {
+        var lc = posToLineCol(text, parseInt(m[1]));
+        return 'Error at Line ' + lc.line + ', Col ' + lc.col + ': ' + escapeHtml(e.message);
+      }
+      return 'Error: ' + escapeHtml(e.message);
+    }
+
+    function formatJSON() {
+      try {
+        var parsed = JSON.parse(input.value);
+        var formatted = JSON.stringify(parsed, null, getIndent());
+        rawOutput = formatted;
+        output.innerHTML = renderWithLines(formatted);
+        setStatus('valid', 'Valid JSON — ' + countKeys(parsed) + ' keys, ' + formatted.length + ' chars');
+      } catch (e) { setStatus('invalid', fmtError(e, input.value)); }
+    }
+
+    function minifyJSON() {
+      try {
+        var parsed = JSON.parse(input.value);
+        var minified = JSON.stringify(parsed);
+        rawOutput = minified;
+        output.innerHTML = '<div class="json-line"><span class="line-num">1</span><span class="line-content">' + highlightJSON(minified) + '</span></div>';
+        setStatus('valid', 'Minified — ' + minified.length + ' chars (saved ' + (input.value.length - minified.length) + ')');
+      } catch (e) { setStatus('invalid', fmtError(e, input.value)); }
+    }
+
+    function validateJSON() {
+      try {
+        var parsed = JSON.parse(input.value);
+        var desc = typeof parsed === 'object' ? (Array.isArray(parsed) ? 'Array with ' + parsed.length + ' items' : 'Object with ' + Object.keys(parsed).length + ' keys') : typeof parsed;
+        setStatus('valid', '\u2713 Valid JSON — ' + desc);
+      } catch (e) { setStatus('invalid', fmtError(e, input.value)); }
+    }
+
+    function clearAll() { input.value = ''; rawOutput = ''; output.textContent = 'Formatted JSON will appear here...'; status.innerHTML = ''; }
+    function copyOutput() { navigator.clipboard.writeText(rawOutput || output.textContent); }
+    function downloadOutput() { downloadText(rawOutput || output.textContent, 'formatted.json'); }
+    function setStatus(type, msg) { status.innerHTML = '<span class="' + type + '">' + msg + '</span>'; }
+
+    function countKeys(obj) {
+      if (typeof obj !== 'object' || obj === null) return 0;
+      var c = 0; for (var k in obj) { c++; if (typeof obj[k] === 'object') c += countKeys(obj[k]); }
+      return c;
+    }
+
+    document.getElementById('btn-format').addEventListener('click', formatJSON);
+    document.getElementById('btn-minify').addEventListener('click', minifyJSON);
+    document.getElementById('btn-validate').addEventListener('click', validateJSON);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy').addEventListener('click', copyOutput);
+    document.getElementById('btn-download').addEventListener('click', downloadOutput);
+
+    document.getElementById('btn-upload').addEventListener('click', function() { document.getElementById('file-upload').click(); });
+    document.getElementById('file-upload').addEventListener('change', function(e) {
+      var f = e.target.files[0]; if (!f) return;
+      var r = new FileReader();
+      r.onload = function(ev) { input.value = ev.target.result; formatJSON(); };
+      r.readAsText(f); e.target.value = '';
+    });
+
+    input.addEventListener('paste', function() { setTimeout(formatJSON, 50); });
+  })();
+  </script>
+</body>
+</html>

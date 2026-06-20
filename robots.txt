@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://praticulus.com/sitemap.xml

@@ -1,0 +1,58 @@
+# Praticulus
+
+> Free online developer and productivity tools. No signup required.
+
+## What it does
+Praticulus provides free browser-based tools for developers and technical users. All tools run client-side with no data sent to servers. Open DevTools → Network and verify: nothing leaves your tab.
+
+## Hubs (topic clusters)
+- [Developer tools](https://praticulus.com/developer/)
+- [Color tools](https://praticulus.com/color/)
+- [Security tools](https://praticulus.com/security/)
+- [Converter tools](https://praticulus.com/converters/)
+
+## Available tools
+
+### [Developer](https://praticulus.com/developer/)
+- [JSON Formatter & Validator](https://praticulus.com/json-formatter/)
+- [Base64 Encoder/Decoder](https://praticulus.com/base64/)
+- [URL Encoder/Decoder](https://praticulus.com/url-encoder/)
+- [Hash Generator (MD5, SHA-1, SHA-256, SHA-512)](https://praticulus.com/hash-generator/)
+- [UUID Generator (v1, v4, v7)](https://praticulus.com/uuid-generator/)
+- [Regex Tester & Replace](https://praticulus.com/regex-tester/)
+- [Markdown Preview](https://praticulus.com/markdown-preview/)
+
+### [Color](https://praticulus.com/color/)
+- [Color Picker (HEX, RGB, HSL)](https://praticulus.com/color-picker/)
+- [Color Converter (HEX, RGB, HSL, CMYK, HWB)](https://praticulus.com/color-converter/)
+- [Palette Generator (complementary, analogous, triadic, tetradic, monochromatic)](https://praticulus.com/palette-generator/)
+- [Contrast Checker (WCAG 2.1 AA/AAA)](https://praticulus.com/contrast-checker/)
+- [CSS Gradient Generator (linear, radial, conic)](https://praticulus.com/gradient-generator/)
+- [Color Blender (smooth tonal transitions)](https://praticulus.com/color-blender/)
+
+### [Security](https://praticulus.com/security/)
+- [Password Generator](https://praticulus.com/password-generator/)
+- [Hash Generator](https://praticulus.com/hash-generator/)
+- [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
+
+### [Converters](https://praticulus.com/converters/)
+- [Base64 Encoder/Decoder (text and files)](https://praticulus.com/base64/)
+- [URL Encoder/Decoder (percent-encoding, Unicode)](https://praticulus.com/url-encoder/)
+
+## Key facts
+- 15 tools available and growing (60+ planned)
+- Free, no account, no usage limits
+- Zero third-party origins: every script, style, font, and image is served from praticulus.com
+- No cookies, no analytics, no fingerprinting
+- Content language: English
+- License: proprietary (open-source repo planned)
+
+## Trust pages
+- [Privacy policy](https://praticulus.com/privacy/)
+- [Legal notice](https://praticulus.com/legal/)
+- [About](https://praticulus.com/about/)
+
+## Links
+- [Website](https://praticulus.com/)
+- Publisher: [Iris Digital](https://irisdigital.tech/)
+- Contact: contact@praticulus.com

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>UUID Generator — Generate UUID v4 Online Free | Praticulus</title>
+  <meta name="description" content="Generate random UUID v4 instantly. Bulk generate multiple UUIDs, copy to clipboard with one click. Free, no signup, runs in your browser.">
+  <meta name="keywords" content="uuid generator, uuid v4 generator, generate uuid online, random uuid, guid generator, unique id generator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/uuid-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UUID Generator — Generate UUID v4 Online Free | Praticulus">
+  <meta property="og:description" content="Generate random UUID v4 instantly. Bulk generate multiple UUIDs, copy to clipboard with one click. Free, no signup, runs in your browser.">
+  <meta property="og:url" content="https://praticulus.com/uuid-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "UUID Generator",
+    "url": "https://praticulus.com/uuid-generator/",
+    "description": "Generate random UUID v4 instantly. Bulk generate multiple UUIDs, copy to clipboard with one click. Free, no signup, runs in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Generator Tools", "item": "https://praticulus.com/generators/" },
+      { "@type": "ListItem", "position": 3, "name": "UUID Generator", "item": "https://praticulus.com/uuid-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generators/">Generator Tools</a></li>
+        <li><span aria-current="page">UUID Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></div>
+      <h1>UUID Generator</h1>
+      <p>Generate random UUID v4 identifiers. Click to copy, or bulk generate as many as you need.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label>Version</label>
+        <div class="btn-group">
+          <button class="btn btn-primary uuid-version-btn active" data-version="4">v4 (Random)</button>
+          <button class="btn btn-secondary uuid-version-btn" data-version="1">v1 (Timestamp)</button>
+          <button class="btn btn-secondary uuid-version-btn" data-version="7">v7 (Sortable)</button>
+        </div>
+        <label class="mt-2">Format Options</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" id="opt-uppercase"> Uppercase</label>
+          <label class="checkbox-label"><input type="checkbox" id="opt-no-dashes"> No dashes</label>
+          <label class="checkbox-label"><input type="checkbox" id="opt-braces"> With braces {}</label>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <label>Generated UUID</label>
+        <div class="output-area uuid-display select-all" id="single-uuid" role="status" aria-live="polite" title="Click to copy"></div>
+        <div class="btn-group justify-center">
+          <button class="btn btn-primary" id="btn-generate">Generate New</button>
+          <button class="btn btn-secondary" id="btn-copy-single">Copy</button>
+        </div>
+        <div class="status-bar justify-center" id="copy-status"></div>
+      </div>
+
+      <div class="card">
+        <label>Bulk Generate</label>
+        <div class="flex gap-1 items-center mb-2">
+          <input type="number" id="bulk-count" value="10" min="1" max="1000" class="input-md">
+          <button class="btn btn-primary" id="btn-bulk-generate">Generate</button>
+          <button class="btn btn-secondary" id="btn-bulk-copy">Copy All</button>
+          <button class="btn btn-secondary" id="btn-bulk-download">Download</button>
+        </div>
+        <textarea id="bulk-output" readonly class="textarea-tall" placeholder="Bulk UUIDs will appear here..."></textarea>
+      </div>
+
+      <div class="card">
+        <label for="validate-input">Validate UUID</label>
+        <input type="text" id="validate-input" placeholder="Paste a UUID to validate...">
+        <div class="status-bar" id="validate-result"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is a UUID?</h2>
+        <p class="seo-text">A UUID (Universally Unique Identifier) is a 128-bit identifier that is unique across space and time. UUID v4 is randomly generated, making collisions virtually impossible. UUIDs are commonly used as database primary keys, session tokens, API identifiers, and more.</p>
+        <h3 class="seo-subheading">UUID v4 Format</h3>
+        <p class="seo-text font-mono">xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx</p>
+        <p class="seo-text mt-1">Where x is a random hex digit, 4 indicates version 4, and y is one of 8, 9, a, or b.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Generators</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/qr-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-qr"></use></svg></span><span>QR Code Generator</span></a>
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+      </div>
+      <a href="/generators/" class="related-all">All Generators tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var currentVersion = '4';
+
+    function randomBytes(n) {
+      var arr = new Uint8Array(n);
+      crypto.getRandomValues(arr);
+      return arr;
+    }
+
+    function bytesToHex(bytes) {
+      return Array.from(bytes, function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+
+    function uuidv4() {
+      var b = randomBytes(16);
+      b[6] = (b[6] & 0x0f) | 0x40;
+      b[8] = (b[8] & 0x3f) | 0x80;
+      var h = bytesToHex(b);
+      return h.substr(0,8)+'-'+h.substr(8,4)+'-'+h.substr(12,4)+'-'+h.substr(16,4)+'-'+h.substr(20,12);
+    }
+
+    function uuidv1() {
+      var now = Date.now();
+      var gregorianOffset = 122192928000000000;
+      var ts = BigInt(now) * 10000n + BigInt(gregorianOffset);
+      var timeLow = Number(ts & 0xFFFFFFFFn);
+      var timeMid = Number((ts >> 32n) & 0xFFFFn);
+      var timeHi = Number((ts >> 48n) & 0x0FFFn) | 0x1000;
+      var clockSeq = (randomBytes(2)[0] << 8 | randomBytes(2)[1]) & 0x3FFF | 0x8000;
+      var node = randomBytes(6);
+      var hex = timeLow.toString(16).padStart(8, '0') +
+        '-' + timeMid.toString(16).padStart(4, '0') +
+        '-' + timeHi.toString(16).padStart(4, '0') +
+        '-' + clockSeq.toString(16).padStart(4, '0') +
+        '-' + bytesToHex(node);
+      return hex;
+    }
+
+    function uuidv7() {
+      var now = Date.now();
+      var b = randomBytes(16);
+      b[0] = (now / 1099511627776) & 0xFF;
+      b[1] = (now / 4294967296) & 0xFF;
+      b[2] = (now / 16777216) & 0xFF;
+      b[3] = (now / 65536) & 0xFF;
+      b[4] = (now / 256) & 0xFF;
+      b[5] = now & 0xFF;
+      b[6] = (b[6] & 0x0F) | 0x70;
+      b[8] = (b[8] & 0x3F) | 0x80;
+      var h = bytesToHex(b);
+      return h.substr(0,8)+'-'+h.substr(8,4)+'-'+h.substr(12,4)+'-'+h.substr(16,4)+'-'+h.substr(20,12);
+    }
+
+    function generateUUID() {
+      switch (currentVersion) {
+        case '1': return uuidv1();
+        case '7': return uuidv7();
+        default: return uuidv4();
+      }
+    }
+
+    function formatUUID(uuid) {
+      if ($('#opt-no-dashes').checked) uuid = uuid.replace(/-/g, '');
+      if ($('#opt-uppercase').checked) uuid = uuid.toUpperCase();
+      if ($('#opt-braces').checked) uuid = '{' + uuid + '}';
+      return uuid;
+    }
+
+    function generateSingle() {
+      $('#single-uuid').textContent = formatUUID(generateUUID());
+    }
+
+    function copySingle() {
+      var uuid = $('#single-uuid').textContent;
+      if (uuid) {
+        navigator.clipboard.writeText(uuid);
+        $('#copy-status').innerHTML = '<span class="valid">Copied!</span>';
+        setTimeout(function() { $('#copy-status').innerHTML = ''; }, 1500);
+      }
+    }
+
+    function generateBulk() {
+      var count = Math.min(parseInt($('#bulk-count').value) || 10, 1000);
+      var uuids = Array.from({ length: count }, function() { return formatUUID(generateUUID()); });
+      $('#bulk-output').value = uuids.join('\n');
+    }
+
+    function copyBulk() {
+      var text = $('#bulk-output').value;
+      if (text) navigator.clipboard.writeText(text);
+    }
+
+    function downloadBulk() {
+      var text = $('#bulk-output').value;
+      if (text) downloadText(text, 'uuids.txt');
+    }
+
+    function validateUUID() {
+      var val = $('#validate-input').value.trim();
+      var result = $('#validate-result');
+      if (!val) { result.innerHTML = ''; return; }
+      var clean = val.replace(/^\{|\}$/g, '');
+      var match = clean.match(/^([0-9a-f]{8})-?([0-9a-f]{4})-?([0-9a-f])([0-9a-f]{3})-?([0-9a-f])([0-9a-f]{3})-?([0-9a-f]{12})$/i);
+      if (!match) {
+        result.innerHTML = '<span class="invalid">✗ Invalid UUID format</span>';
+        return;
+      }
+      var version = parseInt(match[3], 16);
+      var variantNibble = parseInt(match[5], 16);
+      var variant;
+      if ((variantNibble & 0x8) === 0) variant = 'NCS';
+      else if ((variantNibble & 0xC) === 0x8) variant = 'RFC 4122';
+      else if ((variantNibble & 0xE) === 0xC) variant = 'Microsoft';
+      else variant = 'Reserved';
+      result.innerHTML = '<span class="valid">✓ Valid UUID</span> — Version ' + version + ', Variant: ' + variant;
+    }
+
+    // Version toggle buttons
+    var versionBtns = $$('.uuid-version-btn');
+    versionBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        currentVersion = btn.getAttribute('data-version');
+        versionBtns.forEach(function(b) {
+          b.classList.remove('active', 'btn-primary');
+          b.classList.add('btn-secondary');
+        });
+        btn.classList.add('active', 'btn-primary');
+        btn.classList.remove('btn-secondary');
+        generateSingle();
+      });
+    });
+
+    // Format option change → regenerate
+    ['opt-uppercase', 'opt-no-dashes', 'opt-braces'].forEach(function(id) {
+      $('#' + id).addEventListener('change', generateSingle);
+    });
+
+    $('#validate-input').addEventListener('input', validateUUID);
+    $('#btn-generate').addEventListener('click', generateSingle);
+    $('#btn-copy-single').addEventListener('click', copySingle);
+    $('#single-uuid').addEventListener('click', copySingle);
+    $('#btn-bulk-generate').addEventListener('click', generateBulk);
+    $('#btn-bulk-copy').addEventListener('click', copyBulk);
+    $('#btn-bulk-download').addEventListener('click', downloadBulk);
+
+    generateSingle();
+  })();
+  </script>
+</body>
+</html>

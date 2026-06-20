@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Lorem Ipsum Generator — Free Placeholder Text | Praticulus</title>
+  <meta name="description" content="Generate lorem ipsum placeholder text. Choose paragraphs, sentences, or words. Copy or download instantly. Free, no signup.">
+  <meta name="keywords" content="lorem ipsum generator, placeholder text, dummy text, lorem ipsum, generate lorem ipsum online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/lorem-ipsum/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lorem Ipsum Generator — Free Placeholder Text | Praticulus">
+  <meta property="og:description" content="Generate lorem ipsum placeholder text. Choose paragraphs, sentences, or words. Copy or download instantly. Free, no signup.">
+  <meta property="og:url" content="https://praticulus.com/lorem-ipsum/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Lorem Ipsum Generator",
+    "url": "https://praticulus.com/lorem-ipsum/",
+    "description": "Generate lorem ipsum placeholder text. Choose paragraphs, sentences, or words. Copy or download instantly. Free, no signup.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Generator Tools", "item": "https://praticulus.com/generators/" },
+      { "@type": "ListItem", "position": 3, "name": "Lorem Ipsum Generator", "item": "https://praticulus.com/lorem-ipsum/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generators/">Generator Tools</a></li>
+        <li><span aria-current="page">Lorem Ipsum Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg></div>
+      <h1>Lorem Ipsum Generator</h1>
+      <p>Generate placeholder text for your designs, mockups, and prototypes.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex gap-2 items-center mb-2 flex-wrap">
+          <div>
+            <label for="count">Amount</label>
+            <input type="number" id="count" value="3" min="1" max="100" class="input-sm">
+          </div>
+          <div>
+            <label for="unit">Unit</label>
+            <select id="unit" class="select-md">
+              <option value="paragraphs">Paragraphs</option>
+              <option value="sentences">Sentences</option>
+              <option value="words">Words</option>
+              <option value="list">List Items</option>
+            </select>
+          </div>
+          <div class="align-self-end">
+            <button class="btn btn-primary" id="btn-generate">Generate New</button>
+          </div>
+        </div>
+        <div class="flex items-center flex-wrap gap-0">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="start-lorem" checked> Start with "Lorem ipsum dolor sit amet..."
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="html-wrap"> Wrap in HTML tags
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <div class="flex gap-1">
+            <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+            <button class="btn btn-secondary btn-sm" id="btn-download">Download</button>
+          </div>
+        </div>
+        <div class="output-area output-prose" id="output" aria-live="polite"></div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is Lorem Ipsum?</h2>
+        <p class="seo-text">Lorem Ipsum is placeholder text used in the design and typesetting industry since the 1500s. It provides a natural-looking block of text that doesn't distract from the visual layout. The text is derived from Cicero's "De Finibus Bonorum et Malorum" (45 BC).</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Generators</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/qr-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-qr"></use></svg></span><span>QR Code Generator</span></a>
+        <a href="/uuid-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></span><span>UUID Generator</span></a>
+      </div>
+      <a href="/generators/" class="related-all">All Generators tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/cicero.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    /* All sentences from Cicero paragraphs */
+    var ALL_SENTENCES = [];
+    var ALL_WORDS = [];
+    CICERO.forEach(function(p) {
+      p.split(/(?<=[.?!])\s+/).forEach(function(s) { if (s.trim()) ALL_SENTENCES.push(s.trim()); });
+      p.split(/\s+/).forEach(function(w) { if (w) ALL_WORDS.push(w.toLowerCase().replace(/[^a-z]/g, '')); });
+    });
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    var shuffledParagraphs = shuffle(CICERO);
+    var shuffledSentences = shuffle(ALL_SENTENCES);
+    var shuffledWords = shuffle(ALL_WORDS);
+
+    function reshuffle() {
+      shuffledParagraphs = shuffle(CICERO);
+      shuffledSentences = shuffle(ALL_SENTENCES);
+      shuffledWords = shuffle(ALL_WORDS);
+    }
+
+    function generate() {
+      var count = Math.min(parseInt($('#count').value) || 3, 100);
+      var unit = $('#unit').value;
+      var startClassic = $('#start-lorem').checked;
+      var htmlWrap = $('#html-wrap').checked;
+      var parts = [];
+      var i;
+
+      if (unit === 'paragraphs') {
+        if (startClassic) parts.push(CICERO[0]);
+        var pool = shuffledParagraphs.filter(function(p) { return !startClassic || p !== CICERO[0]; });
+        for (i = startClassic ? 1 : 0; i < count; i++) parts.push(pool[i % pool.length]);
+        if (htmlWrap) {
+          result = parts.map(function(p) { return '<p>' + p + '</p>'; }).join('\n');
+        } else {
+          result = parts.join('\n\n');
+        }
+      } else if (unit === 'sentences') {
+        if (startClassic) parts.push(ALL_SENTENCES[0]);
+        var sPool = shuffledSentences.filter(function(s) { return !startClassic || s !== ALL_SENTENCES[0]; });
+        for (i = startClassic ? 1 : 0; i < count; i++) parts.push(sPool[i % sPool.length]);
+        if (htmlWrap) {
+          result = '<p>' + parts.join(' ') + '</p>';
+        } else {
+          result = parts.join(' ');
+        }
+      } else if (unit === 'list') {
+        var listSentences = shuffledSentences.slice();
+        if (startClassic) { listSentences.unshift(ALL_SENTENCES[0]); }
+        for (i = 0; i < count; i++) {
+          var s = listSentences[i % listSentences.length];
+          var words = s.split(/\s+/).slice(0, 4 + Math.floor(Math.random() * 5));
+          var item = words.join(' ').replace(/[.?!,]$/, '');
+          item = item.charAt(0).toUpperCase() + item.slice(1);
+          parts.push(item);
+        }
+        if (htmlWrap) {
+          result = '<ul>\n' + parts.map(function(li) { return '  <li>' + li + '</li>'; }).join('\n') + '\n</ul>';
+        } else {
+          result = parts.map(function(li) { return '\u2022 ' + li; }).join('\n');
+        }
+      } else {
+        if (startClassic) {
+          var classicStart = ALL_WORDS.slice(0, Math.min(count, ALL_WORDS.length));
+          parts = classicStart;
+        }
+        var wPool = shuffledWords;
+        for (i = parts.length; i < count; i++) parts.push(wPool[i % wPool.length]);
+        result = parts.join(' ');
+      }
+
+      var result = result || '';
+      $('#output').textContent = result;
+      var wc = result.split(/\s+/).filter(Boolean).length;
+      var bytes = new Blob([result]).size;
+      $('#status').innerHTML = '<span class="valid">' + wc + ' words, ' + result.length + ' chars, ' + bytes + ' bytes</span>';
+    }
+
+    $('#btn-generate').addEventListener('click', function() { reshuffle(); generate(); });
+    $('#count').addEventListener('input', generate);
+    $('#unit').addEventListener('change', generate);
+    $('#start-lorem').addEventListener('change', generate);
+    $('#html-wrap').addEventListener('change', generate);
+    $('#btn-copy').addEventListener('click', function() { navigator.clipboard.writeText($('#output').textContent); });
+    $('#btn-download').addEventListener('click', function() { downloadText($('#output').textContent, 'lorem-ipsum.txt'); });
+
+    generate();
+  })();
+  </script>
+</body>
+</html>

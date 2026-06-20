@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Color Blender — Blend Two Colors Online | Praticulus</title>
+  <meta name="description" content="Blend two colors together with adjustable midpoints. Create smooth color transitions and intermediate shades. Free online color blending tool.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/color-blender/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Color Blender — Blend Two Colors Online | Praticulus">
+  <meta property="og:description" content="Blend two colors with adjustable steps. Create smooth transitions.">
+  <meta property="og:url" content="https://praticulus.com/color-blender/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Blender",
+    "url": "https://praticulus.com/color-blender/",
+    "description": "Blend two colors together with adjustable midpoints. Create smooth color transitions and intermediate shades.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/color/">Color Tools</a></li>
+        <li><span aria-current="page">Color Blender</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></div>
+      <h1>Color Blender</h1>
+      <p>Blend two colors together and see intermediate shades. Adjust the number of midpoints to create smooth transitions.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="blend-color1">Color 1</label>
+            <div class="blender-color-input">
+              <input type="color" id="blend-color1" value="#6c5ce7">
+              <input type="text" id="blend-color1-text" value="#6c5ce7" placeholder="#hex, rgb(), hsl()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="blend-color2">Color 2</label>
+            <div class="blender-color-input">
+              <input type="color" id="blend-color2" value="#00cec9">
+              <input type="text" id="blend-color2-text" value="#00cec9" placeholder="#hex, rgb(), hsl()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="blend-steps">Midpoints: <span id="blend-steps-value">5</span></label>
+            <div class="blender-slider-group">
+              <input type="range" id="blend-steps" min="1" max="20" value="5">
+            </div>
+          </div>
+        </div>
+        <div class="blender-toggle">
+          <input type="checkbox" id="blend-hsl-toggle">
+          <label for="blend-hsl-toggle">Blend in HSL</label>
+        </div>
+
+        <div class="color-preview-row" id="blend-output" aria-live="polite"></div>
+        <div class="result-box" id="blend-codes"></div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary btn-sm" id="copy-blend">Copy All HEX Codes</button>
+        </div>
+      </div>
+
+      <div class="card content-section">
+        <h2>What Is Color Blending?</h2>
+        <p>Color blending creates intermediate colors between two endpoints by interpolating their RGB values. This is useful for creating smooth gradients, design systems with tonal scales, and finding the "middle ground" between two brand colors.</p>
+        <p>Each midpoint represents an equal step in the transition from Color 1 to Color 2. Click any color chip to copy its HEX code.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Color</h2>
+      <div class="related-grid">
+        <a href="/color-picker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></span><span>Color Picker</span></a>
+        <a href="/color-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></span><span>Color Converter</span></a>
+        <a href="/palette-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></span><span>Palette Generator</span></a>
+        <a href="/contrast-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></span><span>Contrast Checker</span></a>
+        <a href="/gradient-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></span><span>CSS Gradient Generator</span></a>
+      </div>
+      <a href="/color/" class="related-all">All Color tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/color-utils.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    var c1 = document.getElementById('blend-color1');
+    var c1Text = document.getElementById('blend-color1-text');
+    var c2 = document.getElementById('blend-color2');
+    var c2Text = document.getElementById('blend-color2-text');
+    var stepsEl = document.getElementById('blend-steps');
+    var stepsValue = document.getElementById('blend-steps-value');
+    var hslToggle = document.getElementById('blend-hsl-toggle');
+    var output = document.getElementById('blend-output');
+    var codesEl = document.getElementById('blend-codes');
+
+    function syncTextToPicker(textInput, pickerInput) {
+      var parsed = ColorUtils.parseColor(textInput.value);
+      if (parsed) {
+        pickerInput.value = ColorUtils.rgbToHex(parsed.r, parsed.g, parsed.b);
+        update();
+      }
+    }
+
+    function blendHsl(rgb1, rgb2, ratio) {
+      var hsl1 = ColorUtils.rgbToHsl(rgb1.r, rgb1.g, rgb1.b);
+      var hsl2 = ColorUtils.rgbToHsl(rgb2.r, rgb2.g, rgb2.b);
+      var dh = hsl2.h - hsl1.h;
+      if (dh > 180) dh -= 360;
+      if (dh < -180) dh += 360;
+      var h = (hsl1.h + dh * ratio + 360) % 360;
+      var s = hsl1.s + (hsl2.s - hsl1.s) * ratio;
+      var l = hsl1.l + (hsl2.l - hsl1.l) * ratio;
+      var rgb = ColorUtils.hslToRgb(Math.round(h), Math.round(s), Math.round(l));
+      return rgb;
+    }
+
+    function update() {
+      var rgb1 = ColorUtils.hexToRgb(c1.value);
+      var rgb2 = ColorUtils.hexToRgb(c2.value);
+      var steps = parseInt(stepsEl.value, 10);
+      var useHsl = hslToggle.checked;
+      var colors = [];
+
+      stepsValue.textContent = steps;
+
+      for (var i = 0; i <= steps + 1; i++) {
+        var ratio = i / (steps + 1);
+        var blended = useHsl ? blendHsl(rgb1, rgb2, ratio) : ColorUtils.blendColors(rgb1, rgb2, ratio);
+        colors.push(ColorUtils.rgbToHex(blended.r, blended.g, blended.b));
+      }
+
+      output.innerHTML = '';
+      colors.forEach(function (hex) {
+        var wrap = document.createElement('div');
+        wrap.style.display = 'inline-flex';
+        wrap.style.flexDirection = 'column';
+        wrap.style.alignItems = 'center';
+        var chip = document.createElement('div');
+        chip.className = 'color-chip';
+        chip.style.background = hex;
+        chip.title = 'Click to copy ' + hex;
+        var label = document.createElement('span');
+        label.className = 'color-chip-label';
+        label.textContent = hex;
+        chip.addEventListener('click', (function (h) {
+          return function () { copyToClipboard(h); };
+        })(hex));
+        wrap.appendChild(chip);
+        wrap.appendChild(label);
+        output.appendChild(wrap);
+      });
+
+      codesEl.textContent = colors.join('  ');
+      window._blendColors = colors;
+    }
+
+    c1.addEventListener('input', function () {
+      c1Text.value = c1.value;
+      update();
+    });
+    c2.addEventListener('input', function () {
+      c2Text.value = c2.value;
+      update();
+    });
+    c1Text.addEventListener('input', function () { syncTextToPicker(c1Text, c1); });
+    c2Text.addEventListener('input', function () { syncTextToPicker(c2Text, c2); });
+    stepsEl.addEventListener('input', update);
+    hslToggle.addEventListener('change', update);
+
+    document.getElementById('copy-blend').addEventListener('click', function () {
+      if (window._blendColors) copyToClipboard(window._blendColors.join(', '));
+    });
+
+    update();
+  })();
+  </script>
+</body>
+</html>

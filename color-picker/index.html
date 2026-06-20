@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Color Picker — Pick Any Color Online | Praticulus</title>
+  <meta name="description" content="Free online color picker. Choose colors visually or enter HEX, RGB, HSL values. Copy color codes instantly. No signup required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/color-picker/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Color Picker — Pick Any Color Online | Praticulus">
+  <meta property="og:description" content="Free online color picker. Choose colors visually or enter HEX, RGB, HSL values. Copy color codes instantly.">
+  <meta property="og:url" content="https://praticulus.com/color-picker/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Picker",
+    "url": "https://praticulus.com/color-picker/",
+    "description": "Free online color picker. Choose colors visually or enter HEX, RGB, HSL values. Copy color codes instantly.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/color/">Color Tools</a></li>
+        <li><span aria-current="page">Color Picker</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></div>
+      <h1>Color Picker</h1>
+      <p>Pick any color using the native color input or type a HEX, RGB, or HSL value. Copy color codes in any format with one click.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="picker-input">Pick a Color</label>
+            <input type="color" id="picker-input" value="#6c5ce7">
+          </div>
+          <div class="input-group">
+            <label for="hex-input">HEX</label>
+            <div class="input-with-copy">
+              <input type="text" id="hex-input" value="#6c5ce7" placeholder="#6c5ce7 or rgb(108,92,231)">
+              <button type="button" id="copy-hex" class="input-copy-btn" title="Copy HEX" aria-label="Copy HEX value">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-1">
+          <button type="button" id="pick-from-screen" class="btn btn-secondary btn-sm d-none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><path d="m2 22 1-1h3l9-9"/><path d="M3 21v-3l9-9"/><path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l.4.4a2.1 2.1 0 1 1-3 3l-3.8-3.8a2.1 2.1 0 1 1 3-3l.4.4Z"/></svg>
+            Pick from screen
+          </button>
+        </div>
+
+        <div class="color-swatch" id="preview-swatch" aria-label="Color preview"></div>
+
+        <div class="flex-row" aria-live="polite" id="color-values">
+          <div>
+            <label>RGB</label>
+            <div class="result-box clickable-result" id="val-rgb" title="Click to copy">rgb(108, 92, 231)</div>
+          </div>
+          <div>
+            <label>HSL</label>
+            <div class="result-box clickable-result" id="val-hsl" title="Click to copy">hsl(247, 75%, 63%)</div>
+          </div>
+          <div>
+            <label>CMYK</label>
+            <div class="result-box clickable-result" id="val-cmyk" title="Click to copy">cmyk(53%, 60%, 0%, 9%)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Shades &amp; Tints</label>
+        <div class="shades-strip" id="shades-strip"></div>
+      </div>
+
+      <div class="card contrast-section">
+        <label>Contrast Checker</label>
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="fg-color">Foreground</label>
+            <input type="text" id="fg-color" value="#6c5ce7" readonly>
+          </div>
+          <div class="input-group">
+            <label for="bg-color">Background</label>
+            <input type="text" id="bg-color" value="#ffffff" placeholder="#ffffff">
+          </div>
+        </div>
+        <div class="contrast-preview-box" id="contrast-preview">Sample Text — The quick brown fox</div>
+        <div class="contrast-ratio-big" id="contrast-ratio">—</div>
+        <div class="contrast-badges" id="contrast-badges"></div>
+      </div>
+
+      <div class="card content-section">
+        <h2>How to Use the Color Picker</h2>
+        <p>Click the color input to open your browser's native color picker. Alternatively, type a HEX code (like <code>#ff5733</code>), RGB value (like <code>rgb(255, 87, 51)</code>), or HSL value (like <code>hsl(11, 100%, 60%)</code>) in the text field.</p>
+        <p>All formats update in real-time. Click any value (RGB, HSL, CMYK) to copy it to your clipboard, or use the copy icon next to the HEX field.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Color</h2>
+      <div class="related-grid">
+        <a href="/color-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></span><span>Color Converter</span></a>
+        <a href="/palette-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></span><span>Palette Generator</span></a>
+        <a href="/contrast-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></span><span>Contrast Checker</span></a>
+        <a href="/gradient-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></span><span>CSS Gradient Generator</span></a>
+        <a href="/color-blender/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></span><span>Color Blender</span></a>
+      </div>
+      <a href="/color/" class="related-all">All Color tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/color-utils.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    var pickerInput = document.getElementById('picker-input');
+    var hexInput = document.getElementById('hex-input');
+    var swatch = document.getElementById('preview-swatch');
+    var valRgb = document.getElementById('val-rgb');
+    var valHsl = document.getElementById('val-hsl');
+    var valCmyk = document.getElementById('val-cmyk');
+    var shadesStrip = document.getElementById('shades-strip');
+    var fgColor = document.getElementById('fg-color');
+    var bgColor = document.getElementById('bg-color');
+    var contrastRatio = document.getElementById('contrast-ratio');
+    var contrastPreview = document.getElementById('contrast-preview');
+    var contrastBadges = document.getElementById('contrast-badges');
+    var WHITE = {r:255,g:255,b:255};
+    var BLACK = {r:0,g:0,b:0};
+
+    function update(hex) {
+      var rgb = ColorUtils.hexToRgb(hex);
+      var hsl = ColorUtils.rgbToHsl(rgb.r, rgb.g, rgb.b);
+      var cmyk = ColorUtils.rgbToCmyk(rgb.r, rgb.g, rgb.b);
+      swatch.style.background = hex;
+      valRgb.textContent = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+      valHsl.textContent = 'hsl(' + hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%)';
+      valCmyk.textContent = 'cmyk(' + cmyk.c + '%, ' + cmyk.m + '%, ' + cmyk.y + '%, ' + cmyk.k + '%)';
+      fgColor.value = hex;
+      renderShades(rgb);
+      updateContrast(rgb);
+    }
+
+    function renderShades(rgb) {
+      shadesStrip.innerHTML = '';
+      var steps = [];
+      for (var i = 5; i >= 1; i--) steps.push(ColorUtils.blendColors(rgb, WHITE, i / 5));
+      steps.push(rgb);
+      for (var j = 1; j <= 5; j++) steps.push(ColorUtils.blendColors(rgb, BLACK, j / 5));
+      steps.forEach(function(c) {
+        var hex = ColorUtils.rgbToHex(c.r, c.g, c.b);
+        var el = document.createElement('div');
+        el.className = 'shade-swatch';
+        el.style.background = hex;
+        el.title = hex;
+        el.addEventListener('click', function() {
+          hexInput.value = hex;
+          pickerInput.value = hex;
+          update(hex);
+        });
+        shadesStrip.appendChild(el);
+      });
+    }
+
+    function updateContrast(fgRgb) {
+      var bgParsed = ColorUtils.parseColor(bgColor.value);
+      if (!bgParsed) return;
+      var ratio = ColorUtils.contrastRatio(fgRgb, bgParsed);
+      var r = Math.round(ratio * 100) / 100;
+      contrastRatio.textContent = r + ':1';
+      var fgHex = ColorUtils.rgbToHex(fgRgb.r, fgRgb.g, fgRgb.b);
+      var bgHex = ColorUtils.rgbToHex(bgParsed.r, bgParsed.g, bgParsed.b);
+      contrastPreview.style.color = fgHex;
+      contrastPreview.style.backgroundColor = bgHex;
+      var checks = [
+        {label: 'AA Normal', pass: ratio >= 4.5},
+        {label: 'AA Large', pass: ratio >= 3},
+        {label: 'AAA Normal', pass: ratio >= 7},
+        {label: 'AAA Large', pass: ratio >= 4.5}
+      ];
+      contrastBadges.innerHTML = checks.map(function(c) {
+        return '<span class="badge ' + (c.pass ? 'badge-pass' : 'badge-fail') + '">' + (c.pass ? '\u2713 ' : '\u2717 ') + c.label + '</span>';
+      }).join('');
+    }
+
+    pickerInput.addEventListener('input', function () {
+      hexInput.value = this.value;
+      update(this.value);
+    });
+
+    hexInput.addEventListener('input', function () {
+      var parsed = ColorUtils.parseColor(this.value);
+      if (parsed) {
+        var hex = ColorUtils.rgbToHex(parsed.r, parsed.g, parsed.b);
+        pickerInput.value = hex;
+        update(hex);
+      }
+    });
+
+    bgColor.addEventListener('input', function () {
+      var rgb = ColorUtils.hexToRgb(pickerInput.value);
+      updateContrast(rgb);
+    });
+
+    var pickButton = document.getElementById('pick-from-screen');
+    if ('EyeDropper' in window) {
+      pickButton.classList.remove('d-none');
+      pickButton.addEventListener('click', function () {
+        new window.EyeDropper().open().then(function (result) {
+          var hex = result.sRGBHex.toLowerCase();
+          hexInput.value = hex;
+          pickerInput.value = hex;
+          update(hex);
+        }).catch(function () { /* AbortError: user pressed Escape — silent */ });
+      });
+    }
+
+    document.getElementById('copy-hex').addEventListener('click', function () { copyToClipboard(hexInput.value); });
+    document.querySelectorAll('.clickable-result').forEach(function (el) {
+      el.addEventListener('click', function () { copyToClipboard(this.textContent); });
+    });
+
+    update('#6c5ce7');
+  })();
+  </script>
+</body>
+</html>

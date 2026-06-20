@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Contrast Checker — WCAG Color Contrast Ratio | Praticulus</title>
+  <meta name="description" content="Check color contrast ratios against WCAG 2.1 AA and AAA standards. Ensure your text and background colors meet accessibility requirements. Free online tool.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/contrast-checker/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contrast Checker — WCAG Color Contrast Ratio | Praticulus">
+  <meta property="og:description" content="Check color contrast against WCAG 2.1 AA/AAA. Free accessibility tool.">
+  <meta property="og:url" content="https://praticulus.com/contrast-checker/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Contrast Checker",
+    "url": "https://praticulus.com/contrast-checker/",
+    "description": "Check color contrast ratios against WCAG 2.1 AA and AAA standards. Ensure accessible color combinations.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/color/">Color Tools</a></li>
+        <li><span aria-current="page">Contrast Checker</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></div>
+      <h1>Contrast Checker</h1>
+      <p>Check the contrast ratio between two colors against WCAG 2.1 accessibility standards (AA and AAA).</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="fg-color">Text Color (Foreground)</label>
+            <input type="color" id="fg-color" value="#e4e6ed">
+            <input type="text" id="fg-hex" class="hex-input" value="#e4e6ed" placeholder="#hex or rgb()">
+          </div>
+          <div class="input-group">
+            <label for="bg-color">Background Color</label>
+            <input type="color" id="bg-color" value="#0f1117">
+            <input type="text" id="bg-hex" class="hex-input" value="#0f1117" placeholder="#hex or rgb()">
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" id="swap-colors">⇄ Swap Colors</button>
+          <button class="btn btn-primary btn-sm" id="suggest-fix">Suggest Fix</button>
+        </div>
+
+        <div class="contrast-preview" id="contrast-preview" aria-live="polite">
+          <div class="contrast-preview-line-14">14px Normal — The quick brown fox jumps over the lazy dog.</div>
+          <div class="contrast-preview-line-18">18px Large — The quick brown fox jumps over the lazy dog.</div>
+          <div class="contrast-preview-line-24">24px Heading — The quick brown fox</div>
+        </div>
+
+        <p class="ratio-display" id="ratio-display">—</p>
+
+        <div class="contrast-badges" id="badges" aria-live="polite"></div>
+      </div>
+
+      <div class="card content-section">
+        <h2>WCAG Contrast Requirements</h2>
+        <p><strong>AA Normal text:</strong> Minimum ratio of 4.5:1. Applies to text smaller than 18pt (or 14pt bold).</p>
+        <p><strong>AA Large text:</strong> Minimum ratio of 3:1. Applies to text 18pt+ (or 14pt+ bold).</p>
+        <p><strong>AAA Normal text:</strong> Enhanced ratio of 7:1 for best readability.</p>
+        <p><strong>AAA Large text:</strong> Enhanced ratio of 4.5:1 for large text.</p>
+        <p>Meeting these requirements ensures your content is readable by people with visual impairments, including color blindness and low vision.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Color</h2>
+      <div class="related-grid">
+        <a href="/color-picker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></span><span>Color Picker</span></a>
+        <a href="/color-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></span><span>Color Converter</span></a>
+        <a href="/palette-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></span><span>Palette Generator</span></a>
+        <a href="/gradient-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></span><span>CSS Gradient Generator</span></a>
+        <a href="/color-blender/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></span><span>Color Blender</span></a>
+      </div>
+      <a href="/color/" class="related-all">All Color tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/color-utils.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    var fgColor = document.getElementById('fg-color');
+    var bgColor = document.getElementById('bg-color');
+    var fgHex = document.getElementById('fg-hex');
+    var bgHex = document.getElementById('bg-hex');
+    var preview = document.getElementById('contrast-preview');
+    var ratioDisplay = document.getElementById('ratio-display');
+    var badges = document.getElementById('badges');
+
+    function syncHexFromPicker(picker, hexInput) {
+      hexInput.value = picker.value;
+    }
+
+    function syncPickerFromHex(hexInput, picker) {
+      var parsed = ColorUtils.parseColor(hexInput.value);
+      if (parsed) {
+        var hex = ColorUtils.rgbToHex(parsed.r, parsed.g, parsed.b);
+        picker.value = hex;
+        hexInput.classList.remove('hex-input-invalid');
+      } else {
+        hexInput.classList.add('hex-input-invalid');
+      }
+    }
+
+    function update() {
+      var fg = ColorUtils.hexToRgb(fgColor.value);
+      var bg = ColorUtils.hexToRgb(bgColor.value);
+      var ratio = ColorUtils.contrastRatio(fg, bg);
+      var r = ratio.toFixed(2);
+
+      preview.style.color = fgColor.value;
+      preview.style.background = bgColor.value;
+      ratioDisplay.textContent = r + ':1';
+
+      var checks = [
+        { label: 'AA Normal', pass: ratio >= 4.5 },
+        { label: 'AA Large', pass: ratio >= 3 },
+        { label: 'AAA Normal', pass: ratio >= 7 },
+        { label: 'AAA Large', pass: ratio >= 4.5 }
+      ];
+
+      badges.innerHTML = checks.map(function (c) {
+        return '<span class="badge ' + (c.pass ? 'badge-pass' : 'badge-fail') + '">' +
+          (c.pass ? '✓' : '✗') + ' ' + c.label + '</span>';
+      }).join('');
+    }
+
+    function suggestFix() {
+      var fg = ColorUtils.hexToRgb(fgColor.value);
+      var bg = ColorUtils.hexToRgb(bgColor.value);
+      var ratio = ColorUtils.contrastRatio(fg, bg);
+      if (ratio >= 4.5) {
+        showToast('Already meets AA (4.5:1)!');
+        return;
+      }
+      var hsl = ColorUtils.rgbToHsl(fg.r, fg.g, fg.b);
+      var bgLum = ColorUtils.luminance(bg.r, bg.g, bg.b);
+      var direction = bgLum > 0.5 ? -1 : 1;
+      for (var i = 0; i <= 100; i++) {
+        var testL = Math.max(0, Math.min(100, hsl.l + (direction * i)));
+        var testRgb = ColorUtils.hslToRgb(hsl.h, hsl.s, testL);
+        var testRatio = ColorUtils.contrastRatio(testRgb, bg);
+        if (testRatio >= 4.5) {
+          var newHex = ColorUtils.rgbToHex(testRgb.r, testRgb.g, testRgb.b);
+          fgColor.value = newHex;
+          fgHex.value = newHex;
+          update();
+          showToast('Fixed! Ratio now meets AA.');
+          return;
+        }
+      }
+      showToast('Could not find a fix by adjusting lightness.');
+    }
+
+    fgColor.addEventListener('input', function () {
+      syncHexFromPicker(fgColor, fgHex);
+      update();
+    });
+    bgColor.addEventListener('input', function () {
+      syncHexFromPicker(bgColor, bgHex);
+      update();
+    });
+
+    fgHex.addEventListener('input', function () {
+      syncPickerFromHex(fgHex, fgColor);
+      update();
+    });
+    bgHex.addEventListener('input', function () {
+      syncPickerFromHex(bgHex, bgColor);
+      update();
+    });
+
+    document.getElementById('swap-colors').addEventListener('click', function () {
+      var tmp = fgColor.value;
+      fgColor.value = bgColor.value;
+      bgColor.value = tmp;
+      fgHex.value = fgColor.value;
+      bgHex.value = bgColor.value;
+      update();
+    });
+
+    document.getElementById('suggest-fix').addEventListener('click', suggestFix);
+
+    update();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>URL Encoder / Decoder — Free Online Tool | Praticulus</title>
+  <meta name="description" content="Encode or decode URLs and query strings instantly. Free online URL encoder/decoder. Handles special characters, Unicode, and percent-encoding.">
+  <meta name="keywords" content="url encoder, url decoder, url encode online, url decode online, percent encoding, urlencode, urldecode, encode url">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/url-encoder/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="URL Encoder / Decoder — Free Online Tool | Praticulus">
+  <meta property="og:description" content="Encode or decode URLs and query strings instantly. Free online URL encoder and decoder.">
+  <meta property="og:url" content="https://praticulus.com/url-encoder/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "URL Encoder / Decoder",
+    "url": "https://praticulus.com/url-encoder/",
+    "description": "Encode or decode URLs and query strings instantly. Free online URL encoder/decoder. Handles special characters, Unicode, and percent-encoding.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Converter Tools", "item": "https://praticulus.com/converters/" },
+      { "@type": "ListItem", "position": 3, "name": "URL Encoder / Decoder", "item": "https://praticulus.com/url-encoder/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/converters/">Converter Tools</a></li>
+        <li><span aria-current="page">URL Encoder / Decoder</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></div>
+      <h1>URL Encoder / Decoder</h1>
+      <p>Encode or decode URLs and query strings. Handles Unicode, special characters, and percent-encoding.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input</label>
+        <textarea id="input" placeholder="Enter a URL or text to encode/decode..."></textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-encode">Encode →</button>
+          <button class="btn btn-primary" id="btn-decode">← Decode</button>
+          <button class="btn btn-secondary" id="btn-encode-component">Encode Component</button>
+          <button class="btn btn-secondary" id="btn-swap">⇄ Swap</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+        </div>
+        <div class="output-area" id="output" role="status" aria-live="polite">Result will appear here...</div>
+      </div>
+
+      <div class="card d-none" id="url-parts-card">
+        <label>URL Breakdown</label>
+        <div class="url-parts" id="url-parts"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is URL Encoding?</h2>
+        <p class="seo-text">URL encoding (percent-encoding) replaces unsafe characters in URLs with a <code>%</code> followed by two hexadecimal digits. For example, a space becomes <code>%20</code>, and <code>&amp;</code> becomes <code>%26</code>. This ensures URLs are transmitted correctly across the internet.</p>
+        <h3 class="seo-subheading">encodeURI vs encodeURIComponent</h3>
+        <ul class="seo-text">
+          <li><strong>Encode (encodeURI):</strong> Encodes a full URI, preserving characters like <code>:</code>, <code>/</code>, <code>?</code>, <code>#</code></li>
+          <li><strong>Encode Component:</strong> Encodes everything including reserved URI characters. Use for query parameter values</li>
+          <li><strong>Decode:</strong> Reverses both encoding types automatically</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Converters</h2>
+      <div class="related-grid">
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+      </div>
+      <a href="/converters/" class="related-all">All Converters tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var status = document.getElementById('status');
+    var urlPartsCard = document.getElementById('url-parts-card');
+    var urlParts = document.getElementById('url-parts');
+    var lastMode = 'encode';
+
+    function isEncoded(str) {
+      return /%[0-9A-Fa-f]{2}/.test(str);
+    }
+
+    function liveProcess() {
+      var val = input.value;
+      if (!val.trim()) {
+        output.textContent = 'Result will appear here...';
+        status.innerHTML = '';
+        urlPartsCard.classList.add('d-none');
+        return;
+      }
+      if (isEncoded(val)) {
+        lastMode = 'decode';
+        doDecodeURL();
+      } else {
+        lastMode = 'encode';
+        doEncodeURL();
+      }
+      parseURL(val);
+    }
+
+    function parseURL(str) {
+      try {
+        var decoded = str;
+        try { decoded = decodeURIComponent(str); } catch(e) {}
+        var url = new URL(decoded);
+        var parts = [
+          { label: 'Scheme', value: url.protocol.replace(':', '') },
+          { label: 'Host', value: url.hostname },
+          { label: 'Port', value: url.port || '(default)' },
+          { label: 'Path', value: url.pathname },
+          { label: 'Query', value: url.search || '(none)' },
+          { label: 'Fragment', value: url.hash || '(none)' }
+        ];
+        urlParts.innerHTML = parts.map(function(p) {
+          return '<div class="url-part-row"><span class="url-part-label">' + p.label + '</span><span class="url-part-value">' + escapeHtml(p.value) + '</span></div>';
+        }).join('');
+        urlPartsCard.classList.remove('d-none');
+      } catch (e) {
+        urlPartsCard.classList.add('d-none');
+      }
+    }
+
+    function doEncodeURL() {
+      try {
+        var result = encodeURI(input.value);
+        output.textContent = result;
+        status.innerHTML = '<span class="valid">Encoded (encodeURI) — ' + result.length + ' chars</span>';
+      } catch (e) {
+        status.innerHTML = '<span class="invalid">Error: ' + escapeHtml(e.message) + '</span>';
+      }
+    }
+
+    function doDecodeURL() {
+      try {
+        var result = decodeURIComponent(input.value.trim());
+        output.textContent = result;
+        status.innerHTML = '<span class="valid">Decoded — ' + result.length + ' chars</span>';
+      } catch (e) {
+        status.innerHTML = '<span class="invalid">Error: Invalid encoded string</span>';
+      }
+    }
+
+    function encodeComponent() {
+      try {
+        var result = encodeURIComponent(input.value);
+        output.textContent = result;
+        status.innerHTML = '<span class="valid">Encoded (encodeURIComponent) — ' + result.length + ' chars</span>';
+      } catch (e) {
+        status.innerHTML = '<span class="invalid">Error: ' + escapeHtml(e.message) + '</span>';
+      }
+    }
+
+    function swapIO() {
+      var out = output.textContent;
+      if (out && out !== 'Result will appear here...') {
+        input.value = out;
+        output.textContent = '';
+        status.innerHTML = '';
+        liveProcess();
+      }
+    }
+
+    function clearAll() {
+      input.value = '';
+      output.textContent = 'Result will appear here...';
+      status.innerHTML = '';
+      urlPartsCard.classList.add('d-none');
+    }
+
+    function copyOutput() {
+      navigator.clipboard.writeText(output.textContent);
+      showToast('Copied!');
+    }
+
+    input.addEventListener('input', liveProcess);
+    document.getElementById('btn-encode').addEventListener('click', function() { lastMode = 'encode'; doEncodeURL(); });
+    document.getElementById('btn-decode').addEventListener('click', function() { lastMode = 'decode'; doDecodeURL(); });
+    document.getElementById('btn-encode-component').addEventListener('click', encodeComponent);
+    document.getElementById('btn-swap').addEventListener('click', swapIO);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy').addEventListener('click', copyOutput);
+  })();
+  </script>
+</body>
+</html>

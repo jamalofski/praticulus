@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>HMAC Generator — SHA-256, SHA-512, MD5 for Webhook Signatures | Praticulus</title>
+  <meta name="description" content="Generate HMAC signatures (SHA-256, SHA-512, SHA-384, SHA-1, MD5) for webhook verification (Stripe, GitHub, Slack, Twilio), JWT HS256, AWS SigV4. Hex or Base64 output. Runs in your browser. Secret keys never leave this tab.">
+  <meta name="keywords" content="hmac generator, hmac sha256, hmac sha512, hmac sha384, hmac sha1, hmac md5, webhook signature, stripe signature, github webhook signature, slack signature, twilio signature, jwt hs256, aws sigv4">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/hmac-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HMAC Generator — SHA-256, SHA-512, MD5 for Webhook Signatures | Praticulus">
+  <meta property="og:description" content="Generate HMAC signatures (SHA-256, SHA-512, SHA-384, SHA-1, MD5) for webhook verification, JWT HS256, AWS SigV4. Hex or Base64. Secret keys never leave your browser.">
+  <meta property="og:url" content="https://praticulus.com/hmac-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HMAC Generator",
+    "url": "https://praticulus.com/hmac-generator/",
+    "description": "Generate HMAC signatures (HMAC-MD5, HMAC-SHA-1, HMAC-SHA-256, HMAC-SHA-384, HMAC-SHA-512) for webhook signature verification (Stripe, GitHub, Slack, Twilio), JWT HS256/HS384/HS512, AWS SigV4 and Azure SAS. Hex or Base64 output. Secret keys never leave your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "dateModified": "2026-06-08",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Security Tools", "item": "https://praticulus.com/security/" },
+      { "@type": "ListItem", "position": 3, "name": "HMAC Generator", "item": "https://praticulus.com/hmac-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input and secret keys never leave your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/security/">Security Tools</a></li>
+        <li><span aria-current="page">HMAC Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-signature"></use></svg></div>
+      <h1>HMAC Generator</h1>
+      <p>Generate HMAC signatures (MD5, SHA-1, SHA-256, SHA-384, SHA-512) for webhook verification, JWT signing, and API authentication. Hex or Base64 output. Your secret key stays in this tab.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="hmac-secret">Secret Key</label>
+        <input type="text" id="hmac-secret" placeholder="Enter HMAC secret key..." autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="card">
+        <label for="input">Message / Payload</label>
+        <textarea id="input" placeholder="Enter the message to sign (raw webhook payload, JWT header.payload, API request body...)"></textarea>
+        <div class="flex-row items-center mt-075">
+          <label class="checkbox-inline"><input type="checkbox" id="base64-output"> Base64 output (instead of hex)</label>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>File HMAC</label>
+        <div class="drop-zone" id="drop-zone">
+          <p>Drag &amp; drop a file here, or click to browse</p>
+          <input type="file" id="file-input" class="d-none">
+        </div>
+        <div class="status-bar" id="file-status"></div>
+      </div>
+
+      <div class="card d-none" id="results" role="status" aria-live="polite">
+        <label>Results</label>
+        <div class="hash-result" id="hmac-md5-row">
+          <div class="hash-label">HMAC-MD5 <span class="badge-legacy">legacy</span></div>
+          <div class="hash-value" id="hmac-md5"></div>
+          <button class="btn btn-secondary btn-sm" id="btn-copy-hmac-md5">Copy</button>
+        </div>
+        <div class="hash-result" id="hmac-sha1-row">
+          <div class="hash-label">HMAC-SHA-1</div>
+          <div class="hash-value" id="hmac-sha1"></div>
+          <button class="btn btn-secondary btn-sm" id="btn-copy-hmac-sha1">Copy</button>
+        </div>
+        <div class="hash-result" id="hmac-sha256-row">
+          <div class="hash-label">HMAC-SHA-256</div>
+          <div class="hash-value" id="hmac-sha256"></div>
+          <button class="btn btn-secondary btn-sm" id="btn-copy-hmac-sha256">Copy</button>
+        </div>
+        <div class="hash-result" id="hmac-sha384-row">
+          <div class="hash-label">HMAC-SHA-384</div>
+          <div class="hash-value" id="hmac-sha384"></div>
+          <button class="btn btn-secondary btn-sm" id="btn-copy-hmac-sha384">Copy</button>
+        </div>
+        <div class="hash-result" id="hmac-sha512-row">
+          <div class="hash-label">HMAC-SHA-512</div>
+          <div class="hash-value" id="hmac-sha512"></div>
+          <button class="btn btn-secondary btn-sm" id="btn-copy-hmac-sha512">Copy</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <label for="compare-hash">Compare Signature</label>
+        <input type="text" id="compare-hash" placeholder="Paste expected HMAC to compare (hex or base64)...">
+        <div class="status-bar" id="compare-result"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is HMAC?</h2>
+        <p class="seo-text">HMAC (Hash-based Message Authentication Code, <a href="https://datatracker.ietf.org/doc/html/rfc2104" target="_blank" rel="noopener">RFC 2104</a>) combines a cryptographic hash function with a shared secret key. Unlike a plain hash, an HMAC proves <em>both</em> that a message has not been tampered with <em>and</em> that it comes from someone who holds the secret. Two parties compute the same HMAC over the same payload; anyone without the secret cannot forge a valid signature.</p>
+
+        <h3 class="seo-subheading">When to use HMAC</h3>
+        <ul class="seo-text">
+          <li><strong>Webhook signature verification.</strong> Recompute the HMAC on your end with the partner's secret and compare to the header. Common providers:
+            <ul>
+              <li><code>Stripe-Signature</code> — HMAC-SHA-256, hex.</li>
+              <li><code>X-Hub-Signature-256</code> (GitHub) — HMAC-SHA-256, hex.</li>
+              <li><code>X-Slack-Signature</code> — HMAC-SHA-256, hex with <code>v0=</code> prefix.</li>
+              <li><code>X-Twilio-Signature</code> — HMAC-SHA-1, Base64.</li>
+              <li>Azure Event Grid — HMAC-SHA-256, Base64.</li>
+            </ul>
+          </li>
+          <li><strong>JWT HS256 / HS384 / HS512.</strong> The signing step of a symmetric JSON Web Token is exactly an HMAC over <code>base64url(header) + "." + base64url(payload)</code>, output as Base64url. Decode + verify a full token with the <a href="/jwt-decoder/">JWT Decoder</a>.</li>
+          <li><strong>TOTP (RFC 6238) 2FA codes.</strong> Each 30-second code is HMAC-SHA-1 of a counter derived from the current Unix time, truncated to 6 digits. Generate or verify TOTP codes directly with the <a href="/totp-generator/">TOTP Generator</a>.</li>
+          <li><strong>AWS Signature Version 4.</strong> SigV4 requires nested HMAC-SHA-256 over the canonical request, output as hex.</li>
+          <li><strong>Azure SAS tokens.</strong> HMAC-SHA-256 over the URI + expiry, output as Base64.</li>
+          <li><strong>CSRF and session tokens.</strong> An HMAC binds a token to a server secret so it cannot be tampered with client-side.</li>
+        </ul>
+
+        <h3 class="seo-subheading">HMAC vs plain hash</h3>
+        <p class="seo-text">A plain SHA-256 of <code>payload</code> proves integrity but not origin: anyone can recompute it. An HMAC-SHA-256 of <code>payload</code> with a shared secret proves both: integrity, and that the sender knew the secret. That's the difference between "this file wasn't corrupted in transit" and "this request was authorized by my partner."</p>
+
+        <h3 class="seo-subheading">Why HMAC-MD5 is still here</h3>
+        <p class="seo-text">MD5 itself is broken for collision resistance since 2004. <strong>HMAC-MD5 is not</strong> — it relies on MD5's PRF (pseudo-random function) property, which has no known practical attack. <a href="https://datatracker.ietf.org/doc/html/rfc6151" target="_blank" rel="noopener">RFC 6151</a> and NIST SP 800-131A discourage HMAC-MD5 for new protocols, but it remains required for legacy interoperability: NTLM and Active Directory authentication, RADIUS, CHAP, DIGEST-MD5 SASL, and TLS 1.0/1.1 audit. Listed here so you can compute it without falling back to a desktop tool, not as a recommendation for new code.</p>
+
+        <h3 class="seo-subheading">Hex vs Base64 output</h3>
+        <p class="seo-text">Hex is what Stripe, GitHub, Slack and AWS SigV4 use. Base64 is what Twilio, Azure and JWT (as Base64url) use. Toggle above to match your partner's format. Comparison below auto-matches either format.</p>
+
+        <h3 class="seo-subheading">Implementation</h3>
+        <p class="seo-text">HMAC-SHA-* uses the browser's native <code>crypto.subtle.sign('HMAC', …)</code>, bit-for-bit identical to <code>openssl dgst -mac HMAC -macopt key:&lt;secret&gt;</code>. HMAC-MD5 is implemented in pure JavaScript inside this page (Web Crypto does not expose MD5). All five algorithms run on your device: no request leaves your browser. Open DevTools → Network before pasting your secret to verify.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Security</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/jwt-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-token"></use></svg></span><span>JWT Decoder</span></a>
+        <a href="/totp-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-timer"></use></svg></span><span>TOTP Generator</span></a>
+        <a href="/cert-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-certificate"></use></svg></span><span>Certificate Decoder</span></a>
+      </div>
+      <a href="/security/" class="related-all">All Security tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    // --- MD5 pure JS (Joseph Myers, public domain port) ---
+    function md5(string) {
+      function md5cycle(x, k) {
+        var a = x[0], b = x[1], c = x[2], d = x[3];
+        a = ff(a, b, c, d, k[0], 7, -680876936); d = ff(d, a, b, c, k[1], 12, -389564586);
+        c = ff(c, d, a, b, k[2], 17, 606105819); b = ff(b, c, d, a, k[3], 22, -1044525330);
+        a = ff(a, b, c, d, k[4], 7, -176418897); d = ff(d, a, b, c, k[5], 12, 1200080426);
+        c = ff(c, d, a, b, k[6], 17, -1473231341); b = ff(b, c, d, a, k[7], 22, -45705983);
+        a = ff(a, b, c, d, k[8], 7, 1770035416); d = ff(d, a, b, c, k[9], 12, -1958414417);
+        c = ff(c, d, a, b, k[10], 17, -42063); b = ff(b, c, d, a, k[11], 22, -1990404162);
+        a = ff(a, b, c, d, k[12], 7, 1804603682); d = ff(d, a, b, c, k[13], 12, -40341101);
+        c = ff(c, d, a, b, k[14], 17, -1502002290); b = ff(b, c, d, a, k[15], 22, 1236535329);
+        a = gg(a, b, c, d, k[1], 5, -165796510); d = gg(d, a, b, c, k[6], 9, -1069501632);
+        c = gg(c, d, a, b, k[11], 14, 643717713); b = gg(b, c, d, a, k[0], 20, -373897302);
+        a = gg(a, b, c, d, k[5], 5, -701558691); d = gg(d, a, b, c, k[10], 9, 38016083);
+        c = gg(c, d, a, b, k[15], 14, -660478335); b = gg(b, c, d, a, k[4], 20, -405537848);
+        a = gg(a, b, c, d, k[9], 5, 568446438); d = gg(d, a, b, c, k[14], 9, -1019803690);
+        c = gg(c, d, a, b, k[3], 14, -187363961); b = gg(b, c, d, a, k[8], 20, 1163531501);
+        a = gg(a, b, c, d, k[13], 5, -1444681467); d = gg(d, a, b, c, k[2], 9, -51403784);
+        c = gg(c, d, a, b, k[7], 14, 1735328473); b = gg(b, c, d, a, k[12], 20, -1926607734);
+        a = hh(a, b, c, d, k[5], 4, -378558); d = hh(d, a, b, c, k[8], 11, -2022574463);
+        c = hh(c, d, a, b, k[11], 16, 1839030562); b = hh(b, c, d, a, k[14], 23, -35309556);
+        a = hh(a, b, c, d, k[1], 4, -1530992060); d = hh(d, a, b, c, k[4], 11, 1272893353);
+        c = hh(c, d, a, b, k[7], 16, -155497632); b = hh(b, c, d, a, k[10], 23, -1094730640);
+        a = hh(a, b, c, d, k[13], 4, 681279174); d = hh(d, a, b, c, k[0], 11, -358537222);
+        c = hh(c, d, a, b, k[3], 16, -722521979); b = hh(b, c, d, a, k[6], 23, 76029189);
+        a = hh(a, b, c, d, k[9], 4, -640364487); d = hh(d, a, b, c, k[12], 11, -421815835);
+        c = hh(c, d, a, b, k[15], 16, 530742520); b = hh(b, c, d, a, k[2], 23, -995338651);
+        a = ii(a, b, c, d, k[0], 6, -198630844); d = ii(d, a, b, c, k[7], 10, 1126891415);
+        c = ii(c, d, a, b, k[14], 15, -1416354905); b = ii(b, c, d, a, k[5], 21, -57434055);
+        a = ii(a, b, c, d, k[12], 6, 1700485571); d = ii(d, a, b, c, k[3], 10, -1894986606);
+        c = ii(c, d, a, b, k[10], 15, -1051523); b = ii(b, c, d, a, k[1], 21, -2054922799);
+        a = ii(a, b, c, d, k[8], 6, 1873313359); d = ii(d, a, b, c, k[15], 10, -30611744);
+        c = ii(c, d, a, b, k[6], 15, -1560198380); b = ii(b, c, d, a, k[13], 21, 1309151649);
+        a = ii(a, b, c, d, k[4], 6, -145523070); d = ii(d, a, b, c, k[11], 10, -1120210379);
+        c = ii(c, d, a, b, k[2], 15, 718787259); b = ii(b, c, d, a, k[9], 21, -343485551);
+        x[0] = add32(a, x[0]); x[1] = add32(b, x[1]); x[2] = add32(c, x[2]); x[3] = add32(d, x[3]);
+      }
+      function cmn(q, a, b, x, s, t) { a = add32(add32(a, q), add32(x, t)); return add32((a << s) | (a >>> (32 - s)), b); }
+      function ff(a, b, c, d, x, s, t) { return cmn((b & c) | ((~b) & d), a, b, x, s, t); }
+      function gg(a, b, c, d, x, s, t) { return cmn((b & d) | (c & (~d)), a, b, x, s, t); }
+      function hh(a, b, c, d, x, s, t) { return cmn(b ^ c ^ d, a, b, x, s, t); }
+      function ii(a, b, c, d, x, s, t) { return cmn(c ^ (b | (~d)), a, b, x, s, t); }
+      function md51(s) {
+        var n = s.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
+        for (i = 64; i <= n; i += 64) md5cycle(state, md5blk(s.substring(i - 64, i)));
+        s = s.substring(i - 64);
+        var tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+        for (i = 0; i < s.length; i++) tail[i >> 2] |= s.charCodeAt(i) << ((i % 4) << 3);
+        tail[i >> 2] |= 0x80 << ((i % 4) << 3);
+        if (i > 55) { md5cycle(state, tail); tail = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; }
+        tail[14] = n * 8;
+        md5cycle(state, tail);
+        return state;
+      }
+      function md5blk(s) {
+        var md5blks = [], i;
+        for (i = 0; i < 64; i += 4) md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i+1) << 8) + (s.charCodeAt(i+2) << 16) + (s.charCodeAt(i+3) << 24);
+        return md5blks;
+      }
+      var hex_chr = '0123456789abcdef'.split('');
+      function rhex(n) { var s = '', j = 0; for (; j < 4; j++) s += hex_chr[(n >> (j * 8 + 4)) & 0x0F] + hex_chr[(n >> (j * 8)) & 0x0F]; return s; }
+      function hex(x) { for (var i = 0; i < x.length; i++) x[i] = rhex(x[i]); return x.join(''); }
+      function add32(a, b) { return (a + b) & 0xFFFFFFFF; }
+      return hex(md51(string));
+    }
+
+    // --- byte / hex / base64 helpers ---
+    function hexToBytes(hex) {
+      var bytes = new Uint8Array(hex.length / 2);
+      for (var i = 0; i < hex.length; i += 2) bytes[i / 2] = parseInt(hex.substr(i, 2), 16);
+      return bytes;
+    }
+    function bytesToBinaryString(bytes) {
+      var s = '';
+      for (var i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+      return s;
+    }
+    function bytesToBase64(bytes) {
+      return btoa(bytesToBinaryString(bytes));
+    }
+    function hexToBase64(hex) { return bytesToBase64(hexToBytes(hex)); }
+    function bufferToHex(buf) {
+      return Array.from(new Uint8Array(buf), function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+    function md5Bytes(bytes) {
+      return md5(bytesToBinaryString(bytes));
+    }
+
+    // --- HMAC-MD5 pure JS ---
+    function hmacMd5Bytes(keyBytes, dataBytes) {
+      var blockSize = 64;
+      var k = keyBytes;
+      if (k.length > blockSize) {
+        k = hexToBytes(md5Bytes(k));
+      }
+      var kPadded = new Uint8Array(blockSize);
+      for (var i = 0; i < k.length; i++) kPadded[i] = k[i];
+      var ipad = new Uint8Array(blockSize);
+      var opad = new Uint8Array(blockSize);
+      for (var j = 0; j < blockSize; j++) {
+        ipad[j] = kPadded[j] ^ 0x36;
+        opad[j] = kPadded[j] ^ 0x5c;
+      }
+      var inner = new Uint8Array(blockSize + dataBytes.length);
+      inner.set(ipad);
+      inner.set(dataBytes, blockSize);
+      var innerHex = md5Bytes(inner);
+      var innerOut = hexToBytes(innerHex);
+      var outer = new Uint8Array(blockSize + 16);
+      outer.set(opad);
+      outer.set(innerOut, blockSize);
+      return md5Bytes(outer); // hex
+    }
+
+    // --- HMAC via Web Crypto ---
+    function hmacSubtle(algo, keyBytes, dataBytes) {
+      return crypto.subtle.importKey('raw', keyBytes, { name: 'HMAC', hash: algo }, false, ['sign'])
+        .then(function(key) { return crypto.subtle.sign('HMAC', key, dataBytes); })
+        .then(bufferToHex);
+    }
+
+    var state = { base64: false, lastBuffer: null, raw: { md5: '', sha1: '', sha256: '', sha384: '', sha512: '' } };
+
+    var els = {
+      secret: document.getElementById('hmac-secret'),
+      input: document.getElementById('input'),
+      base64Toggle: document.getElementById('base64-output'),
+      results: document.getElementById('results'),
+      fileStatus: document.getElementById('file-status'),
+      compareInput: document.getElementById('compare-hash'),
+      compareResult: document.getElementById('compare-result'),
+      md5: document.getElementById('hmac-md5'),
+      sha1: document.getElementById('hmac-sha1'),
+      sha256: document.getElementById('hmac-sha256'),
+      sha384: document.getElementById('hmac-sha384'),
+      sha512: document.getElementById('hmac-sha512')
+    };
+
+    function readFragment() {
+      var hash = window.location.hash.replace(/^#/, '');
+      if (!hash) return;
+      var params = new URLSearchParams(hash);
+      if (params.get('enc') === 'base64') {
+        state.base64 = true;
+        els.base64Toggle.checked = true;
+      }
+    }
+
+    function writeFragment() {
+      if (state.base64) {
+        history.replaceState(null, '', '#enc=base64');
+      } else {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+
+    function encode(hex) { return state.base64 ? hexToBase64(hex) : hex; }
+
+    function renderOutputs() {
+      els.md5.textContent = state.raw.md5 ? encode(state.raw.md5) : '';
+      els.sha1.textContent = state.raw.sha1 ? encode(state.raw.sha1) : '';
+      els.sha256.textContent = state.raw.sha256 ? encode(state.raw.sha256) : '';
+      els.sha384.textContent = state.raw.sha384 ? encode(state.raw.sha384) : '';
+      els.sha512.textContent = state.raw.sha512 ? encode(state.raw.sha512) : '';
+      checkCompare();
+    }
+
+    function clearRaw() {
+      state.raw = { md5: '', sha1: '', sha256: '', sha384: '', sha512: '' };
+    }
+
+    function signAll(keyBytes, dataBytes) {
+      els.results.classList.remove('d-none');
+      // MD5 sync, SHA via crypto.subtle
+      state.raw.md5 = hmacMd5Bytes(keyBytes, dataBytes);
+      Promise.all([
+        hmacSubtle('SHA-1', keyBytes, dataBytes),
+        hmacSubtle('SHA-256', keyBytes, dataBytes),
+        hmacSubtle('SHA-384', keyBytes, dataBytes),
+        hmacSubtle('SHA-512', keyBytes, dataBytes)
+      ]).then(function(hexes) {
+        state.raw.sha1 = hexes[0];
+        state.raw.sha256 = hexes[1];
+        state.raw.sha384 = hexes[2];
+        state.raw.sha512 = hexes[3];
+        renderOutputs();
+      });
+      renderOutputs();
+    }
+
+    function generateAll() {
+      var secret = els.secret.value;
+      if (!secret) {
+        clearRaw();
+        if (state.lastBuffer || els.input.value) {
+          els.results.classList.remove('d-none');
+          // show placeholder
+          [els.md5, els.sha1, els.sha256, els.sha384, els.sha512].forEach(function(el) {
+            el.innerHTML = '<span class="text-muted">Enter a secret key above</span>';
+          });
+        } else {
+          els.results.classList.add('d-none');
+        }
+        checkCompare();
+        return;
+      }
+      var keyBytes = new TextEncoder().encode(secret);
+      if (state.lastBuffer) {
+        signAll(keyBytes, new Uint8Array(state.lastBuffer));
+        return;
+      }
+      var text = els.input.value;
+      if (!text) {
+        clearRaw();
+        els.results.classList.add('d-none');
+        return;
+      }
+      signAll(keyBytes, new TextEncoder().encode(text));
+    }
+
+    function signFile(file) {
+      if (!els.secret.value) {
+        els.fileStatus.innerHTML = '<span class="invalid">Enter a secret key first</span>';
+        return;
+      }
+      els.fileStatus.innerHTML = '<span class="text-muted">Signing ' + escapeHtml(file.name) + '...</span>';
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        state.lastBuffer = e.target.result;
+        var keyBytes = new TextEncoder().encode(els.secret.value);
+        signAll(keyBytes, new Uint8Array(state.lastBuffer));
+        els.fileStatus.innerHTML = '<span class="valid">Signed: ' + escapeHtml(file.name) + ' (' + (file.size / 1024).toFixed(1) + ' KB)</span>';
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function checkCompare() {
+      var expected = els.compareInput.value.trim();
+      var result = els.compareResult;
+      if (!expected) { result.innerHTML = ''; return; }
+      var ids = ['md5', 'sha1', 'sha256', 'sha384', 'sha512'];
+      var labels = { md5: 'HMAC-MD5', sha1: 'HMAC-SHA-1', sha256: 'HMAC-SHA-256', sha384: 'HMAC-SHA-384', sha512: 'HMAC-SHA-512' };
+      var matched = null;
+      var anyVal = false;
+      for (var i = 0; i < ids.length; i++) {
+        var hex = state.raw[ids[i]];
+        if (!hex) continue;
+        anyVal = true;
+        var b64 = hexToBase64(hex);
+        if (expected.toLowerCase() === hex.toLowerCase() || expected === b64) {
+          matched = labels[ids[i]];
+          break;
+        }
+      }
+      if (matched) {
+        result.innerHTML = '<span class="valid hash-match">✓ Match (' + matched + ')</span>';
+      } else if (anyVal) {
+        result.innerHTML = '<span class="invalid hash-mismatch">✗ No match</span>';
+      } else {
+        result.innerHTML = '<span class="text-muted">Generate HMAC first</span>';
+      }
+    }
+
+    function copyHash(id) {
+      var val = els[id].textContent;
+      if (!val || val.indexOf('Enter a secret') !== -1) return;
+      navigator.clipboard.writeText(val);
+      showToast('Copied!');
+    }
+
+    function clearAll() {
+      els.input.value = '';
+      els.secret.value = '';
+      state.lastBuffer = null;
+      clearRaw();
+      els.results.classList.add('d-none');
+      els.fileStatus.innerHTML = '';
+      els.compareResult.innerHTML = '';
+    }
+
+    els.base64Toggle.addEventListener('change', function() {
+      state.base64 = els.base64Toggle.checked;
+      writeFragment();
+      renderOutputs();
+    });
+
+    var secretTimer;
+    els.secret.addEventListener('input', function() {
+      clearTimeout(secretTimer);
+      secretTimer = setTimeout(generateAll, 150);
+    });
+
+    var inputTimer;
+    els.input.addEventListener('input', function() {
+      state.lastBuffer = null;
+      els.fileStatus.innerHTML = '';
+      clearTimeout(inputTimer);
+      inputTimer = setTimeout(generateAll, 150);
+    });
+
+    var dropZone = document.getElementById('drop-zone');
+    var fileInput = document.getElementById('file-input');
+    dropZone.addEventListener('click', function() { fileInput.click(); });
+    fileInput.addEventListener('change', function() { if (fileInput.files[0]) signFile(fileInput.files[0]); });
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drop-zone-active'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drop-zone-active'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drop-zone-active');
+      if (e.dataTransfer.files[0]) signFile(e.dataTransfer.files[0]);
+    });
+
+    els.compareInput.addEventListener('input', checkCompare);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy-hmac-md5').addEventListener('click', function() { copyHash('md5'); });
+    document.getElementById('btn-copy-hmac-sha1').addEventListener('click', function() { copyHash('sha1'); });
+    document.getElementById('btn-copy-hmac-sha256').addEventListener('click', function() { copyHash('sha256'); });
+    document.getElementById('btn-copy-hmac-sha384').addEventListener('click', function() { copyHash('sha384'); });
+    document.getElementById('btn-copy-hmac-sha512').addEventListener('click', function() { copyHash('sha512'); });
+
+    readFragment();
+  })();
+  </script>
+</body>
+</html>

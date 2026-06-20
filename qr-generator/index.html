@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>QR Code Generator — Free, Client-Side | Praticulus</title>
+  <meta name="description" content="Free QR code generator: links, Wi-Fi, contacts, email, SMS, WhatsApp, geo and calendar events. Add a logo, custom colors and dot styles, export PNG or SVG.">
+  <meta name="keywords" content="qr code generator, qr generator, create qr code, qr code maker, wifi qr code, vcard qr code, email qr code, sms qr code, whatsapp qr code, geo qr code, calendar qr code, event qr code, qr code with logo, dot qr code, rounded qr code, custom color qr code, qr code png svg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/qr-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QR Code Generator — Free, Client-Side | Praticulus">
+  <meta property="og:description" content="Free QR code generator: links, Wi-Fi, contacts, email, SMS, WhatsApp, geo and calendar events. Add a logo, custom colors and dot styles, export PNG or SVG.">
+  <meta property="og:url" content="https://praticulus.com/qr-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "QR Code Generator",
+    "url": "https://praticulus.com/qr-generator/",
+    "description": "Free QR code generator for links, Wi-Fi, contacts, email, SMS, phone, WhatsApp, geo location and calendar events. Customize colors, module style and a center logo, then export to PNG or SVG, generated entirely in your browser, nothing is ever uploaded.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": "URL, Wi-Fi, vCard, email, SMS, phone, WhatsApp, geo and calendar-event QR codes; custom colors; square, dot or rounded modules; center logo; PNG and SVG export; 100% client-side",
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Generator Tools", "item": "https://praticulus.com/generators/" },
+      { "@type": "ListItem", "position": 3, "name": "QR Code Generator", "item": "https://praticulus.com/qr-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: nothing is uploaded, the QR and any logo are drawn in your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generators/">Generator Tools</a></li>
+        <li><span aria-current="page">QR Code Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-qr"></use></svg></div>
+      <h1>QR Code Generator</h1>
+      <p>Turn a link, Wi-Fi network, contact card, email, SMS, phone number, WhatsApp message, map location or calendar event into a QR code. Pick the colors and module style, drop in a logo, and export as PNG or SVG, drawn entirely in your browser, nothing is uploaded.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="qr-layout">
+        <div class="qr-controls">
+          <div class="card">
+            <div class="btn-group qr-tabs flex-wrap">
+              <button class="btn btn-sm btn-primary" data-mode="text" id="tab-text">Text / URL</button>
+              <button class="btn btn-sm btn-secondary" data-mode="wifi" id="tab-wifi">Wi-Fi</button>
+              <button class="btn btn-sm btn-secondary" data-mode="vcard" id="tab-vcard">vCard</button>
+              <button class="btn btn-sm btn-secondary" data-mode="email" id="tab-email">Email</button>
+              <button class="btn btn-sm btn-secondary" data-mode="sms" id="tab-sms">SMS</button>
+              <button class="btn btn-sm btn-secondary" data-mode="phone" id="tab-phone">Phone</button>
+              <button class="btn btn-sm btn-secondary" data-mode="whatsapp" id="tab-whatsapp">WhatsApp</button>
+              <button class="btn btn-sm btn-secondary" data-mode="geo" id="tab-geo">Geo</button>
+              <button class="btn btn-sm btn-secondary" data-mode="event" id="tab-event">Event</button>
+            </div>
+
+            <div id="panel-text" class="qr-panel">
+              <label for="qr-text">Text or URL</label>
+              <textarea id="qr-text" class="textarea-short" spellcheck="false" placeholder="https://example.com or any text"></textarea>
+            </div>
+
+            <div id="panel-wifi" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="wifi-ssid">Network name (SSID)</label>
+                <input type="text" id="wifi-ssid" placeholder="MyNetwork">
+              </div>
+              <div class="input-group mt-1">
+                <label for="wifi-pass">Password</label>
+                <input type="text" id="wifi-pass" placeholder="••••••••">
+              </div>
+              <div class="input-group mt-1">
+                <label for="wifi-enc">Encryption</label>
+                <select id="wifi-enc">
+                  <option value="WPA">WPA / WPA2</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">None (open)</option>
+                </select>
+              </div>
+              <label class="checkbox-inline mt-1"><input type="checkbox" id="wifi-hidden"> Hidden network</label>
+            </div>
+
+            <div id="panel-vcard" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="vc-name">Full name</label>
+                <input type="text" id="vc-name" placeholder="Ada Lovelace">
+              </div>
+              <div class="input-group mt-1">
+                <label for="vc-phone">Phone</label>
+                <input type="text" id="vc-phone" placeholder="+33 6 12 34 56 78">
+              </div>
+              <div class="input-group mt-1">
+                <label for="vc-email">Email</label>
+                <input type="text" id="vc-email" placeholder="ada@example.com">
+              </div>
+              <div class="input-group mt-1">
+                <label for="vc-org">Organization</label>
+                <input type="text" id="vc-org" placeholder="Analytical Engines Ltd">
+              </div>
+              <div class="input-group mt-1">
+                <label for="vc-url">Website</label>
+                <input type="text" id="vc-url" placeholder="https://example.com">
+              </div>
+            </div>
+
+            <div id="panel-email" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="email-to">Email address</label>
+                <input type="text" id="email-to" placeholder="ada@example.com">
+              </div>
+              <div class="input-group mt-1">
+                <label for="email-subject">Subject</label>
+                <input type="text" id="email-subject" placeholder="Hello">
+              </div>
+              <div class="input-group mt-1">
+                <label for="email-body">Message</label>
+                <textarea id="email-body" class="textarea-short" spellcheck="false" placeholder="Pre-filled message body"></textarea>
+              </div>
+            </div>
+
+            <div id="panel-sms" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="sms-to">Phone number</label>
+                <input type="text" id="sms-to" placeholder="+33612345678">
+              </div>
+              <div class="input-group mt-1">
+                <label for="sms-body">Message</label>
+                <textarea id="sms-body" class="textarea-short" spellcheck="false" placeholder="Pre-filled SMS text"></textarea>
+              </div>
+            </div>
+
+            <div id="panel-phone" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="phone-to">Phone number</label>
+                <input type="text" id="phone-to" placeholder="+33612345678">
+              </div>
+            </div>
+
+            <div id="panel-whatsapp" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="wa-to">Phone number (international)</label>
+                <input type="text" id="wa-to" placeholder="+33 6 12 34 56 78">
+              </div>
+              <div class="input-group mt-1">
+                <label for="wa-body">Message</label>
+                <textarea id="wa-body" class="textarea-short" spellcheck="false" placeholder="Pre-filled WhatsApp message"></textarea>
+              </div>
+            </div>
+
+            <div id="panel-geo" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="geo-lat">Latitude</label>
+                <input type="text" id="geo-lat" inputmode="decimal" placeholder="48.8584">
+              </div>
+              <div class="input-group mt-1">
+                <label for="geo-lng">Longitude</label>
+                <input type="text" id="geo-lng" inputmode="decimal" placeholder="2.2945">
+              </div>
+            </div>
+
+            <div id="panel-event" class="qr-panel d-none">
+              <div class="input-group">
+                <label for="ev-title">Event title</label>
+                <input type="text" id="ev-title" placeholder="Team meeting">
+              </div>
+              <div class="input-group mt-1">
+                <label for="ev-location">Location</label>
+                <input type="text" id="ev-location" placeholder="Paris">
+              </div>
+              <div class="input-group mt-1">
+                <label for="ev-start">Starts</label>
+                <input type="datetime-local" id="ev-start">
+              </div>
+              <div class="input-group mt-1">
+                <label for="ev-end">Ends</label>
+                <input type="datetime-local" id="ev-end">
+              </div>
+              <div class="input-group mt-1">
+                <label for="ev-desc">Description</label>
+                <textarea id="ev-desc" class="textarea-short" spellcheck="false" placeholder="Optional notes"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="qr-options">
+              <div class="input-group">
+                <label for="qr-ec">Error correction</label>
+                <select id="qr-ec" class="select-md">
+                  <option value="L">Low — 7%</option>
+                  <option value="M" selected>Medium — 15%</option>
+                  <option value="Q">High — 25%</option>
+                  <option value="H">Highest — 30%</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="qr-style">Module style</label>
+                <select id="qr-style" class="select-md">
+                  <option value="square" selected>Square</option>
+                  <option value="dots">Dots</option>
+                  <option value="rounded">Rounded</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="qr-size">Export size</label>
+                <select id="qr-size" class="select-md">
+                  <option value="256">256 px</option>
+                  <option value="512" selected>512 px</option>
+                  <option value="1024">1024 px</option>
+                </select>
+              </div>
+              <div class="qr-colors">
+                <div class="input-group">
+                  <label for="qr-fg">Color</label>
+                  <input type="color" id="qr-fg" class="qr-color" value="#000000" aria-label="QR code color">
+                </div>
+                <div class="input-group">
+                  <label for="qr-bg">Background</label>
+                  <input type="color" id="qr-bg" class="qr-color" value="#ffffff" aria-label="Background color">
+                </div>
+              </div>
+            </div>
+            <p class="qr-hint" id="ec-hint">Higher correction survives logos and damage but looks denser: a logo forces Highest.</p>
+            <div class="input-group mt-1">
+              <label>Logo <span class="text-muted">(optional, stays in your browser)</span></label>
+              <div class="qr-logo-row">
+                <span class="btn btn-secondary btn-sm qr-file-label">
+                  <span id="logo-label-text">Add logo</span>
+                  <input type="file" id="qr-logo" class="qr-file-input" accept="image/png,image/jpeg,image/webp,image/svg+xml" aria-label="Upload a logo image">
+                </span>
+                <img id="qr-logo-preview" class="qr-logo-preview d-none" alt="Logo preview">
+                <button type="button" id="btn-logo-clear" class="btn btn-secondary btn-sm d-none">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="qr-output">
+          <div class="card text-center">
+            <div class="qr-result" id="qr-result">
+              <canvas id="qr-canvas" class="qr-canvas" width="0" height="0" aria-label="Generated QR code"></canvas>
+              <p class="qr-placeholder d-none" id="qr-placeholder">Enter some content to generate a QR code.</p>
+            </div>
+            <div class="status-bar justify-center" id="qr-status"></div>
+            <div class="btn-group justify-center flex-wrap">
+              <button class="btn btn-primary" id="btn-png">Download PNG</button>
+              <button class="btn btn-secondary" id="btn-svg">Download SVG</button>
+              <button class="btn btn-secondary" id="btn-copy">Copy image</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">About this QR code generator</h2>
+        <p class="seo-text">A QR code is a 2-D barcode that stores text: most often a URL, but also Wi-Fi credentials (so guests join without typing a password), a vCard contact, an email, an SMS, a phone number, a pre-filled WhatsApp message, a map location or a calendar event. This generator builds the code with the browser's own canvas; the content you type, and any logo you add, is <strong>never sent to a server</strong>, which matters when you encode a Wi-Fi password or personal details.</p>
+        <h3 class="seo-subheading">Tips</h3>
+        <ul class="seo-text">
+          <li><strong>Logo in the center:</strong> adding one forces error-correction level Highest (30%) so the code stays scannable around the cut-out — keep the logo small and test the result before printing</li>
+          <li><strong>Module style:</strong> dots and rounded modules are cosmetic — the three corner "eyes" stay solid so scanners still lock on, but always test a styled code before mass-printing</li>
+          <li><strong>Colors:</strong> keep strong contrast and a background lighter than the modules; inverted or low-contrast codes often fail to scan</li>
+          <li><strong>Error correction:</strong> higher levels stay scannable when the code is partly obscured or printed small, at the cost of denser modules</li>
+          <li><strong>PNG vs SVG:</strong> PNG for quick sharing, SVG for print and large signage — it scales without blur</li>
+          <li><strong>Wi-Fi codes</strong> follow the standard <code>WIFI:</code> format read by iOS and Android cameras</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Generators</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/uuid-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></span><span>UUID Generator</span></a>
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+      </div>
+      <a href="/generators/" class="related-all">All Generators tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/vendor/qrcode.min.js?v=20260602a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+    var QUIET = 4;
+    var LOGO_RATIO = 0.22;
+    var LEVEL_WORD = { L: 'Low', M: 'Medium', Q: 'High', H: 'Highest' };
+    var mode = 'text';
+    var lastQr = null;
+    var logoImg = null;
+    var logoDataUrl = null;
+    var canvas = document.getElementById('qr-canvas');
+    var placeholder = document.getElementById('qr-placeholder');
+    var status = document.getElementById('qr-status');
+    var ecSel = document.getElementById('qr-ec');
+    var styleSel = document.getElementById('qr-style');
+    var fgInput = document.getElementById('qr-fg');
+    var bgInput = document.getElementById('qr-bg');
+    var timer = null;
+
+    function gv(id) { return document.getElementById(id).value.trim(); }
+    function wifiEsc(s) { return s.replace(/([\\;,:"])/g, '\\$1'); }
+    function icalDate(v) { return v ? v.replace(/[-:]/g, '') + '00' : ''; }
+
+    function payload() {
+      if (mode === 'text') return document.getElementById('qr-text').value;
+      if (mode === 'wifi') {
+        var ssid = document.getElementById('wifi-ssid').value;
+        if (!ssid) return '';
+        var enc = document.getElementById('wifi-enc').value;
+        var pass = document.getElementById('wifi-pass').value;
+        var hidden = document.getElementById('wifi-hidden').checked;
+        var s = 'WIFI:T:' + enc + ';S:' + wifiEsc(ssid) + ';';
+        if (enc !== 'nopass') s += 'P:' + wifiEsc(pass) + ';';
+        if (hidden) s += 'H:true;';
+        return s + ';';
+      }
+      if (mode === 'email') {
+        var to = gv('email-to');
+        if (!to) return '';
+        var q = [];
+        var subj = gv('email-subject');
+        var body = gv('email-body');
+        if (subj) q.push('subject=' + encodeURIComponent(subj));
+        if (body) q.push('body=' + encodeURIComponent(body));
+        return 'mailto:' + to + (q.length ? '?' + q.join('&') : '');
+      }
+      if (mode === 'sms') {
+        var num = gv('sms-to');
+        if (!num) return '';
+        var msg = gv('sms-body');
+        return 'SMSTO:' + num + (msg ? ':' + msg : '');
+      }
+      if (mode === 'phone') {
+        var p = gv('phone-to');
+        return p ? 'tel:' + p : '';
+      }
+      if (mode === 'whatsapp') {
+        var digits = gv('wa-to').replace(/[^0-9]/g, '');
+        if (!digits) return '';
+        var t = gv('wa-body');
+        return 'https://wa.me/' + digits + (t ? '?text=' + encodeURIComponent(t) : '');
+      }
+      if (mode === 'geo') {
+        var lat = gv('geo-lat');
+        var lng = gv('geo-lng');
+        if (!lat || !lng) return '';
+        return 'geo:' + lat + ',' + lng;
+      }
+      if (mode === 'event') {
+        var title = gv('ev-title');
+        if (!title) return '';
+        var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT', 'SUMMARY:' + title];
+        var st = icalDate(gv('ev-start'));
+        var en = icalDate(gv('ev-end'));
+        var loc = gv('ev-location');
+        var desc = gv('ev-desc');
+        if (st) lines.push('DTSTART:' + st);
+        if (en) lines.push('DTEND:' + en);
+        if (loc) lines.push('LOCATION:' + loc);
+        if (desc) lines.push('DESCRIPTION:' + desc);
+        lines.push('END:VEVENT', 'END:VCALENDAR');
+        return lines.join('\n');
+      }
+      // vcard
+      var f = {
+        FN: document.getElementById('vc-name').value,
+        TEL: document.getElementById('vc-phone').value,
+        EMAIL: document.getElementById('vc-email').value,
+        ORG: document.getElementById('vc-org').value,
+        URL: document.getElementById('vc-url').value
+      };
+      if (!f.FN && !f.TEL && !f.EMAIL) return '';
+      var v = ['BEGIN:VCARD', 'VERSION:3.0'];
+      if (f.FN) v.push('N:' + f.FN, 'FN:' + f.FN);
+      if (f.TEL) v.push('TEL:' + f.TEL);
+      if (f.EMAIL) v.push('EMAIL:' + f.EMAIL);
+      if (f.ORG) v.push('ORG:' + f.ORG);
+      if (f.URL) v.push('URL:' + f.URL);
+      v.push('END:VCARD');
+      return v.join('\n');
+    }
+
+    function setEnabled(on) {
+      document.getElementById('btn-png').disabled = !on;
+      document.getElementById('btn-svg').disabled = !on;
+      var copy = document.getElementById('btn-copy');
+      if (copy) copy.disabled = !on;
+    }
+
+    function relLum(hex) {
+      var c = hex.replace('#', '');
+      if (c.length === 3) c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+      var ch = [0, 2, 4].map(function (i) {
+        var x = parseInt(c.substr(i, 2), 16) / 255;
+        return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2];
+    }
+
+    function contrastWarning() {
+      var lf = relLum(fgInput.value);
+      var lb = relLum(bgInput.value);
+      if (lb < lf) return 'Background is darker than the modules — many scanners fail on inverted codes.';
+      var ratio = (Math.max(lf, lb) + 0.05) / (Math.min(lf, lb) + 0.05);
+      if (ratio < 3) return 'Low contrast (' + ratio.toFixed(1) + ':1) — the code may not scan.';
+      return '';
+    }
+
+    // Finder patterns ("eyes") — kept solid so styled modules stay scannable
+    function isFinder(r, c, n) {
+      return (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+    }
+
+    function roundRectPath(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function render() {
+      var text = payload();
+      if (!text) {
+        lastQr = null;
+        canvas.classList.add('d-none');
+        placeholder.classList.remove('d-none');
+        status.innerHTML = '';
+        setEnabled(false);
+        return;
+      }
+      var level = ecSel.value;
+      var qr;
+      try {
+        qr = qrcode(0, level);
+        qr.addData(text);
+        qr.make();
+      } catch (e) {
+        lastQr = null;
+        canvas.classList.add('d-none');
+        placeholder.classList.add('d-none');
+        status.innerHTML = '<span class="invalid">Content too long for a single QR code — shorten it or lower the error-correction level.</span>';
+        setEnabled(false);
+        return;
+      }
+      lastQr = qr;
+      var fg = fgInput.value;
+      var bg = bgInput.value;
+      var style = styleSel.value;
+      var count = qr.getModuleCount();
+      var total = count + QUIET * 2;
+      var target = parseInt(document.getElementById('qr-size').value, 10);
+      var cell = Math.max(1, Math.floor(target / total));
+      var dim = cell * total;
+      canvas.width = dim;
+      canvas.height = dim;
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, dim, dim);
+      ctx.fillStyle = fg;
+      for (var r = 0; r < count; r++) {
+        for (var c = 0; c < count; c++) {
+          if (!qr.isDark(r, c)) continue;
+          var x = (c + QUIET) * cell;
+          var y = (r + QUIET) * cell;
+          if (style === 'square' || isFinder(r, c, count)) {
+            ctx.fillRect(x, y, cell, cell);
+          } else if (style === 'dots') {
+            ctx.beginPath();
+            ctx.arc(x + cell / 2, y + cell / 2, cell / 2, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            roundRectPath(ctx, x, y, cell, cell, cell * 0.3);
+            ctx.fill();
+          }
+        }
+      }
+      if (logoImg) {
+        var ls = Math.round(dim * LOGO_RATIO);
+        var pad = Math.round(ls * 0.12);
+        var off = Math.round((dim - ls) / 2);
+        ctx.fillStyle = bg;
+        ctx.fillRect(off - pad, off - pad, ls + pad * 2, ls + pad * 2);
+        ctx.drawImage(logoImg, off, off, ls, ls);
+      }
+      canvas.style.imageRendering = (style === 'square') ? '' : 'auto';
+      canvas.classList.remove('d-none');
+      placeholder.classList.add('d-none');
+      var warn = contrastWarning();
+      status.innerHTML = '<span class="text-muted">' + count + '×' + count + ' modules · ' + (LEVEL_WORD[level] || level) + ' · ' + dim + 'px</span>'
+        + (warn ? ' <span class="invalid">· ' + warn + '</span>' : '');
+      setEnabled(true);
+    }
+
+    function buildSvg(qr) {
+      var fg = fgInput.value;
+      var bg = bgInput.value;
+      var style = styleSel.value;
+      var count = qr.getModuleCount();
+      var total = count + QUIET * 2;
+      var shapes = '';
+      for (var r = 0; r < count; r++) {
+        for (var c = 0; c < count; c++) {
+          if (!qr.isDark(r, c)) continue;
+          var x = c + QUIET;
+          var y = r + QUIET;
+          if (style === 'square' || isFinder(r, c, count)) {
+            shapes += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>';
+          } else if (style === 'dots') {
+            shapes += '<circle cx="' + (x + 0.5) + '" cy="' + (y + 0.5) + '" r="0.5"/>';
+          } else {
+            shapes += '<rect x="' + x + '" y="' + y + '" width="1" height="1" rx="0.3" ry="0.3"/>';
+          }
+        }
+      }
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ' + total + ' ' + total + '" width="' + (total * 10) + '" height="' + (total * 10) + '" shape-rendering="geometricPrecision">';
+      svg += '<rect width="100%" height="100%" fill="' + bg + '"/>';
+      svg += '<g fill="' + fg + '">' + shapes + '</g>';
+      if (logoDataUrl) {
+        var ls = total * LOGO_RATIO;
+        var pad = ls * 0.12;
+        var off = (total - ls) / 2;
+        svg += '<rect x="' + (off - pad) + '" y="' + (off - pad) + '" width="' + (ls + pad * 2) + '" height="' + (ls + pad * 2) + '" fill="' + bg + '"/>';
+        svg += '<image xlink:href="' + logoDataUrl + '" x="' + off + '" y="' + off + '" width="' + ls + '" height="' + ls + '" preserveAspectRatio="xMidYMid meet"/>';
+      }
+      return svg + '</svg>';
+    }
+
+    function downloadBlob(blob, name) {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = name;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    function schedule() { clearTimeout(timer); timer = setTimeout(render, 150); }
+
+    var MODES = ['text', 'wifi', 'vcard', 'email', 'sms', 'phone', 'whatsapp', 'geo', 'event'];
+    function setMode(m) {
+      mode = m;
+      MODES.forEach(function (id) {
+        document.getElementById('tab-' + id).className = 'btn btn-sm ' + (id === m ? 'btn-primary' : 'btn-secondary');
+        document.getElementById('panel-' + id).classList.toggle('d-none', id !== m);
+      });
+      render();
+    }
+
+    document.querySelectorAll('.qr-tabs button').forEach(function (b) {
+      b.addEventListener('click', function () { setMode(b.getAttribute('data-mode')); });
+    });
+    ['qr-text', 'wifi-ssid', 'wifi-pass', 'wifi-enc', 'wifi-hidden', 'vc-name', 'vc-phone', 'vc-email', 'vc-org', 'vc-url',
+     'email-to', 'email-subject', 'email-body', 'sms-to', 'sms-body', 'phone-to', 'wa-to', 'wa-body',
+     'geo-lat', 'geo-lng', 'ev-title', 'ev-location', 'ev-start', 'ev-end', 'ev-desc',
+     'qr-ec', 'qr-style', 'qr-size', 'qr-fg', 'qr-bg'].forEach(function (id) {
+      var el = document.getElementById(id);
+      el.addEventListener('input', schedule);
+      el.addEventListener('change', schedule);
+    });
+
+    // Logo upload — read locally, never uploaded
+    var logoInput = document.getElementById('qr-logo');
+    var logoPreview = document.getElementById('qr-logo-preview');
+    var logoClear = document.getElementById('btn-logo-clear');
+    var logoLabelText = document.getElementById('logo-label-text');
+    logoInput.addEventListener('change', function () {
+      var file = logoInput.files && logoInput.files[0];
+      if (!file) return;
+      var reader = new FileReader();
+      reader.onload = function () {
+        var url = reader.result;
+        var img = new Image();
+        img.onload = function () {
+          logoImg = img;
+          logoDataUrl = url;
+          logoPreview.src = url;
+          logoPreview.classList.remove('d-none');
+          logoClear.classList.remove('d-none');
+          logoLabelText.textContent = 'Change logo';
+          ecSel.value = 'H';
+          ecSel.disabled = true;
+          render();
+        };
+        img.onerror = function () {
+          status.innerHTML = '<span class="invalid">Could not load that image.</span>';
+        };
+        img.src = url;
+      };
+      reader.readAsDataURL(file);
+    });
+    logoClear.addEventListener('click', function () {
+      logoImg = null;
+      logoDataUrl = null;
+      logoInput.value = '';
+      logoPreview.src = '';
+      logoPreview.classList.add('d-none');
+      logoClear.classList.add('d-none');
+      logoLabelText.textContent = 'Add logo';
+      ecSel.disabled = false;
+      render();
+    });
+
+    document.getElementById('btn-png').addEventListener('click', function () {
+      if (!lastQr) return;
+      canvas.toBlob(function (blob) { downloadBlob(blob, 'qrcode.png'); }, 'image/png');
+    });
+    document.getElementById('btn-svg').addEventListener('click', function () {
+      if (!lastQr) return;
+      downloadBlob(new Blob([buildSvg(lastQr)], { type: 'image/svg+xml' }), 'qrcode.svg');
+    });
+
+    var copyBtn = document.getElementById('btn-copy');
+    if (typeof ClipboardItem === 'undefined' || !navigator.clipboard || !navigator.clipboard.write) {
+      copyBtn.classList.add('d-none');
+    } else {
+      copyBtn.addEventListener('click', function () {
+        if (!lastQr) return;
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+            .then(function () { showToast('Copied!'); })
+            .catch(function () { showToast('Copy failed'); });
+        }, 'image/png');
+      });
+    }
+
+    document.getElementById('qr-text').value = 'https://praticulus.com/qr-generator/';
+    render();
+  })();
+  </script>
+</body>
+</html>

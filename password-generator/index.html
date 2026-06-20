@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Password Generator — Strong Random Passwords | Praticulus</title>
+  <meta name="description" content="Generate strong, random passwords with customizable length and character sets. Free online password generator, no signup. Everything runs in your browser.">
+  <meta name="keywords" content="password generator, random password, strong password generator, secure password, generate password online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/password-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Password Generator — Strong Random Passwords | Praticulus">
+  <meta property="og:description" content="Generate strong, random passwords with customizable length and character sets. Free online password generator, no signup. Everything runs in your browser.">
+  <meta property="og:url" content="https://praticulus.com/password-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Password Generator",
+    "url": "https://praticulus.com/password-generator/",
+    "description": "Generate strong, random passwords with customizable length and character sets. Free online password generator, no signup. Everything runs in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Security Tools", "item": "https://praticulus.com/security/" },
+      { "@type": "ListItem", "position": 3, "name": "Password Generator", "item": "https://praticulus.com/password-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/security/">Security Tools</a></li>
+        <li><span aria-current="page">Password Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></div>
+      <h1>Password Generator</h1>
+      <p>Generate strong, random passwords. Customize length and character sets to match any requirement.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card text-center">
+        <div class="output-area password-display tracking-wide" id="password" role="status" aria-live="polite" title="Click to copy"></div>
+        <div class="strength-bar" id="strength"></div>
+        <div class="btn-group justify-center">
+          <button class="btn btn-primary" id="btn-generate">Generate New</button>
+          <button class="btn btn-secondary" id="btn-copy">Copy</button>
+        </div>
+        <div class="status-bar justify-center" id="copy-status"></div>
+      </div>
+
+      <div class="card">
+        <div class="flex gap-1 items-center mb-2">
+          <label class="checkbox-inline"><input type="checkbox" id="passphrase-mode"> Passphrase mode</label>
+        </div>
+        <div id="password-options">
+          <label>Length: <span id="len-display">16</span></label>
+          <input type="range" id="length" min="4" max="128" value="16" class="range-input">
+          <div class="checkbox-grid">
+            <label class="checkbox-label"><input type="checkbox" id="upper" checked> Uppercase (A-Z)</label>
+            <label class="checkbox-label"><input type="checkbox" id="lower" checked> Lowercase (a-z)</label>
+            <label class="checkbox-label"><input type="checkbox" id="digits" checked> Digits (0-9)</label>
+            <label class="checkbox-label"><input type="checkbox" id="symbols" checked> Symbols (!@#$...)</label>
+            <label class="checkbox-label"><input type="checkbox" id="exclude-ambiguous"> Exclude ambiguous (0O l1I)</label>
+          </div>
+        </div>
+        <div id="passphrase-options" class="d-none">
+          <label>Words: <span id="word-count-display">4</span></label>
+          <input type="range" id="word-count" min="2" max="10" value="4" class="range-input">
+          <label class="mt-1">Separator</label>
+          <div class="flex gap-1 items-center flex-wrap">
+            <button class="btn btn-sm btn-secondary sep-btn active" data-sep="-">dash</button>
+            <button class="btn btn-sm btn-secondary sep-btn" data-sep=" ">space</button>
+            <button class="btn btn-sm btn-secondary sep-btn" data-sep=".">dot</button>
+            <input type="text" id="custom-sep" class="input-sm" placeholder="custom" maxlength="3">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="status-bar" id="crack-time"></div>
+      </div>
+
+      <div class="card">
+        <label>Bulk Generate</label>
+        <div class="flex gap-1 items-center mb-2">
+          <input type="number" id="bulk-count" value="5" min="1" max="100" class="input-sm">
+          <button class="btn btn-primary" id="btn-bulk-generate">Generate</button>
+          <button class="btn btn-secondary" id="btn-bulk-copy">Copy All</button>
+        </div>
+        <textarea id="bulk-output" readonly class="textarea-short" placeholder="Bulk passwords will appear here..."></textarea>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">Password Security Tips</h2>
+        <ul class="seo-text">
+          <li>Use at least 12 characters, longer is better</li>
+          <li>Include uppercase, lowercase, digits, and symbols</li>
+          <li>Never reuse passwords across different accounts</li>
+          <li>Use a password manager to store your passwords securely</li>
+          <li>This tool generates passwords locally in your browser: nothing is sent to any server</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Security</h2>
+      <div class="related-grid">
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/jwt-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-token"></use></svg></span><span>JWT Decoder</span></a>
+        <a href="/hmac-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-signature"></use></svg></span><span>HMAC Generator</span></a>
+        <a href="/totp-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-timer"></use></svg></span><span>TOTP Generator</span></a>
+        <a href="/cert-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-certificate"></use></svg></span><span>Certificate Decoder</span></a>
+      </div>
+      <a href="/security/" class="related-all">All Security tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/wordlist.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    var DIGITS = '0123456789';
+    var SYMBOLS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    var AMBIGUOUS = '0OlI1';
+    var separator = '-';
+
+    function getCharset() {
+      var cs = '';
+      if ($('#upper').checked) cs += UPPER;
+      if ($('#lower').checked) cs += LOWER;
+      if ($('#digits').checked) cs += DIGITS;
+      if ($('#symbols').checked) cs += SYMBOLS;
+      if ($('#exclude-ambiguous').checked) {
+        cs = cs.split('').filter(function(c) { return AMBIGUOUS.indexOf(c) === -1; }).join('');
+      }
+      return cs || LOWER;
+    }
+
+    function genPassword(len) {
+      var cs = getCharset();
+      var arr = new Uint32Array(len);
+      crypto.getRandomValues(arr);
+      return Array.from(arr, function(v) { return cs[v % cs.length]; }).join('');
+    }
+
+    function genPassphrase(count) {
+      var arr = new Uint32Array(count);
+      crypto.getRandomValues(arr);
+      return Array.from(arr, function(v) { return PASSPHRASE_WORDS[v % PASSPHRASE_WORDS.length]; }).join(separator);
+    }
+
+    function isPassphrase() { return $('#passphrase-mode').checked; }
+
+    function generate() {
+      var pwd;
+      if (isPassphrase()) {
+        pwd = genPassphrase(parseInt($('#word-count').value) || 4);
+      } else {
+        pwd = genPassword(parseInt($('#length').value));
+      }
+      $('#password').textContent = pwd;
+      updateStrength(pwd);
+      updateCrackTime(pwd);
+    }
+
+    function updateLen() { $('#len-display').textContent = $('#length').value; }
+    function updateWordCount() { $('#word-count-display').textContent = $('#word-count').value; }
+
+    function calcEntropy(pwd) {
+      if (isPassphrase()) return pwd.split(separator).length * Math.log2(PASSPHRASE_WORDS.length);
+      return pwd.length * Math.log2(getCharset().length);
+    }
+
+    function updateStrength(pwd) {
+      var entropy = calcEntropy(pwd);
+      var label, cls;
+      if (entropy < 40) { label = 'Weak'; cls = 'invalid'; }
+      else if (entropy < 60) { label = 'Fair'; cls = 'valid'; }
+      else if (entropy < 80) { label = 'Strong'; cls = 'valid'; }
+      else { label = 'Very Strong'; cls = 'valid'; }
+      $('#strength').innerHTML = '<span class="' + cls + '">\u25cf ' + label + '</span> <span class="text-muted">(' + Math.floor(entropy) + ' bits)</span>';
+    }
+
+    function updateCrackTime(pwd) {
+      var entropy = calcEntropy(pwd);
+      var sec = Math.pow(2, entropy) / 1e9;
+      var label;
+      if (sec < 1) label = 'Instant';
+      else if (sec < 60) label = Math.round(sec) + ' seconds';
+      else if (sec < 3600) label = Math.round(sec / 60) + ' minutes';
+      else if (sec < 86400) label = Math.round(sec / 3600) + ' hours';
+      else if (sec < 31536000) label = Math.round(sec / 86400) + ' days';
+      else if (sec < 31536000e3) label = Math.round(sec / 31536000) + ' years';
+      else if (sec < 31536000e6) label = Math.round(sec / 31536000e3) + 'K years';
+      else if (sec < 31536000e9) label = Math.round(sec / 31536000e6) + 'M years';
+      else label = 'Billions of years';
+      $('#crack-time').innerHTML = '<span class="text-muted">Crack time (1B/sec): </span><strong>' + label + '</strong>';
+    }
+
+    function copyPwd() {
+      navigator.clipboard.writeText($('#password').textContent);
+      $('#copy-status').innerHTML = '<span class="valid">Copied!</span>';
+      setTimeout(function() { $('#copy-status').innerHTML = ''; }, 1500);
+    }
+
+    function generateBulk() {
+      var count = Math.min(parseInt($('#bulk-count').value) || 5, 100);
+      var pwds;
+      if (isPassphrase()) {
+        var wc = parseInt($('#word-count').value) || 4;
+        pwds = Array.from({ length: count }, function() { return genPassphrase(wc); });
+      } else {
+        var len = parseInt($('#length').value);
+        pwds = Array.from({ length: count }, function() { return genPassword(len); });
+      }
+      $('#bulk-output').value = pwds.join('\n');
+    }
+
+    function copyBulk() { navigator.clipboard.writeText($('#bulk-output').value); }
+
+    $('#passphrase-mode').addEventListener('change', function() {
+      $('#password-options').classList.toggle('d-none', this.checked);
+      $('#passphrase-options').classList.toggle('d-none', !this.checked);
+      generate();
+    });
+
+    document.querySelectorAll('.sep-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.sep-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        separator = btn.getAttribute('data-sep');
+        $('#custom-sep').value = '';
+        generate();
+      });
+    });
+    $('#custom-sep').addEventListener('input', function() {
+      if (this.value) { separator = this.value; document.querySelectorAll('.sep-btn').forEach(function(b) { b.classList.remove('active'); }); generate(); }
+    });
+    $('#word-count').addEventListener('input', function() { updateWordCount(); generate(); });
+
+    document.getElementById('btn-generate').addEventListener('click', generate);
+    document.getElementById('btn-copy').addEventListener('click', copyPwd);
+    document.getElementById('password').addEventListener('click', copyPwd);
+    document.getElementById('btn-bulk-generate').addEventListener('click', generateBulk);
+    document.getElementById('btn-bulk-copy').addEventListener('click', copyBulk);
+    document.getElementById('length').addEventListener('input', function() { updateLen(); generate(); });
+
+    ['upper', 'lower', 'digits', 'symbols', 'exclude-ambiguous'].forEach(function(id) {
+      document.getElementById(id).addEventListener('change', generate);
+    });
+
+    generate();
+  })();
+  </script>
+</body>
+</html>

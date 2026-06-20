@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>SQL Formatter — Free Online Beautifier | Praticulus</title>
+  <meta name="description" content="Free online SQL formatter and beautifier. Format messy SQL with dialect, indentation and keyword-case options, or minify to one line. 100% client-side, no signup.">
+  <meta name="keywords" content="sql formatter, sql beautifier, format sql online, sql pretty print, sql minifier, mysql formatter, postgresql formatter, sqlite formatter, sql server formatter, bigquery formatter">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/sql-formatter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SQL Formatter — Free Online Beautifier | Praticulus">
+  <meta property="og:description" content="Free online SQL formatter and beautifier. Format messy SQL with dialect, indentation and keyword-case options, or minify to one line. 100% client-side, no signup.">
+  <meta property="og:url" content="https://praticulus.com/sql-formatter/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SQL Formatter",
+    "url": "https://praticulus.com/sql-formatter/",
+    "description": "Free online SQL formatter and beautifier. Format messy SQL with dialect, indentation and keyword-case options, or minify to one line. 100% client-side, no signup.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://praticulus.com/developer/" },
+      { "@type": "ListItem", "position": 3, "name": "SQL Formatter", "item": "https://praticulus.com/sql-formatter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/developer/">Developer Tools</a></li>
+        <li><span aria-current="page">SQL Formatter</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-database"></use></svg></div>
+      <h1>SQL Formatter</h1>
+      <p>Paste messy SQL to beautify, indent and align it, or minify it to a single line. Everything runs locally in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input SQL</label>
+        <textarea id="input" spellcheck="false" placeholder="select * from users where id = 1;"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-format">Format</button>
+          <button class="btn btn-secondary" id="btn-minify">Minify</button>
+          <select id="dialect-select" class="select-indent" aria-label="SQL dialect">
+            <option value="sql">Standard SQL</option>
+            <option value="mysql">MySQL</option>
+            <option value="postgresql">PostgreSQL</option>
+            <option value="sqlite">SQLite</option>
+            <option value="transactsql">SQL Server</option>
+            <option value="plsql">Oracle (PL/SQL)</option>
+            <option value="bigquery">BigQuery</option>
+          </select>
+          <select id="indent-select" class="select-indent" aria-label="Indentation">
+            <option value="2">2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+          <select id="case-select" class="select-indent" aria-label="Keyword case">
+            <option value="upper">KEYWORDS UPPER</option>
+            <option value="lower">keywords lower</option>
+            <option value="preserve">keywords as-is</option>
+          </select>
+          <button class="btn btn-secondary" id="btn-upload">Upload</button>
+          <input type="file" id="file-upload" accept=".sql,.txt" class="d-none">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <div class="flex gap-1">
+            <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+            <button class="btn btn-secondary btn-sm" id="btn-download">Download</button>
+            <button class="btn btn-secondary btn-sm" id="btn-share">Share</button>
+          </div>
+        </div>
+        <div class="output-area output-prose" id="output" role="status" aria-live="polite">Formatted SQL will appear here...</div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">About this SQL formatter</h2>
+        <p class="seo-text">A SQL beautifier puts each clause on its own line, indents sub-expressions and (optionally) upper-cases keywords so a query is readable in code review or a migration file. This one tokenises your SQL for standard SQL, MySQL, PostgreSQL, SQLite, SQL Server, Oracle or BigQuery: it never connects to a database and never sends your query anywhere.</p>
+        <h3 class="seo-subheading">Options</h3>
+        <ul class="seo-text">
+          <li><strong>Dialect:</strong> picks the keyword set and quoting rules (backticks for MySQL, <code>[brackets]</code> for SQL Server, etc.)</li>
+          <li><strong>Indentation:</strong> 2 spaces, 4 spaces or a real tab character</li>
+          <li><strong>Keyword case:</strong> upper-case, lower-case or keep keywords as typed: column names that happen to match a keyword (<code>name</code>, <code>status</code>, <code>type</code>) are left untouched</li>
+          <li><strong>Minify:</strong> strips comments and collapses whitespace to a one-line query, leaving string literals untouched</li>
+          <li><strong>Share:</strong> encodes the query in the URL fragment (after <code>#</code>) so it is never sent to a server</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Developer</h2>
+      <div class="related-grid">
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+        <a href="/uuid-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></span><span>UUID Generator</span></a>
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+      </div>
+      <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var status = document.getElementById('status');
+    var dialectSelect = document.getElementById('dialect-select');
+    var indentSelect = document.getElementById('indent-select');
+    var caseSelect = document.getElementById('case-select');
+    var rawOutput = '';
+
+    var SAMPLE = "select u.id, u.email, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.created_at > '2026-01-01' group by u.id, u.email having count(o.id) > 5 order by order_count desc;";
+    var SAMPLE_FORMATTED = "SELECT\n  u.id,\n  u.email,\n  count(o.id) AS order_count\nFROM\n  users u\n  LEFT JOIN orders o ON o.user_id = u.id\nWHERE\n  u.created_at > '2026-01-01'\nGROUP BY\n  u.id,\n  u.email\nHAVING\n  count(o.id) > 5\nORDER BY\n  order_count DESC;";
+
+    function indentOpts() {
+      var v = indentSelect.value;
+      if (v === 'tab') return { useTabs: true, tabWidth: 2 };
+      return { useTabs: false, tabWidth: parseInt(v, 10) };
+    }
+
+    function setStatus(type, msg) { status.innerHTML = '<span class="' + type + '">' + msg + '</span>'; }
+    function showOutput(text) { rawOutput = text; output.textContent = text; }
+    function statusFor(text) { setStatus('valid', '✓ Formatted — ' + text.split('\n').length + ' lines, ' + text.length + ' chars'); }
+
+    // Lazy-load the formatting engine (~320 KB) the first time it's actually
+    // needed — the initial page load stays free of it (perf budget), and the
+    // hand-rolled minifier works without it.
+    var libInjected = false, libCb = null;
+    function ensureLib(cb) {
+      if (window.sqlFormatter) { cb(); return; }
+      libCb = cb;
+      if (libInjected) return;
+      libInjected = true;
+      var s = document.createElement('script');
+      s.src = '/js/vendor/sql-formatter.min.js?v=20260612a';
+      s.onload = function () { var f = libCb; libCb = null; if (f) f(); };
+      s.onerror = function () { libInjected = false; setStatus('invalid', 'Could not load the SQL formatting engine — check your connection.'); };
+      document.head.appendChild(s);
+    }
+
+    function doFormat() {
+      var src = input.value.trim();
+      if (!src) { showOutput('Formatted SQL will appear here...'); rawOutput = ''; status.innerHTML = ''; return; }
+      try {
+        var io = indentOpts();
+        var formatted = sqlFormatter.format(src, {
+          language: dialectSelect.value,
+          tabWidth: io.tabWidth,
+          useTabs: io.useTabs,
+          keywordCase: caseSelect.value
+        });
+        showOutput(formatted);
+        statusFor(formatted);
+      } catch (e) {
+        setStatus('invalid', 'Could not format: ' + escapeHtml(e.message));
+      }
+    }
+
+    function formatSQL() {
+      if (!input.value.trim()) { showOutput('Formatted SQL will appear here...'); rawOutput = ''; status.innerHTML = ''; return; }
+      setStatus('', 'Formatting…');
+      ensureLib(doFormat);
+    }
+
+    // Whitespace minify that leaves string literals and identifiers intact.
+    function minifySQL(s) {
+      var out = '', i = 0, n = s.length, q = null;
+      while (i < n) {
+        var c = s.charAt(i);
+        if (q) {
+          if (c === q && s.charAt(i + 1) === q) { out += c + c; i += 2; continue; } // escaped '' or ""
+          out += c;
+          if (c === q) q = null;
+          i++;
+          continue;
+        }
+        if (c === "'" || c === '"' || c === '`') { q = c; out += c; i++; continue; }
+        if (c === '-' && s.charAt(i + 1) === '-') { while (i < n && s.charAt(i) !== '\n') i++; continue; }
+        if (c === '/' && s.charAt(i + 1) === '*') { i += 2; while (i < n && !(s.charAt(i) === '*' && s.charAt(i + 1) === '/')) i++; i += 2; continue; }
+        if (/\s/.test(c)) {
+          while (i < n && /\s/.test(s.charAt(i))) i++;
+          if (out && !/\s$/.test(out)) out += ' ';
+          continue;
+        }
+        out += c; i++;
+      }
+      return out.trim();
+    }
+
+    function minify() {
+      var src = input.value.trim();
+      if (!src) return;
+      var min = minifySQL(src);
+      showOutput(min);
+      setStatus('valid', 'Minified — ' + min.length + ' chars (saved ' + (input.value.length - min.length) + ')');
+    }
+
+    function clearAll() {
+      input.value = '';
+      rawOutput = '';
+      output.textContent = 'Formatted SQL will appear here...';
+      status.innerHTML = '';
+      if (location.hash) history.replaceState(null, '', location.pathname);
+    }
+
+    // URL sharing — state lives in the hash fragment, never sent to a server.
+    function b64e(str) { return btoa(unescape(encodeURIComponent(str))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+    function b64d(b) { b = b.replace(/-/g, '+').replace(/_/g, '/'); return decodeURIComponent(escape(atob(b))); }
+
+    function share() {
+      if (!input.value.trim()) { showToast('Nothing to share yet'); return; }
+      var state = { q: input.value, l: dialectSelect.value, i: indentSelect.value, c: caseSelect.value };
+      var enc = b64e(JSON.stringify(state));
+      if (enc.length > 16000) { showToast('Query too large to share via URL'); return; }
+      var url = location.origin + location.pathname + '#s=' + enc;
+      history.replaceState(null, '', url);
+      copyToClipboard(url, document.getElementById('btn-share'));
+    }
+
+    function restore() {
+      var m = location.hash.match(/#s=(.+)$/);
+      if (!m) return false;
+      try {
+        var state = JSON.parse(b64d(m[1]));
+        input.value = state.q || '';
+        if (state.l) dialectSelect.value = state.l;
+        if (state.i) indentSelect.value = state.i;
+        if (state.c) caseSelect.value = state.c;
+        return true;
+      } catch (e) { return false; }
+    }
+
+    document.getElementById('btn-format').addEventListener('click', formatSQL);
+    document.getElementById('btn-minify').addEventListener('click', minify);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy').addEventListener('click', function() { if (rawOutput) copyToClipboard(rawOutput, this); });
+    document.getElementById('btn-download').addEventListener('click', function() { if (rawOutput) downloadText(rawOutput, 'formatted.sql'); });
+    document.getElementById('btn-share').addEventListener('click', share);
+    [dialectSelect, indentSelect, caseSelect].forEach(function(el) { el.addEventListener('change', formatSQL); });
+
+    document.getElementById('btn-upload').addEventListener('click', function() { document.getElementById('file-upload').click(); });
+    document.getElementById('file-upload').addEventListener('change', function(e) {
+      var f = e.target.files[0]; if (!f) return;
+      var r = new FileReader();
+      r.onload = function(ev) { input.value = ev.target.result; formatSQL(); };
+      r.readAsText(f); e.target.value = '';
+    });
+    input.addEventListener('paste', function() { setTimeout(formatSQL, 50); });
+
+    // Default load: show the sample already formatted (constant) without pulling
+    // the engine; a restored share link formats live.
+    if (restore()) {
+      formatSQL();
+    } else {
+      input.value = SAMPLE;
+      showOutput(SAMPLE_FORMATTED);
+      statusFor(SAMPLE_FORMATTED);
+    }
+  })();
+  </script>
+</body>
+</html>

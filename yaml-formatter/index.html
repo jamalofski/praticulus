@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>YAML Formatter &amp; Validator — Free Online Tool | Praticulus</title>
+  <meta name="description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.">
+  <meta name="keywords" content="yaml formatter, yaml validator, yaml lint, yaml beautifier, format yaml online, validate yaml, yaml syntax checker, yaml minifier">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/yaml-formatter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YAML Formatter &amp; Validator — Free Online Tool | Praticulus">
+  <meta property="og:description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.">
+  <meta property="og:url" content="https://praticulus.com/yaml-formatter/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "YAML Formatter and Validator",
+    "url": "https://praticulus.com/yaml-formatter/",
+    "description": "Free online YAML formatter, validator, and minifier. Paste your YAML, format it with proper indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://praticulus.com/developer/" },
+      { "@type": "ListItem", "position": 3, "name": "YAML Formatter & Validator", "item": "https://praticulus.com/yaml-formatter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/developer/">Developer Tools</a></li>
+        <li><span aria-current="page">YAML Formatter &amp; Validator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-yaml"></use></svg></div>
+      <h1>YAML Formatter &amp; Validator</h1>
+      <p>Paste your YAML to format, validate, or compact it instantly. Everything runs locally in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input YAML</label>
+        <textarea id="input" placeholder="name: praticulus&#10;version: 1&#10;features:&#10;  - format&#10;  - validate&#10;  - minify"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-format">Format</button>
+          <button class="btn btn-secondary" id="btn-minify">Minify</button>
+          <button class="btn btn-secondary" id="btn-validate">Validate</button>
+          <select id="indent-select" class="select-indent" aria-label="Indentation">
+            <option value="2">2 spaces</option>
+            <option value="4">4 spaces</option>
+          </select>
+          <button class="btn btn-secondary" id="btn-upload">Upload</button>
+          <input type="file" id="file-upload" accept=".yaml,.yml,.txt" class="d-none">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <div class="flex gap-1">
+            <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+            <button class="btn btn-secondary btn-sm" id="btn-download">Download</button>
+          </div>
+        </div>
+        <div class="output-area" id="output" role="status" aria-live="polite">Formatted YAML will appear here...</div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is YAML?</h2>
+        <p class="seo-text">YAML (YAML Ain't Markup Language) is a human-readable data serialization format built on indentation. It powers Kubernetes manifests, Docker Compose files, GitHub Actions workflows, Ansible playbooks, OpenAPI specs and most CI/CD configs. Because structure is encoded in whitespace, a single misplaced space or a stray tab breaks the whole document, which is exactly what this validator catches.</p>
+        <h3 class="seo-subheading">How to use this tool</h3>
+        <ul class="seo-text">
+          <li><strong>Format:</strong> re-indents your YAML cleanly with 2 or 4 spaces and normalizes block style. Tabs are never emitted: YAML forbids tabs for indentation.</li>
+          <li><strong>Minify:</strong> collapses the document to compact flow style (<code>{key: value, list: [a, b]}</code>) on a single line, the smallest valid YAML representation.</li>
+          <li><strong>Validate:</strong> parses against YAML 1.2 and reports the exact line and column of the first syntax error.</li>
+        </ul>
+        <h3 class="seo-subheading">When to use YAML vs JSON</h3>
+        <p class="seo-text">Reach for YAML when a human edits the file by hand: configuration, infrastructure-as-code, pipelines. Its comments (<code>#</code>), multiline strings and lack of brackets make it pleasant to read and diff. Reach for JSON when a machine produces and consumes the data (APIs, logs, storage), where strict, bracket-delimited syntax leaves no room for indentation mistakes. Every JSON document is also valid YAML, which is why YAML's flow style looks JSON-like.</p>
+        <h3 class="seo-subheading">Limitations</h3>
+        <ul class="seo-text">
+          <li>Single-document input only. Multi-document streams separated by <code>---</code> aren't supported yet and report a clear error rather than failing silently.</li>
+          <li>Anchors (<code>&amp;name</code>) and aliases (<code>*name</code>) are resolved and expanded inline on format, so the output is self-contained.</li>
+          <li>Comments (<code>#</code>) are stripped by <strong>Format</strong> and <strong>Minify</strong>: the parser keeps your data, not the layout. <strong>Validate</strong> leaves your input untouched.</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Developer</h2>
+      <div class="related-grid">
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/sql-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-database"></use></svg></span><span>SQL Formatter</span></a>
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+      </div>
+      <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var status = document.getElementById('status');
+    var indentSelect = document.getElementById('indent-select');
+    var rawOutput = '';
+
+    // js-yaml (~13kB gzip) is lazy-loaded on first use so the initial page load
+    // stays within the perf budget. Vendored locally — no third-party CDN (CSP).
+    var libInjected = false, libCb = null;
+    function ensureLib(cb) {
+      if (window.jsyaml) { cb(); return; }
+      libCb = cb;
+      if (libInjected) return;
+      libInjected = true;
+      var s = document.createElement('script');
+      s.src = '/js/vendor/js-yaml.min.js?v=20260612b';
+      s.onload = function () { var f = libCb; libCb = null; if (f) f(); };
+      s.onerror = function () { libInjected = false; setStatus('invalid', 'Could not load the YAML engine, check your connection.'); };
+      document.head.appendChild(s);
+    }
+
+    function getIndent() { return parseInt(indentSelect.value, 10) || 2; }
+
+    function findInlineComment(line) {
+      // Index of an unquoted '#' that starts a comment, or -1. A comment '#'
+      // must be at line start or preceded by whitespace (YAML rule).
+      var inS = false, inD = false;
+      for (var k = 0; k < line.length; k++) {
+        var ch = line[k];
+        if (ch === "'" && !inD) inS = !inS;
+        else if (ch === '"' && !inS) inD = !inD;
+        else if (ch === '#' && !inS && !inD && (k === 0 || /\s/.test(line[k - 1]))) return k;
+      }
+      return -1;
+    }
+
+    function highlightYAML(line) {
+      var comment = '';
+      var ci = findInlineComment(line);
+      if (ci >= 0) { comment = line.slice(ci); line = line.slice(0, ci); }
+      var h = escapeHtml(line);
+      // key: (optionally prefixed by indentation and one or more "- " list markers)
+      h = h.replace(/^(\s*(?:- )*)([^:#\n]+?)(:)(\s|$)/, function (_, pre, key, colon, tail) {
+        return pre + '<span class="json-key">' + key + '</span>' + colon + tail;
+      });
+      // quoted scalar strings
+      h = h.replace(/(&quot;[^&]*?&quot;|&#39;[^&]*?&#39;)/g, '<span class="json-str">$1</span>');
+      // numeric scalar value
+      h = h.replace(/((?::\s+|^\s*- ))(-?\d+\.?\d*(?:[eE][+-]?\d+)?)(\s*)$/, '$1<span class="json-num">$2</span>$3');
+      // boolean / null scalar value
+      h = h.replace(/((?::\s+|^\s*- ))(true|false|null|~)(\s*)$/i, '$1<span class="json-bool">$2</span>$3');
+      return comment ? h + escapeHtml(comment) : h;
+    }
+
+    function renderWithLines(str) {
+      return str.split('\n').map(function (line, i) {
+        return '<div class="json-line"><span class="line-num">' + (i + 1) + '</span><span class="line-content">' + highlightYAML(line) + '</span></div>';
+      }).join('');
+    }
+
+    function fmtError(e) {
+      if (e && e.mark && typeof e.mark.line === 'number') {
+        return 'Error at line ' + (e.mark.line + 1) + ', column ' + (e.mark.column + 1) + ': ' + escapeHtml(e.reason || e.message);
+      }
+      return 'Error: ' + escapeHtml((e && e.message) || String(e));
+    }
+
+    function parseInput() {
+      // Throws YAMLException on invalid / multi-document input.
+      return window.jsyaml.load(input.value, { schema: window.jsyaml.DEFAULT_SCHEMA });
+    }
+
+    function describe(doc) {
+      if (doc === null || doc === undefined) return 'empty document';
+      if (Array.isArray(doc)) return 'sequence with ' + doc.length + ' item' + (doc.length === 1 ? '' : 's');
+      if (typeof doc === 'object') { var n = Object.keys(doc).length; return 'mapping with ' + n + ' key' + (n === 1 ? '' : 's'); }
+      return typeof doc;
+    }
+
+    function formatYAML() {
+      if (!input.value.trim()) { clearOutput(); return; }
+      ensureLib(function () {
+        try {
+          var doc = parseInput();
+          var out = window.jsyaml.dump(doc, { indent: getIndent(), lineWidth: -1, noRefs: true }).replace(/\n$/, '');
+          rawOutput = out;
+          output.innerHTML = renderWithLines(out);
+          setStatus('valid', 'Valid YAML — ' + describe(doc) + ', ' + out.length + ' chars');
+        } catch (e) { setStatus('invalid', fmtError(e)); }
+      });
+    }
+
+    function minifyYAML() {
+      if (!input.value.trim()) { clearOutput(); return; }
+      ensureLib(function () {
+        try {
+          var doc = parseInput();
+          var out = window.jsyaml.dump(doc, { flowLevel: 0, indent: getIndent(), lineWidth: -1, noRefs: true }).replace(/\n$/, '');
+          rawOutput = out;
+          output.innerHTML = renderWithLines(out);
+          setStatus('valid', 'Minified to flow style — ' + out.length + ' chars');
+        } catch (e) { setStatus('invalid', fmtError(e)); }
+      });
+    }
+
+    function validateYAML() {
+      if (!input.value.trim()) { setStatus('', 'Nothing to validate yet.'); return; }
+      ensureLib(function () {
+        try {
+          var doc = parseInput();
+          setStatus('valid', '✓ Valid YAML — ' + describe(doc));
+        } catch (e) { setStatus('invalid', fmtError(e)); }
+      });
+    }
+
+    function clearOutput() { rawOutput = ''; output.textContent = 'Formatted YAML will appear here...'; status.innerHTML = ''; }
+    function clearAll() { input.value = ''; clearOutput(); }
+    function copyOutput() { copyToClipboard(rawOutput || output.textContent, document.getElementById('btn-copy')); }
+    function downloadOutput() { downloadText(rawOutput || output.textContent, 'formatted.yaml'); }
+    function setStatus(type, msg) { status.innerHTML = '<span class="' + type + '">' + msg + '</span>'; }
+
+    document.getElementById('btn-format').addEventListener('click', formatYAML);
+    document.getElementById('btn-minify').addEventListener('click', minifyYAML);
+    document.getElementById('btn-validate').addEventListener('click', validateYAML);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy').addEventListener('click', copyOutput);
+    document.getElementById('btn-download').addEventListener('click', downloadOutput);
+
+    document.getElementById('btn-upload').addEventListener('click', function () { document.getElementById('file-upload').click(); });
+    document.getElementById('file-upload').addEventListener('change', function (e) {
+      var f = e.target.files[0]; if (!f) return;
+      var r = new FileReader();
+      r.onload = function (ev) { input.value = ev.target.result; formatYAML(); };
+      r.readAsText(f); e.target.value = '';
+    });
+
+    input.addEventListener('paste', function () { setTimeout(formatYAML, 50); });
+  })();
+  </script>
+</body>
+</html>

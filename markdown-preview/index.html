@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Markdown Preview — Live Editor Online | Praticulus</title>
+  <meta name="description" content="Write and preview Markdown in real-time. Free online Markdown editor with syntax for headings, lists, code, tables, and GFM. No signup.">
+  <meta name="keywords" content="markdown preview, markdown editor, markdown online, markdown viewer, live markdown, markdown to html, markdown renderer">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/markdown-preview/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Markdown Preview — Live Editor Online | Praticulus">
+  <meta property="og:description" content="Write and preview Markdown in real-time. Free online Markdown editor with live preview.">
+  <meta property="og:url" content="https://praticulus.com/markdown-preview/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/prism-tomorrow.min.css?v=20260427a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markdown Preview",
+    "url": "https://praticulus.com/markdown-preview/",
+    "description": "Write and preview Markdown in real-time. Free online Markdown editor with syntax for headings, lists, code, tables, and GFM. No signup.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://praticulus.com/text/" },
+      { "@type": "ListItem", "position": 3, "name": "Markdown Preview", "item": "https://praticulus.com/markdown-preview/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container-wide" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/text/">Text Tools</a></li>
+        <li><span aria-current="page">Markdown Preview</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-markdown"></use></svg></div>
+      <h1>Markdown Preview</h1>
+      <p>Write Markdown on the left, see the rendered preview on the right. Live and instant rendering, no signup required.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="md-editor-wrapper">
+        <div class="md-pane">
+          <div class="md-pane-header">
+            <label>Markdown</label>
+            <button class="btn btn-secondary btn-sm" id="btn-copy-md">Copy MD</button>
+          </div>
+          <textarea id="editor" placeholder="Type your Markdown here...">## Hello, Markdown! 👋
+
+This is a **live preview** editor. Start typing to see changes instantly.
+
+### Features
+- **Bold**, *italic*, ~~strikethrough~~
+- [Links](https://praticulus.com)
+- Inline `code` and code blocks
+- Lists (ordered and unordered)
+- Tables, blockquotes, and more
+
+### Code Block
+```javascript
+function hello() {
+  console.log("Hello from Praticulus!");
+}
+```
+
+### Table
+| Feature | Status |
+|---------|--------|
+| Headers | ✅ |
+| Lists | ✅ |
+| Code | ✅ |
+| Tables | ✅ |
+
+> "The best way to predict the future is to create it." — Peter Drucker
+
+---
+Made with ⚡ by [Praticulus](https://praticulus.com)</textarea>
+        </div>
+        <div class="md-pane">
+          <div class="md-pane-header">
+            <label>Preview</label>
+            <div class="flex gap-1">
+              <button class="btn btn-secondary btn-sm" id="btn-clear">Clear</button>
+              <button class="btn btn-secondary btn-sm" id="btn-copy-html">Copy HTML</button>
+              <button class="btn btn-secondary btn-sm" id="btn-download-html">Download</button>
+            </div>
+          </div>
+          <div class="md-preview" id="preview" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">Markdown Cheat Sheet</h2>
+        <div class="regex-ref">
+          <div class="ref-group">
+            <h4>Text</h4>
+            <code>**bold**</code><br>
+            <code>*italic*</code><br>
+            <code>~~strike~~</code><br>
+            <code>`code`</code><br>
+          </div>
+          <div class="ref-group">
+            <h4>Structure</h4>
+            <code># Heading 1</code><br>
+            <code>## Heading 2</code><br>
+            <code>- List item</code><br>
+            <code>1. Ordered</code><br>
+          </div>
+          <div class="ref-group">
+            <h4>Links & Images</h4>
+            <code>[text](url)</code><br>
+            <code>![alt](img)</code><br>
+            <code>> Blockquote</code><br>
+            <code>---</code> Horizontal rule<br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Text</h2>
+      <div class="related-grid">
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-regex"></use></svg></span><span>Regex Tester</span></a>
+      </div>
+      <a href="/text/" class="related-all">All Text tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/vendor/marked.min.js?v=20260427a"></script>
+  <script src="/js/vendor/purify.min.js?v=20260617a"></script>
+  <script src="/js/prism/prism.min.js?v=20260427a"></script>
+  <script>window.Prism=window.Prism||{};window.Prism.manual=true;</script>
+  <script src="/js/prism/plugins/autoloader/prism-autoloader.min.js?v=20260427a"></script>
+  <script>if(window.Prism&&Prism.plugins&&Prism.plugins.autoloader){Prism.plugins.autoloader.languages_path='/js/prism/components/';}</script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+
+    marked.setOptions({ gfm: true, breaks: true });
+
+    var STORAGE_KEY = 'tp-md-content';
+    var DEFAULT_CONTENT = document.getElementById('editor').value;
+    var editor = document.getElementById('editor');
+    var preview = document.getElementById('preview');
+    var saveTimer = null;
+
+    // Restore from localStorage
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved !== null) { editor.value = saved; }
+
+    function renderPreview() {
+      preview.innerHTML = DOMPurify.sanitize(marked.parse(editor.value));
+      if (typeof Prism !== 'undefined') { Prism.highlightAllUnder(preview); }
+    }
+
+    function scheduleSave() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function() {
+        localStorage.setItem(STORAGE_KEY, editor.value);
+      }, 500);
+    }
+
+    editor.addEventListener('input', function() {
+      renderPreview();
+      scheduleSave();
+    });
+
+    document.getElementById('btn-clear').addEventListener('click', function() {
+      localStorage.removeItem(STORAGE_KEY);
+      editor.value = DEFAULT_CONTENT;
+      renderPreview();
+    });
+
+    document.getElementById('btn-copy-md').addEventListener('click', function() {
+      navigator.clipboard.writeText(editor.value);
+    });
+
+    document.getElementById('btn-copy-html').addEventListener('click', function() {
+      navigator.clipboard.writeText(preview.innerHTML);
+    });
+
+    document.getElementById('btn-download-html').addEventListener('click', function() {
+      downloadText(preview.innerHTML, 'preview.html');
+    });
+
+    renderPreview();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Praticulus</title>
+  <meta name="description" content="Praticulus privacy policy. No cookies, no analytics, no third-party trackers. Every tool runs in your browser. Verifiable in DevTools Network.">
+  <link rel="canonical" href="https://praticulus.com/privacy/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy | Praticulus">
+  <meta property="og:description" content="Praticulus privacy policy. No cookies, no analytics, no third-party trackers. Every tool runs in your browser. Verifiable in DevTools Network.">
+  <meta property="og:url" content="https://praticulus.com/privacy/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "url": "https://praticulus.com/privacy/",
+    "description": "Praticulus privacy policy. No cookies, no analytics, no third-party trackers. Every tool runs in your browser. Verifiable in DevTools Network.",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="#verify">How to verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <div class="tool-header">
+      <h1>Privacy Policy</h1>
+      <p>How we treat your data, and how you can verify it yourself.</p>
+    </div>
+    <div class="tool-body legal-content">
+      <h2>The short version</h2>
+      <p>Every tool on Praticulus runs entirely in your browser. Your input (JSON, passwords, regex, text, colors) never reaches our servers. We do not set cookies, do not run analytics, and do not load third-party trackers.</p>
+
+      <h2 id="verify">Verify it yourself</h2>
+      <p>Trust shouldn't rely on what we say. Open your browser DevTools (F12 or Cmd+Opt+I) and check:</p>
+      <ul>
+        <li><strong>Network tab</strong> — paste your data into any tool. You should see <em>zero</em> outbound requests carrying your input. The only requests on most pages are HTML, CSS, JS, favicon, and the og-image — all served from <code>praticulus.com</code>.</li>
+        <li><strong>Application &rarr; Cookies</strong> — empty. We set none.</li>
+        <li><strong>Application &rarr; Local Storage / Session Storage</strong> — empty unless you opted into a client-side preference (e.g. saved palettes), in which case the data lives only on your device.</li>
+        <li><strong>Console</strong> — no third-party scripts, no fingerprinting libraries.</li>
+      </ul>
+
+      <h2>Zero third-party origins</h2>
+      <p>Every script, stylesheet, font, and image loaded by Praticulus is served from <code>praticulus.com</code>. No CDN, no Google Fonts, no analytics pixels. The <code>marked</code>, <code>DOMPurify</code>, and <code>Prism</code> libraries used by <a href="/markdown-preview/">Markdown Preview</a> are bundled with the site.</p>
+
+      <h2>No cookies</h2>
+      <p>This website does not set any cookies: no first-party, no third-party, no tracking cookies.</p>
+
+      <h2>No analytics or tracking</h2>
+      <p>We do not use Google Analytics, Meta Pixel, Plausible, Fathom, or any other tracking service. Your usage of Praticulus is anonymous.</p>
+
+      <h2>No external font services</h2>
+      <p>This site uses the system font stack only. No Google Fonts, no Adobe Fonts, no third-party font requests.</p>
+
+      <h2>Client-side error reports</h2>
+      <p>A lightweight script (<code>error-reporter.js</code>) reports JavaScript errors to our own server using <code>navigator.sendBeacon</code>. The payload contains the error message, the page URL, and the user-agent, never the data you entered into a tool. The endpoint lives on infrastructure we own; nothing is shared with third parties.</p>
+
+      <h2>Color picker eyedropper</h2>
+      <p>The <a href="/color-picker/">Color Picker</a> exposes a "Pick from screen" button on supported browsers (Chrome, Edge, Opera) that uses the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper" target="_blank" rel="noopener"><code>window.EyeDropper</code></a> API. The browser asks for an explicit permission gesture, reads one pixel locally, and returns its HEX value to the page. No screen capture, no image data, no network call.</p>
+
+      <h2>Server logs</h2>
+      <p>Our web server (nginx) records standard access logs: IP address, user-agent, requested URL, timestamp, HTTP status code. They are used for security monitoring, rotated regularly, and never shared.</p>
+
+      <h2>No personal data collected</h2>
+      <p>There is no account system, no registration, and no form on this site that collects personal information. The data you input into tools is processed locally and discarded when you close the tab.</p>
+
+      <h2>Affiliate disclosure</h2>
+      <p>Praticulus currently displays no affiliate links. If we add them in the future (clearly marked, only on cheatsheets and articles, never on tool pages), this disclosure will be updated and a notice will appear next to each affiliate link.</p>
+
+      <h2>For machines</h2>
+      <p>A summary of this site's contents and policies is available at <a href="/llms.txt">/llms.txt</a> for use by language models and automated tools.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this privacy policy: <a href="mailto:contact@praticulus.com">contact@praticulus.com</a>.</p>
+
+      <p class="legal-updated"><em>Last updated: April 2026</em></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+</body>
+</html>

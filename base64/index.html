@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Base64 Encoder / Decoder — Free Online Tool | Praticulus</title>
+  <meta name="description" content="Encode or decode Base64 strings instantly. Free online Base64 encoder and decoder. Supports text input. No signup, runs in your browser.">
+  <meta name="keywords" content="base64 encode, base64 decode, base64 encoder, base64 decoder, base64 online, encode base64, decode base64">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/base64/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Base64 Encoder / Decoder — Free Online Tool | Praticulus">
+  <meta property="og:description" content="Encode or decode Base64 strings instantly. Free online Base64 encoder and decoder. Supports text input. No signup, runs in your browser.">
+  <meta property="og:url" content="https://praticulus.com/base64/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Base64 Encoder / Decoder",
+    "url": "https://praticulus.com/base64/",
+    "description": "Encode or decode Base64 strings instantly. Free online Base64 encoder and decoder. Supports text input. No signup, runs in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Converter Tools", "item": "https://praticulus.com/converters/" },
+      { "@type": "ListItem", "position": 3, "name": "Base64 Encoder / Decoder", "item": "https://praticulus.com/base64/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/converters/">Converter Tools</a></li>
+        <li><span aria-current="page">Base64 Encoder / Decoder</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></div>
+      <h1>Base64 Encoder / Decoder</h1>
+      <p>Encode text to Base64 or decode Base64 back to text. Runs entirely in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input</label>
+        <textarea id="input" placeholder="Enter text to encode, or Base64 string to decode..."></textarea>
+        <div class="flex-row items-center mt-075">
+          <label class="checkbox-inline"><input type="checkbox" id="url-safe"> URL-safe Base64</label>
+          <label class="checkbox-inline"><input type="checkbox" id="auto-detect" checked> Auto-detect</label>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-encode">Encode →</button>
+          <button class="btn btn-primary" id="btn-decode">← Decode</button>
+          <button class="btn btn-secondary" id="btn-swap">⇄ Swap</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+        <div class="counter-bar" id="counter"></div>
+      </div>
+
+      <div class="card">
+        <label>File Upload</label>
+        <div class="drop-zone" id="drop-zone">
+          <p>Drag &amp; drop a file here, or click to browse</p>
+          <input type="file" id="file-input" class="d-none">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="flex justify-between items-center mb-1">
+          <label>Output</label>
+          <button class="btn btn-secondary btn-sm" id="btn-copy">Copy</button>
+        </div>
+        <div class="output-area" id="output" role="status" aria-live="polite">Result will appear here...</div>
+        <div id="image-preview"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is Base64?</h2>
+        <p class="seo-text">Base64 is a binary-to-text encoding scheme that represents binary data using 64 ASCII characters (A-Z, a-z, 0-9, +, /). It's commonly used to encode data in emails (MIME), embed images in HTML/CSS (data URIs), store binary data in JSON, and transmit data over text-based protocols.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Converters</h2>
+      <div class="related-grid">
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+      </div>
+      <a href="/converters/" class="related-all">All Converters tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var status = document.getElementById('status');
+    var counter = document.getElementById('counter');
+    var urlSafe = document.getElementById('url-safe');
+    var autoDetect = document.getElementById('auto-detect');
+    var dropZone = document.getElementById('drop-zone');
+    var fileInput = document.getElementById('file-input');
+    var imagePreview = document.getElementById('image-preview');
+
+    function isBase64(str) {
+      str = str.trim();
+      if (str.length < 2) return false;
+      return /^[A-Za-z0-9+/\-_]+=*$/.test(str) && str.length % 4 <= 2;
+    }
+
+    function toUrlSafe(b64) {
+      return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    }
+
+    function fromUrlSafe(b64) {
+      var s = b64.replace(/-/g, '+').replace(/_/g, '/');
+      while (s.length % 4) s += '=';
+      return s;
+    }
+
+    function updateCounter(inLen, outLen) {
+      if (!inLen) { counter.textContent = ''; return; }
+      var ratio = outLen > 0 ? (outLen / inLen).toFixed(2) : '—';
+      counter.textContent = inLen + ' chars input → ' + outLen + ' chars output (×' + ratio + ')';
+    }
+
+    function encode() {
+      try {
+        var encoded = btoa(unescape(encodeURIComponent(input.value)));
+        if (urlSafe.checked) encoded = toUrlSafe(encoded);
+        output.textContent = encoded;
+        status.innerHTML = '<span class="valid">Encoded — ' + encoded.length + ' chars</span>';
+        updateCounter(input.value.length, encoded.length);
+        imagePreview.innerHTML = '';
+      } catch (e) {
+        status.innerHTML = '<span class="invalid">Error: ' + escapeHtml(e.message) + '</span>';
+      }
+    }
+
+    function decode() {
+      try {
+        var raw = input.value.trim();
+        if (urlSafe.checked || /[-_]/.test(raw)) raw = fromUrlSafe(raw);
+        var decoded = decodeURIComponent(escape(atob(raw)));
+        output.textContent = decoded;
+        status.innerHTML = '<span class="valid">Decoded — ' + decoded.length + ' chars</span>';
+        updateCounter(input.value.length, decoded.length);
+        imagePreview.innerHTML = '';
+      } catch (e) {
+        status.innerHTML = '<span class="invalid">Error: Invalid Base64 string</span>';
+      }
+    }
+
+    function autoProcess() {
+      if (!autoDetect.checked) return;
+      var val = input.value.trim();
+      if (!val) { output.textContent = 'Result will appear here...'; status.innerHTML = ''; counter.textContent = ''; imagePreview.innerHTML = ''; return; }
+      if (isBase64(val)) { decode(); } else { encode(); }
+    }
+
+    function swap() {
+      var out = output.textContent;
+      if (out && out !== 'Result will appear here...') {
+        input.value = out;
+        output.textContent = '';
+        status.innerHTML = '';
+        counter.textContent = '';
+        imagePreview.innerHTML = '';
+      }
+    }
+
+    function clearAll() {
+      input.value = '';
+      output.textContent = 'Result will appear here...';
+      status.innerHTML = '';
+      counter.textContent = '';
+      imagePreview.innerHTML = '';
+    }
+
+    function copyOutput() {
+      navigator.clipboard.writeText(output.textContent);
+      showToast('Copied!');
+    }
+
+    function handleFile(file) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var bytes = new Uint8Array(e.target.result);
+        var binary = '';
+        for (var i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+        var encoded = btoa(binary);
+        if (urlSafe.checked) encoded = toUrlSafe(encoded);
+        var dataUri = 'data:' + file.type + ';base64,' + btoa(binary);
+        output.textContent = encoded;
+        status.innerHTML = '<span class="valid">File encoded — ' + escapeHtml(file.name) + ' (' + (file.size / 1024).toFixed(1) + ' KB)</span>';
+        updateCounter(file.size, encoded.length);
+        if (file.type.startsWith('image/')) {
+          imagePreview.innerHTML = '<img src="' + dataUri + '" class="file-preview-img" alt="Preview">';
+          input.value = dataUri;
+        } else {
+          imagePreview.innerHTML = '';
+          input.value = encoded;
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    dropZone.addEventListener('click', function() { fileInput.click(); });
+    fileInput.addEventListener('change', function() { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+    dropZone.addEventListener('dragover', function(e) { e.preventDefault(); dropZone.classList.add('drop-zone-active'); });
+    dropZone.addEventListener('dragleave', function() { dropZone.classList.remove('drop-zone-active'); });
+    dropZone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      dropZone.classList.remove('drop-zone-active');
+      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+
+    input.addEventListener('input', autoProcess);
+    document.getElementById('btn-encode').addEventListener('click', encode);
+    document.getElementById('btn-decode').addEventListener('click', decode);
+    document.getElementById('btn-swap').addEventListener('click', swap);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-copy').addEventListener('click', copyOutput);
+  })();
+  </script>
+</body>
+</html>

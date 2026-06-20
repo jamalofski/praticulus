@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>CSS Gradient Generator — Build Gradients Visually | Praticulus</title>
+  <meta name="description" content="Create beautiful CSS gradients with a visual editor. Linear, radial, and conic gradients with live preview. Copy CSS code instantly. Free online tool.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/gradient-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSS Gradient Generator — Build Gradients Visually | Praticulus">
+  <meta property="og:description" content="Create CSS gradients with live preview. Linear, radial, conic. Free tool.">
+  <meta property="og:url" content="https://praticulus.com/gradient-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CSS Gradient Generator",
+    "url": "https://praticulus.com/gradient-generator/",
+    "description": "Create beautiful CSS gradients with a visual editor. Linear, radial, and conic gradients with live preview.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/color/">Color Tools</a></li>
+        <li><span aria-current="page">CSS Gradient Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></div>
+      <h1>CSS Gradient Generator</h1>
+      <p>Build beautiful CSS gradients with a visual editor. Adjust colors, direction, and type. Copy the CSS code with one click.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="grad-type">Gradient Type</label>
+            <select id="grad-type">
+              <option value="linear">Linear</option>
+              <option value="radial">Radial</option>
+              <option value="conic">Conic</option>
+            </select>
+          </div>
+          <div class="input-group" id="angle-group">
+            <label for="grad-angle">Angle (deg)</label>
+            <input type="number" id="grad-angle" value="135" min="0" max="360">
+          </div>
+        </div>
+
+        <div class="grad-stops-container" id="grad-stops-container"></div>
+
+        <div class="btn-group mb-2">
+          <button class="btn btn-secondary btn-sm" id="grad-add-stop">+ Add Stop</button>
+        </div>
+
+        <div class="gradient-preview" id="gradient-preview" aria-live="polite"></div>
+
+        <div class="result-box" id="gradient-css" role="button" tabindex="0" title="Click to copy"></div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary btn-sm" id="copy-gradient-css">Copy CSS</button>
+          <button class="btn btn-secondary btn-sm" id="random-gradient">Randomize</button>
+        </div>
+
+        <div class="grad-presets-section">
+          <h3>Presets</h3>
+          <div class="grad-presets-grid" id="grad-presets-grid"></div>
+        </div>
+      </div>
+
+      <div class="card content-section">
+        <h2>CSS Gradient Types</h2>
+        <p><strong>Linear gradients</strong> transition colors along a straight line at a given angle. Perfect for backgrounds, overlays, and buttons.</p>
+        <p><strong>Radial gradients</strong> radiate colors from a center point outward. Great for spotlight effects and circular patterns.</p>
+        <p><strong>Conic gradients</strong> rotate colors around a center point. Useful for pie charts, color wheels, and creative backgrounds.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Color</h2>
+      <div class="related-grid">
+        <a href="/color-picker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></span><span>Color Picker</span></a>
+        <a href="/color-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></span><span>Color Converter</span></a>
+        <a href="/palette-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></span><span>Palette Generator</span></a>
+        <a href="/contrast-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></span><span>Contrast Checker</span></a>
+        <a href="/color-blender/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></span><span>Color Blender</span></a>
+      </div>
+      <a href="/color/" class="related-all">All Color tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/color-utils.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    var typeEl = document.getElementById('grad-type');
+    var angleEl = document.getElementById('grad-angle');
+    var angleGroup = document.getElementById('angle-group');
+    var preview = document.getElementById('gradient-preview');
+    var cssBox = document.getElementById('gradient-css');
+    var stopsContainer = document.getElementById('grad-stops-container');
+    var presetsGrid = document.getElementById('grad-presets-grid');
+
+    var MIN_STOPS = 2;
+    var MAX_STOPS = 10;
+
+    var stops = [
+      { color: '#6c5ce7', position: 0 },
+      { color: '#00cec9', position: 100 }
+    ];
+
+    var PRESETS = [
+      { name: 'Sunset', stops: [{color:'#ee9ca7',position:0},{color:'#ffdde1',position:100}] },
+      { name: 'Ocean', stops: [{color:'#2193b0',position:0},{color:'#6dd5ed',position:100}] },
+      { name: 'Aurora', stops: [{color:'#00c9ff',position:0},{color:'#92fe9d',position:100}] },
+      { name: 'Velvet', stops: [{color:'#C33764',position:0},{color:'#1D2671',position:100}] },
+      { name: 'Peach', stops: [{color:'#ffecd2',position:0},{color:'#fcb69f',position:100}] },
+      { name: 'Neon', stops: [{color:'#12c2e9',position:0},{color:'#c471ed',position:50},{color:'#f64f59',position:100}] },
+      { name: 'Forest', stops: [{color:'#134e5e',position:0},{color:'#71b280',position:100}] },
+      { name: 'Candy', stops: [{color:'#fc5c7d',position:0},{color:'#6a82fb',position:100}] },
+      { name: 'Fire', stops: [{color:'#f12711',position:0},{color:'#f5af19',position:100}] },
+      { name: 'Frost', stops: [{color:'#000428',position:0},{color:'#004e92',position:100}] }
+    ];
+
+    function renderStops() {
+      stopsContainer.innerHTML = '';
+      stops.forEach(function (stop, idx) {
+        var row = document.createElement('div');
+        row.className = 'grad-stop-row';
+
+        var colorInput = document.createElement('input');
+        colorInput.type = 'color';
+        colorInput.value = stop.color;
+        colorInput.setAttribute('data-idx', idx);
+        colorInput.addEventListener('input', function () {
+          stops[idx].color = this.value;
+          var textSib = this.nextElementSibling;
+          if (textSib) textSib.value = this.value;
+          update();
+        });
+
+        var textInput = document.createElement('input');
+        textInput.type = 'text';
+        textInput.value = stop.color;
+        textInput.placeholder = '#hex, rgb(), hsl()';
+        textInput.addEventListener('input', function () {
+          var parsed = ColorUtils.parseColor(this.value);
+          if (parsed) {
+            var hex = ColorUtils.rgbToHex(parsed.r, parsed.g, parsed.b);
+            stops[idx].color = hex;
+            colorInput.value = hex;
+            update();
+          }
+        });
+
+        var posRange = document.createElement('input');
+        posRange.type = 'range';
+        posRange.min = '0';
+        posRange.max = '100';
+        posRange.value = stop.position;
+        var posVal = document.createElement('span');
+        posVal.className = 'grad-stop-position-val';
+        posVal.textContent = stop.position + '%';
+        posRange.addEventListener('input', function () {
+          stops[idx].position = parseInt(this.value, 10);
+          posVal.textContent = this.value + '%';
+          update();
+        });
+
+        row.appendChild(colorInput);
+        row.appendChild(textInput);
+        row.appendChild(posRange);
+        row.appendChild(posVal);
+
+        if (stops.length > MIN_STOPS) {
+          var removeBtn = document.createElement('button');
+          removeBtn.className = 'grad-stop-remove';
+          removeBtn.textContent = '\u00D7';
+          removeBtn.title = 'Remove stop';
+          removeBtn.addEventListener('click', function () {
+            stops.splice(idx, 1);
+            renderStops();
+            update();
+          });
+          row.appendChild(removeBtn);
+        }
+
+        stopsContainer.appendChild(row);
+      });
+    }
+
+    function update() {
+      var colorStr = stops.map(function (s) {
+        return s.color + ' ' + s.position + '%';
+      }).join(', ');
+      var css;
+
+      angleGroup.style.display = (typeEl.value === 'linear' || typeEl.value === 'conic') ? '' : 'none';
+
+      switch (typeEl.value) {
+        case 'linear':
+          css = 'linear-gradient(' + angleEl.value + 'deg, ' + colorStr + ')';
+          break;
+        case 'radial':
+          css = 'radial-gradient(circle, ' + colorStr + ')';
+          break;
+        case 'conic':
+          css = 'conic-gradient(from ' + angleEl.value + 'deg, ' + colorStr + ')';
+          break;
+      }
+
+      preview.style.background = css;
+      cssBox.textContent = 'background: ' + css + ';';
+    }
+
+    function renderPresets() {
+      PRESETS.forEach(function (preset) {
+        var item = document.createElement('div');
+        item.className = 'grad-preset-item';
+        var gradCss = preset.stops.map(function (s) {
+          return s.color + ' ' + s.position + '%';
+        }).join(', ');
+        item.style.background = 'linear-gradient(135deg, ' + gradCss + ')';
+        var label = document.createElement('span');
+        label.textContent = preset.name;
+        item.appendChild(label);
+        item.addEventListener('click', function () {
+          stops = preset.stops.map(function (s) { return { color: s.color, position: s.position }; });
+          renderStops();
+          update();
+        });
+        presetsGrid.appendChild(item);
+      });
+    }
+
+    document.getElementById('grad-add-stop').addEventListener('click', function () {
+      if (stops.length >= MAX_STOPS) return;
+      var lastPos = stops[stops.length - 1].position;
+      var newPos = Math.min(100, lastPos + Math.round((100 - lastPos) / 2));
+      stops.push({ color: '#ffffff', position: newPos });
+      renderStops();
+      update();
+    });
+
+    typeEl.addEventListener('change', update);
+    angleEl.addEventListener('input', update);
+
+    document.getElementById('copy-gradient-css').addEventListener('click', function () {
+      copyToClipboard(cssBox.textContent);
+    });
+
+    cssBox.addEventListener('click', function () {
+      copyToClipboard(cssBox.textContent);
+    });
+
+    cssBox.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        copyToClipboard(cssBox.textContent);
+      }
+    });
+
+    document.getElementById('random-gradient').addEventListener('click', function () {
+      function randHex() {
+        return ColorUtils.rgbToHex(
+          Math.floor(Math.random() * 256),
+          Math.floor(Math.random() * 256),
+          Math.floor(Math.random() * 256)
+        );
+      }
+      var count = 2 + Math.floor(Math.random() * 2);
+      stops = [];
+      for (var i = 0; i < count; i++) {
+        stops.push({ color: randHex(), position: Math.round(i / (count - 1) * 100) });
+      }
+      angleEl.value = Math.floor(Math.random() * 360);
+      renderStops();
+      update();
+    });
+
+    renderPresets();
+    renderStops();
+    update();
+  })();
+  </script>
+</body>
+</html>

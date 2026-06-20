@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>TOTP Generator — 2FA Codes from a Base32 Secret | Praticulus</title>
+  <meta name="description" content="Generate TOTP two-factor codes (RFC 6238) from a Base32 secret in your browser. Live 6 or 8-digit codes, 30 or 60-second period, otpauth QR code. Your secret stays in this tab.">
+  <meta name="keywords" content="totp generator, totp code, 2fa code generator, rfc 6238, authenticator code, otpauth, base32 secret, time based otp, totp online, two factor code">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/totp-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TOTP Generator — 2FA Codes from a Base32 Secret | Praticulus">
+  <meta property="og:description" content="Generate TOTP two-factor codes (RFC 6238) from a Base32 secret in your browser. Live codes, 30/60s period, otpauth QR. Your secret never leaves this tab.">
+  <meta property="og:url" content="https://praticulus.com/totp-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "TOTP Generator",
+    "url": "https://praticulus.com/totp-generator/",
+    "description": "Generate time-based one-time passwords (TOTP, RFC 6238) from a Base32 secret entirely in your browser. Live 6 or 8-digit codes, 30 or 60-second period, SHA-1/256/512, and an otpauth QR code for authenticator apps. The secret never leaves your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": "TOTP codes from a Base32 secret; 6 or 8 digits; 30 or 60-second period; SHA-1/256/512; live countdown; otpauth:// QR code; 100% client-side",
+    "browserRequirements": "Requires JavaScript",
+    "dateModified": "2026-06-08",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Security Tools", "item": "https://praticulus.com/security/" },
+      { "@type": "ListItem", "position": 3, "name": "TOTP Generator", "item": "https://praticulus.com/totp-generator/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your TOTP secret is processed in your browser and never leaves this tab.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/security/">Security Tools</a></li>
+        <li><span aria-current="page">TOTP Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-timer"></use></svg></div>
+      <h1>TOTP Generator</h1>
+      <p>Turn a Base32 secret into a live two-factor (TOTP) code, exactly like an authenticator app, generated in your browser. Check a 2FA setup, debug an integration, or scan the otpauth QR into your phone. Nothing is uploaded.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="totp-secret">Base32 secret</label>
+        <input type="text" id="totp-secret" placeholder="JBSWY3DPEHPK3PXP" autocomplete="off" spellcheck="false">
+        <div class="status-bar" id="totp-secret-status"></div>
+
+        <div class="flex-row mt-2">
+          <div class="input-group">
+            <label for="totp-digits">Digits</label>
+            <select id="totp-digits" class="select-md">
+              <option value="6" selected>6</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="totp-period">Period (s)</label>
+            <select id="totp-period" class="select-md">
+              <option value="30" selected>30</option>
+              <option value="60">60</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="totp-algo">Algorithm</label>
+            <select id="totp-algo" class="select-md">
+              <option value="SHA-1" selected>SHA-1</option>
+              <option value="SHA-256">SHA-256</option>
+              <option value="SHA-512">SHA-512</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card text-center">
+        <label>Current code</label>
+        <div class="totp-code totp-invalid" id="totp-code" role="status" aria-live="polite" title="Click to copy">Enter a Base32 secret above</div>
+        <div class="totp-countdown" aria-hidden="true"><div class="totp-countdown-fill" id="totp-fill"></div></div>
+        <div class="status-bar justify-center" id="totp-countdown-text"></div>
+        <div class="btn-group justify-center">
+          <button class="btn btn-secondary" id="btn-copy-code">Copy code</button>
+          <button class="btn btn-secondary" id="btn-sample">Load sample secret</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Authenticator QR code <span class="text-muted">(otpauth://, optional account label)</span></label>
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="totp-account">Account</label>
+            <input type="text" id="totp-account" placeholder="you@example.com" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="input-group">
+            <label for="totp-issuer">Issuer</label>
+            <input type="text" id="totp-issuer" placeholder="Example Inc" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+        <div class="qr-result mt-2" id="totp-qr-result">
+          <canvas id="totp-qr" class="qr-canvas" width="0" height="0" aria-label="otpauth QR code"></canvas>
+          <p class="qr-placeholder" id="totp-qr-placeholder">A QR code appears once you enter a valid secret.</p>
+        </div>
+        <label for="totp-uri" class="mt-2">otpauth URI</label>
+        <div class="result-box clickable-result" id="totp-uri" role="button" tabindex="0" title="Click to copy">—</div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">About TOTP</h2>
+        <p class="seo-text">A TOTP (Time-based One-Time Password, <a href="https://datatracker.ietf.org/doc/html/rfc6238" target="_blank" rel="noopener">RFC 6238</a>) is the six-digit code an authenticator app shows for two-factor authentication. Both your app and the server share a secret; both derive the same code from the current time, so it changes every 30 seconds without any network exchange. This page does the same maths locally: paste a Base32 secret to see the live code, or scan the QR into your phone.</p>
+
+        <h3 class="seo-subheading">Under the hood: HMAC-SHA-1 on a counter</h3>
+        <p class="seo-text">TOTP is <code>HMAC-SHA-1(secret, floor(unix_time / period))</code> truncated to N digits: a counter derived from the current Unix time, signed with your secret, then reduced to a 6 or 8-digit number. To reproduce that signature step by hand and debug a mismatch, use the <a href="/hmac-generator/">HMAC Generator</a> (select HMAC-SHA-1) with your secret and the time counter as the message.</p>
+
+        <h3 class="seo-subheading">Tips</h3>
+        <ul class="seo-text">
+          <li>The secret is <strong>Base32</strong> (letters A–Z and digits 2–7), not Base64. Spaces and lowercase are accepted.</li>
+          <li>Most apps (Google Authenticator, Authy) use SHA-1, 6 digits and a 30-second period. Change the options only if your provider asks for it.</li>
+          <li>If a code is rejected, your device clock is probably off by more than the server's tolerance window.</li>
+          <li>The QR encodes the secret so an authenticator app can import it. Treat that image like the secret itself.</li>
+        </ul>
+
+        <h3 class="seo-subheading">Is the secret uploaded?</h3>
+        <p class="seo-text">No. The code is computed with the browser's native <code>crypto.subtle</code> HMAC, and the QR is drawn on a local canvas. Open DevTools &rarr; Network: nothing leaves your tab.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Security</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/jwt-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-token"></use></svg></span><span>JWT Decoder</span></a>
+        <a href="/hmac-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-signature"></use></svg></span><span>HMAC Generator</span></a>
+        <a href="/cert-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-certificate"></use></svg></span><span>Certificate Decoder</span></a>
+      </div>
+      <a href="/security/" class="related-all">All Security tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/vendor/qrcode.min.js?v=20260602a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+    qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
+
+    var SAMPLE = 'JBSWY3DPEHPK3PXP';
+
+    var els = {
+      secret: document.getElementById('totp-secret'),
+      secretStatus: document.getElementById('totp-secret-status'),
+      digits: document.getElementById('totp-digits'),
+      period: document.getElementById('totp-period'),
+      algo: document.getElementById('totp-algo'),
+      code: document.getElementById('totp-code'),
+      fill: document.getElementById('totp-fill'),
+      countdownText: document.getElementById('totp-countdown-text'),
+      account: document.getElementById('totp-account'),
+      issuer: document.getElementById('totp-issuer'),
+      qrCanvas: document.getElementById('totp-qr'),
+      qrPlaceholder: document.getElementById('totp-qr-placeholder'),
+      uri: document.getElementById('totp-uri')
+    };
+
+    var state = { secretBytes: null, lastCounter: null, lastKey: '', currentCode: '' };
+
+    function base32ToBytes(b32) {
+      var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
+      var clean = b32.toUpperCase().replace(/=+$/, '').replace(/\s+/g, '');
+      if (!clean) return null;
+      var bits = 0, value = 0, out = [];
+      for (var i = 0; i < clean.length; i++) {
+        var idx = alphabet.indexOf(clean[i]);
+        if (idx === -1) return null;
+        value = (value << 5) | idx;
+        bits += 5;
+        if (bits >= 8) { out.push((value >>> (bits - 8)) & 0xff); bits -= 8; }
+      }
+      return new Uint8Array(out);
+    }
+
+    function counterBytes(counter) {
+      var buf = new Uint8Array(8);
+      for (var i = 7; i >= 0; i--) { buf[i] = counter & 0xff; counter = Math.floor(counter / 256); }
+      return buf;
+    }
+
+    function truncate(hmac, digits) {
+      var offset = hmac[hmac.length - 1] & 0x0f;
+      var bin = ((hmac[offset] & 0x7f) << 24) | ((hmac[offset + 1] & 0xff) << 16)
+        | ((hmac[offset + 2] & 0xff) << 8) | (hmac[offset + 3] & 0xff);
+      var code = (bin % Math.pow(10, digits)).toString();
+      while (code.length < digits) code = '0' + code;
+      return code;
+    }
+
+    function generate(secretBytes, counter, digits, hashAlgo) {
+      return crypto.subtle.importKey('raw', secretBytes, { name: 'HMAC', hash: hashAlgo }, false, ['sign'])
+        .then(function (key) { return crypto.subtle.sign('HMAC', key, counterBytes(counter)); })
+        .then(function (buf) { return truncate(new Uint8Array(buf), digits); });
+    }
+
+    function groupCode(code) {
+      var mid = Math.ceil(code.length / 2);
+      return code.slice(0, mid) + ' ' + code.slice(mid);
+    }
+
+    function renderQr(text) {
+      var qr;
+      try { qr = qrcode(0, 'M'); qr.addData(text); qr.make(); }
+      catch (e) {
+        els.qrCanvas.classList.add('d-none');
+        els.qrPlaceholder.classList.remove('d-none');
+        els.qrPlaceholder.textContent = 'Secret too long to fit a QR code.';
+        return;
+      }
+      var QUIET = 4;
+      var count = qr.getModuleCount();
+      var total = count + QUIET * 2;
+      var cell = Math.max(2, Math.floor(240 / total));
+      var dim = cell * total;
+      els.qrCanvas.width = dim;
+      els.qrCanvas.height = dim;
+      var ctx = els.qrCanvas.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, dim, dim);
+      ctx.fillStyle = '#000';
+      for (var r = 0; r < count; r++) {
+        for (var c = 0; c < count; c++) {
+          if (qr.isDark(r, c)) ctx.fillRect((c + QUIET) * cell, (r + QUIET) * cell, cell, cell);
+        }
+      }
+      els.qrCanvas.classList.remove('d-none');
+      els.qrPlaceholder.classList.add('d-none');
+    }
+
+    function buildUri() {
+      var secret = els.secret.value.toUpperCase().replace(/\s+/g, '').replace(/=+$/, '');
+      var account = els.account.value.trim().replace(/:/g, '');
+      var issuer = els.issuer.value.trim().replace(/:/g, '');
+      var label = (issuer ? issuer + ':' : '') + (account || 'Praticulus');
+      var params = ['secret=' + secret];
+      if (issuer) params.push('issuer=' + encodeURIComponent(issuer));
+      params.push('algorithm=' + els.algo.value.replace('-', ''));
+      params.push('digits=' + els.digits.value);
+      params.push('period=' + els.period.value);
+      return 'otpauth://totp/' + encodeURIComponent(label) + '?' + params.join('&');
+    }
+
+    function inputKey() {
+      return els.secret.value + '|' + els.digits.value + '|' + els.period.value + '|' + els.algo.value;
+    }
+
+    function refreshSecret() {
+      var bytes = base32ToBytes(els.secret.value);
+      if (els.secret.value.trim() === '') {
+        state.secretBytes = null;
+        els.secretStatus.innerHTML = '';
+        els.code.textContent = 'Enter a Base32 secret above';
+        els.code.classList.add('totp-invalid');
+        els.qrCanvas.classList.add('d-none');
+        els.qrPlaceholder.classList.remove('d-none');
+        els.qrPlaceholder.textContent = 'A QR code appears once you enter a valid secret.';
+        els.uri.textContent = '—';
+        els.countdownText.innerHTML = '';
+        els.fill.style.width = '0%';
+        return;
+      }
+      if (!bytes || bytes.length === 0) {
+        state.secretBytes = null;
+        els.secretStatus.innerHTML = '<span class="invalid">Not a valid Base32 secret (use A–Z and 2–7).</span>';
+        els.code.textContent = 'Invalid secret';
+        els.code.classList.add('totp-invalid');
+        els.qrCanvas.classList.add('d-none');
+        els.qrPlaceholder.classList.remove('d-none');
+        els.qrPlaceholder.textContent = 'Enter a valid Base32 secret to get a QR code.';
+        els.uri.textContent = '—';
+        els.countdownText.innerHTML = '';
+        els.fill.style.width = '0%';
+        return;
+      }
+      state.secretBytes = bytes;
+      state.lastCounter = null;
+      els.secretStatus.innerHTML = '<span class="valid">✓ Valid Base32 (' + bytes.length + ' bytes)</span>';
+      els.code.classList.remove('totp-invalid');
+      var uri = buildUri();
+      els.uri.textContent = uri;
+      renderQr(uri);
+    }
+
+    function tick() {
+      if (!state.secretBytes) return;
+      var period = parseInt(els.period.value, 10);
+      var digits = parseInt(els.digits.value, 10);
+      var algo = els.algo.value;
+      var epoch = Math.floor(Date.now() / 1000);
+      var counter = Math.floor(epoch / period);
+      var remaining = period - (epoch % period);
+
+      els.fill.style.width = (remaining / period * 100) + '%';
+      els.fill.classList.toggle('totp-crit', remaining <= 5);
+      els.fill.classList.toggle('totp-low', remaining > 5 && remaining <= 10);
+      els.countdownText.innerHTML = '<span class="text-muted">Valid for ' + remaining + 's · refreshes every ' + period + 's</span>';
+
+      var key = inputKey();
+      if (counter !== state.lastCounter || key !== state.lastKey) {
+        state.lastCounter = counter;
+        state.lastKey = key;
+        generate(state.secretBytes, counter, digits, algo).then(function (code) {
+          state.currentCode = code;
+          els.code.textContent = groupCode(code);
+          els.code.classList.remove('totp-invalid');
+        }).catch(function () {
+          els.code.textContent = 'Error';
+          els.code.classList.add('totp-invalid');
+        });
+      }
+    }
+
+    function onConfigChange() {
+      if (state.secretBytes) {
+        els.uri.textContent = buildUri();
+        renderQr(buildUri());
+      }
+      state.lastKey = '';
+      tick();
+    }
+
+    els.secret.addEventListener('input', function () { refreshSecret(); tick(); });
+    els.digits.addEventListener('change', onConfigChange);
+    els.period.addEventListener('change', onConfigChange);
+    els.algo.addEventListener('change', onConfigChange);
+    els.account.addEventListener('input', function () { if (state.secretBytes) { els.uri.textContent = buildUri(); renderQr(buildUri()); } });
+    els.issuer.addEventListener('input', function () { if (state.secretBytes) { els.uri.textContent = buildUri(); renderQr(buildUri()); } });
+
+    function copyCode() {
+      if (state.currentCode) copyToClipboard(state.currentCode);
+      else showToast('No code yet');
+    }
+    els.code.addEventListener('click', copyCode);
+    document.getElementById('btn-copy-code').addEventListener('click', copyCode);
+    document.getElementById('btn-sample').addEventListener('click', function () {
+      els.secret.value = SAMPLE; refreshSecret(); tick();
+    });
+    els.uri.addEventListener('click', function () {
+      if (els.uri.textContent && els.uri.textContent !== '—') copyToClipboard(els.uri.textContent);
+    });
+    els.uri.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); els.uri.click(); }
+    });
+
+    refreshSecret();
+    tick();
+    setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>

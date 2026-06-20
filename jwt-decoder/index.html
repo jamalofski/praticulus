@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>JWT Decoder — Decode &amp; Verify JSON Web Tokens | Praticulus</title>
+  <meta name="description" content="Decode and verify JSON Web Tokens (JWT) in your browser. Inspect header, payload and claims, check expiry, verify HS256/RS256/ES256 signatures locally. Your token never leaves this tab.">
+  <meta name="keywords" content="jwt decoder, jwt decode, decode jwt, json web token decoder, jwt verify, jwt signature verify, jwt expiry, hs256 verify, rs256 verify, es256 verify, jwt claims, jwt online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/jwt-decoder/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JWT Decoder — Decode &amp; Verify JSON Web Tokens | Praticulus">
+  <meta property="og:description" content="Decode and verify JSON Web Tokens in your browser. Header, payload, claims, expiry and HS256/RS256/ES256 signature verification. Your token never leaves this tab.">
+  <meta property="og:url" content="https://praticulus.com/jwt-decoder/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JWT Decoder",
+    "url": "https://praticulus.com/jwt-decoder/",
+    "description": "Decode and verify JSON Web Tokens (JWT) entirely in your browser. Inspect the header, payload and registered claims, check expiration, and verify HS256/HS384/HS512, RS256/RS384/RS512 and ES256/ES384/ES512 signatures with the Web Crypto API. The token, secret and keys never leave your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": "Decode JWT header and payload; pretty-print claims; expiry, issued-at and not-before checks; verify HS256/384/512, RS256/384/512 and ES256/384/512 signatures locally; 100% client-side",
+    "browserRequirements": "Requires JavaScript",
+    "dateModified": "2026-06-08",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Security Tools", "item": "https://praticulus.com/security/" },
+      { "@type": "ListItem", "position": 3, "name": "JWT Decoder", "item": "https://praticulus.com/jwt-decoder/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your JWT is decoded in your browser; the token, secret and keys never leave this tab.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/security/">Security Tools</a></li>
+        <li><span aria-current="page">JWT Decoder</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-token"></use></svg></div>
+      <h1>JWT Decoder</h1>
+      <p>Paste a JSON Web Token to decode its header and payload, inspect the claims, check expiry, and verify the signature, all in your browser. Open DevTools &rarr; Network and confirm: nothing leaves your tab.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="jwt-input">Encoded token</label>
+        <textarea id="jwt-input" placeholder="Paste your JWT here (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.…)" spellcheck="false" autocomplete="off"></textarea>
+        <div class="jwt-token d-none" id="jwt-colored" aria-hidden="true"></div>
+        <div class="status-bar" id="jwt-status"></div>
+        <div class="btn-group">
+          <button class="btn btn-secondary" id="btn-sample">Load sample</button>
+          <button class="btn btn-secondary" id="btn-share">Share link</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <p class="jwt-share-note d-none" id="jwt-share-note"></p>
+      </div>
+
+      <div class="card d-none" id="jwt-decoded">
+        <div class="hash-result">
+          <div class="hash-label jwt-seg-h">Header</div>
+          <div class="hash-value"><div class="output-area" id="jwt-header"></div></div>
+        </div>
+        <div class="hash-result">
+          <div class="hash-label jwt-seg-p">Payload</div>
+          <div class="hash-value">
+            <div class="output-area" id="jwt-payload"></div>
+            <div class="jwt-claims d-none" id="jwt-claims"></div>
+          </div>
+        </div>
+        <div class="hash-result">
+          <div class="hash-label jwt-seg-s">Signature</div>
+          <div class="hash-value font-mono" id="jwt-signature"></div>
+        </div>
+      </div>
+
+      <div class="card d-none" id="jwt-verify-card">
+        <label>Verify signature</label>
+        <p class="text-muted mb-2" id="jwt-alg-note">Algorithm: —</p>
+
+        <div id="jwt-secret-group">
+          <label for="jwt-secret">Secret (HMAC key)</label>
+          <input type="text" id="jwt-secret" placeholder="Your HS256 / HS384 / HS512 shared secret" autocomplete="off" spellcheck="false">
+          <label class="checkbox-inline mt-1"><input type="checkbox" id="jwt-secret-b64"> Secret is Base64-encoded</label>
+        </div>
+
+        <div id="jwt-pubkey-group" class="d-none">
+          <label for="jwt-pubkey">Public key (PEM, SPKI)</label>
+          <textarea id="jwt-pubkey" class="textarea-short" placeholder="-----BEGIN PUBLIC KEY-----&#10;…&#10;-----END PUBLIC KEY-----" spellcheck="false" autocomplete="off"></textarea>
+        </div>
+
+        <div class="status-bar" id="jwt-verify-result"></div>
+        <p class="text-muted">Need to compute the expected signature yourself? Use the <a href="/hmac-generator/">HMAC Generator</a> with your secret and the <code>header.payload</code> string.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">About JSON Web Tokens</h2>
+        <p class="seo-text">A JSON Web Token (<a href="https://datatracker.ietf.org/doc/html/rfc7519" target="_blank" rel="noopener">RFC 7519</a>) is three Base64url-encoded parts joined by dots: <code>header.payload.signature</code>. The header names the signing algorithm, the payload carries the claims (subject, issuer, expiry…), and the signature lets the recipient confirm the token was issued by someone holding the key. A JWT is <strong>signed, not encrypted</strong>: anyone can read the header and payload, so never put secrets in the claims.</p>
+
+        <h3 class="seo-subheading">Registered claims worth checking</h3>
+        <ul class="seo-text">
+          <li><code>exp</code> — expiration time (Unix seconds). A token past <code>exp</code> must be rejected.</li>
+          <li><code>nbf</code> — not-before time. The token is invalid before this instant.</li>
+          <li><code>iat</code> — issued-at time, useful for token age policies.</li>
+          <li><code>iss</code> / <code>aud</code> / <code>sub</code> — issuer, audience and subject; verify they match what you expect.</li>
+        </ul>
+
+        <h3 class="seo-subheading">Verify or forge an HS256 signature manually</h3>
+        <p class="seo-text">The signing step of a symmetric token (HS256 / HS384 / HS512) is exactly an HMAC-SHA-256/384/512 over <code>base64url(header) + "." + base64url(payload)</code>, with the result Base64url-encoded. To reproduce or check that signature byte-for-byte with your own secret, use the <a href="/hmac-generator/">HMAC Generator</a>: paste the <code>header.payload</code> string as the message and your secret as the key. Asymmetric algorithms (RS*, ES*, PS*) sign the same input but with a private key, so you verify them here with the matching public key.</p>
+
+        <h3 class="seo-subheading">Is anything uploaded?</h3>
+        <p class="seo-text">No. Decoding is plain Base64url; signature verification uses the browser's native <code>crypto.subtle.verify</code>. The token, your secret and any key stay in this tab. Open DevTools &rarr; Network and watch: there are no requests.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Security</h2>
+      <div class="related-grid">
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/hmac-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-signature"></use></svg></span><span>HMAC Generator</span></a>
+        <a href="/totp-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-timer"></use></svg></span><span>TOTP Generator</span></a>
+        <a href="/cert-decoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-certificate"></use></svg></span><span>Certificate Decoder</span></a>
+      </div>
+      <a href="/security/" class="related-all">All Security tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var SAMPLE = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkYSBMb3ZlbGFjZSIsImlhdCI6MTcxNjIzOTAyMiwiZXhwIjoyMDc1NTQ1MDIyfQ.7sROj9p7Tz6m6yA5e8oZ8dQ8mC0sR1mGz1H4zlYqkVE';
+
+    var els = {
+      input: document.getElementById('jwt-input'),
+      colored: document.getElementById('jwt-colored'),
+      status: document.getElementById('jwt-status'),
+      shareNote: document.getElementById('jwt-share-note'),
+      decoded: document.getElementById('jwt-decoded'),
+      header: document.getElementById('jwt-header'),
+      payload: document.getElementById('jwt-payload'),
+      claims: document.getElementById('jwt-claims'),
+      signature: document.getElementById('jwt-signature'),
+      verifyCard: document.getElementById('jwt-verify-card'),
+      algNote: document.getElementById('jwt-alg-note'),
+      secretGroup: document.getElementById('jwt-secret-group'),
+      secret: document.getElementById('jwt-secret'),
+      secretB64: document.getElementById('jwt-secret-b64'),
+      pubkeyGroup: document.getElementById('jwt-pubkey-group'),
+      pubkey: document.getElementById('jwt-pubkey'),
+      verifyResult: document.getElementById('jwt-verify-result')
+    };
+
+    var current = null; // { parts, header, payload, alg }
+
+    // --- Base64url helpers ---
+    function b64urlToBytes(s) {
+      s = s.replace(/-/g, '+').replace(/_/g, '/');
+      while (s.length % 4) s += '=';
+      var bin = atob(s);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return bytes;
+    }
+    function b64urlToString(s) {
+      return new TextDecoder().decode(b64urlToBytes(s));
+    }
+    function bytesFromString(s) { return new TextEncoder().encode(s); }
+    function b64ToBytes(s) {
+      var bin = atob(s.replace(/\s+/g, ''));
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return bytes;
+    }
+
+    // --- JSON syntax highlight (reuses .json-* classes) ---
+    function highlightJson(obj) {
+      var json = JSON.stringify(obj, null, 2);
+      json = escapeHtml(json);
+      return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
+        function (match) {
+          var cls = 'json-num';
+          if (/^"/.test(match)) {
+            cls = /:$/.test(match) ? 'json-key' : 'json-str';
+          } else if (/true|false/.test(match)) {
+            cls = 'json-bool';
+          } else if (/null/.test(match)) {
+            cls = 'json-bool';
+          }
+          return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+    function fmtTime(sec) {
+      var d = new Date(sec * 1000);
+      if (isNaN(d.getTime())) return 'invalid date';
+      return d.toISOString().replace('.000', '') + ' (' + d.toUTCString() + ')';
+    }
+
+    function renderColored(parts) {
+      var html = '<span class="jwt-seg-h">' + escapeHtml(parts[0]) + '</span>'
+        + '<span class="jwt-seg-dot">.</span>'
+        + '<span class="jwt-seg-p">' + escapeHtml(parts[1]) + '</span>'
+        + '<span class="jwt-seg-dot">.</span>'
+        + '<span class="jwt-seg-s">' + escapeHtml(parts[2] || '') + '</span>';
+      els.colored.innerHTML = html;
+      els.colored.classList.remove('d-none');
+    }
+
+    function renderClaims(payload) {
+      var rows = [];
+      var now = Math.floor(Date.now() / 1000);
+      if (typeof payload.exp === 'number') {
+        var expired = now >= payload.exp;
+        rows.push('<div class="jwt-claim-row"><span class="jwt-claim-name">exp</span><span>'
+          + fmtTime(payload.exp) + ' — <span class="' + (expired ? 'invalid' : 'valid') + '">'
+          + (expired ? '✗ expired' : '✓ not expired') + '</span></span></div>');
+      }
+      if (typeof payload.nbf === 'number') {
+        var notYet = now < payload.nbf;
+        rows.push('<div class="jwt-claim-row"><span class="jwt-claim-name">nbf</span><span>'
+          + fmtTime(payload.nbf) + (notYet ? ' — <span class="invalid">✗ not valid yet</span>' : ' — <span class="valid">✓ active</span>') + '</span></div>');
+      }
+      if (typeof payload.iat === 'number') {
+        rows.push('<div class="jwt-claim-row"><span class="jwt-claim-name">iat</span><span>' + fmtTime(payload.iat) + '</span></div>');
+      }
+      if (rows.length) {
+        els.claims.innerHTML = rows.join('');
+        els.claims.classList.remove('d-none');
+      } else {
+        els.claims.classList.add('d-none');
+      }
+    }
+
+    function setAlgUi(alg) {
+      els.algNote.textContent = 'Algorithm: ' + alg;
+      var isHmac = /^HS/.test(alg);
+      var isAsym = /^(RS|ES|PS)/.test(alg);
+      els.secretGroup.classList.toggle('d-none', !isHmac);
+      els.pubkeyGroup.classList.toggle('d-none', !isAsym);
+      if (alg === 'none') {
+        els.algNote.textContent = 'Algorithm: none — this token is unsigned.';
+      }
+    }
+
+    function reset() {
+      current = null;
+      els.colored.classList.add('d-none');
+      els.decoded.classList.add('d-none');
+      els.verifyCard.classList.add('d-none');
+      els.verifyResult.innerHTML = '';
+      els.shareNote.classList.add('d-none');
+    }
+
+    function decode() {
+      var raw = els.input.value.trim();
+      els.verifyResult.innerHTML = '';
+      if (!raw) { reset(); els.status.innerHTML = ''; return; }
+      var parts = raw.split('.');
+      if (parts.length < 2 || parts.length > 3) {
+        reset();
+        els.status.innerHTML = '<span class="invalid">Not a valid JWT — expected 3 dot-separated parts.</span>';
+        return;
+      }
+      var header, payload;
+      try {
+        header = JSON.parse(b64urlToString(parts[0]));
+      } catch (e) {
+        reset();
+        els.status.innerHTML = '<span class="invalid">Header is not valid Base64url JSON.</span>';
+        return;
+      }
+      try {
+        payload = JSON.parse(b64urlToString(parts[1]));
+      } catch (e) {
+        reset();
+        els.status.innerHTML = '<span class="invalid">Payload is not valid Base64url JSON.</span>';
+        return;
+      }
+      var alg = (header && header.alg) || 'none';
+      current = { parts: parts, header: header, payload: payload, alg: alg };
+
+      renderColored(parts);
+      els.header.innerHTML = highlightJson(header);
+      els.payload.innerHTML = highlightJson(payload);
+      renderClaims(payload);
+      els.signature.textContent = parts[2] || '(none)';
+      els.decoded.classList.remove('d-none');
+
+      setAlgUi(alg);
+      els.verifyCard.classList.toggle('d-none', alg === 'none' || !parts[2]);
+      els.status.innerHTML = '<span class="valid">✓ Decoded — ' + escapeHtml(alg) + '</span>';
+
+      runVerify();
+    }
+
+    // --- Verification ---
+    function pemToDer(pem) {
+      var b64 = pem.replace(/-----[^-]+-----/g, '').replace(/\s+/g, '');
+      return b64ToBytes(b64);
+    }
+
+    var HMAC_HASH = { HS256: 'SHA-256', HS384: 'SHA-384', HS512: 'SHA-512' };
+    var RSA_HASH = { RS256: 'SHA-256', RS384: 'SHA-384', RS512: 'SHA-512' };
+    var PS_HASH = { PS256: 'SHA-256', PS384: 'SHA-384', PS512: 'SHA-512' };
+    var EC_PARAMS = {
+      ES256: { hash: 'SHA-256', curve: 'P-256' },
+      ES384: { hash: 'SHA-384', curve: 'P-384' },
+      ES512: { hash: 'SHA-512', curve: 'P-521' }
+    };
+
+    function showVerify(state, msg) {
+      var cls = state === 'ok' ? 'valid' : (state === 'bad' ? 'invalid' : 'text-muted');
+      var icon = state === 'ok' ? '✓ ' : (state === 'bad' ? '✗ ' : '');
+      els.verifyResult.innerHTML = '<span class="' + cls + '">' + icon + escapeHtml(msg) + '</span>';
+    }
+
+    function runVerify() {
+      if (!current || current.alg === 'none' || !current.parts[2]) return;
+      var alg = current.alg;
+      var signingInput = bytesFromString(current.parts[0] + '.' + current.parts[1]);
+      var sig;
+      try { sig = b64urlToBytes(current.parts[2]); }
+      catch (e) { showVerify('bad', 'Signature is not valid Base64url.'); return; }
+
+      if (HMAC_HASH[alg]) {
+        var secretRaw = els.secret.value;
+        if (!secretRaw) { showVerify('idle', 'Enter the shared secret to verify.'); return; }
+        var keyBytes;
+        try { keyBytes = els.secretB64.checked ? b64ToBytes(secretRaw) : bytesFromString(secretRaw); }
+        catch (e) { showVerify('bad', 'Secret is not valid Base64.'); return; }
+        crypto.subtle.importKey('raw', keyBytes, { name: 'HMAC', hash: HMAC_HASH[alg] }, false, ['verify'])
+          .then(function (key) { return crypto.subtle.verify('HMAC', key, sig, signingInput); })
+          .then(function (ok) { showVerify(ok ? 'ok' : 'bad', ok ? 'Signature verified (' + alg + ').' : 'Signature does NOT match this secret.'); })
+          .catch(function () { showVerify('bad', 'Could not verify with this secret.'); });
+        return;
+      }
+
+      var pem = els.pubkey.value.trim();
+      if (!pem) { showVerify('idle', 'Paste the public key (PEM) to verify.'); return; }
+      var der;
+      try { der = pemToDer(pem); }
+      catch (e) { showVerify('bad', 'Public key is not valid PEM/Base64.'); return; }
+
+      var importAlgo, verifyAlgo;
+      if (RSA_HASH[alg]) {
+        importAlgo = { name: 'RSASSA-PKCS1-v1_5', hash: RSA_HASH[alg] };
+        verifyAlgo = { name: 'RSASSA-PKCS1-v1_5' };
+      } else if (PS_HASH[alg]) {
+        importAlgo = { name: 'RSA-PSS', hash: PS_HASH[alg] };
+        verifyAlgo = { name: 'RSA-PSS', saltLength: { SHA256: 32, SHA384: 48, SHA512: 64 }[PS_HASH[alg].replace('-', '')] };
+      } else if (EC_PARAMS[alg]) {
+        importAlgo = { name: 'ECDSA', namedCurve: EC_PARAMS[alg].curve };
+        verifyAlgo = { name: 'ECDSA', hash: EC_PARAMS[alg].hash };
+      } else {
+        showVerify('idle', 'Algorithm ' + alg + ' is decoded but not verifiable here.');
+        return;
+      }
+      crypto.subtle.importKey('spki', der, importAlgo, false, ['verify'])
+        .then(function (key) { return crypto.subtle.verify(verifyAlgo, key, sig, signingInput); })
+        .then(function (ok) { showVerify(ok ? 'ok' : 'bad', ok ? 'Signature verified (' + alg + ').' : 'Signature does NOT match this public key.'); })
+        .catch(function () { showVerify('bad', 'Could not verify — check the key matches ' + alg + '.'); });
+    }
+
+    // --- Share (token in URL hash, redacted on screen) ---
+    function redact(token) {
+      if (token.length <= 24) return token;
+      return token.slice(0, 12) + '…[redacted]…' + token.slice(-8);
+    }
+    function share() {
+      var token = els.input.value.trim();
+      if (!token) { showToast('Nothing to share'); return; }
+      var url = location.origin + location.pathname + '#jwt=' + encodeURIComponent(token);
+      copyToClipboard(url);
+      els.shareNote.textContent = 'Link copied (token redacted here): ' + location.pathname + '#jwt=' + redact(token) + '. The full link carries your token; share only with people you trust.';
+      els.shareNote.classList.remove('d-none');
+    }
+
+    function loadFromHash() {
+      var m = /[#&]jwt=([^&]+)/.exec(location.hash);
+      if (m) {
+        try { els.input.value = decodeURIComponent(m[1]); decode(); } catch (e) { /* ignore */ }
+      }
+    }
+
+    els.input.addEventListener('input', decode);
+    els.secret.addEventListener('input', runVerify);
+    els.secretB64.addEventListener('change', runVerify);
+    els.pubkey.addEventListener('input', runVerify);
+    document.getElementById('btn-share').addEventListener('click', share);
+    document.getElementById('btn-sample').addEventListener('click', function () { els.input.value = SAMPLE; decode(); });
+    document.getElementById('btn-clear').addEventListener('click', function () {
+      els.input.value = '';
+      els.secret.value = '';
+      els.pubkey.value = '';
+      reset();
+      els.status.innerHTML = '';
+      if (location.hash) history.replaceState(null, '', location.pathname);
+    });
+
+    loadFromHash();
+  })();
+  </script>
+</body>
+</html>

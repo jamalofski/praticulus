@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Palette Generator — Create Color Palettes Online | Praticulus</title>
+  <meta name="description" content="Generate harmonious color palettes instantly. Complementary, analogous, triadic, split-complementary, and tetradic schemes. Free, no signup required.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/palette-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Palette Generator — Create Color Palettes Online | Praticulus">
+  <meta property="og:description" content="Generate harmonious color palettes instantly. Multiple harmony types available.">
+  <meta property="og:url" content="https://praticulus.com/palette-generator/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Palette Generator",
+    "url": "https://praticulus.com/palette-generator/",
+    "description": "Generate harmonious color palettes instantly. Complementary, analogous, triadic, split-complementary, and tetradic schemes.",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/color/">Color Tools</a></li>
+        <li><span aria-current="page">Palette Generator</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></div>
+      <h1>Palette Generator</h1>
+      <p>Generate harmonious color palettes from any base color. Choose a color harmony type and get an instant palette.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="flex-row">
+          <div class="input-group">
+            <label for="base-color">Base Color</label>
+            <div class="palette-color-input">
+              <input type="color" id="base-color" value="#6c5ce7">
+              <input type="text" id="base-color-text" value="#6c5ce7" placeholder="#hex, rgb(), hsl()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="harmony-type">Harmony Type</label>
+            <select id="harmony-type">
+              <option value="complementary">Complementary</option>
+              <option value="analogous">Analogous</option>
+              <option value="triadic">Triadic</option>
+              <option value="split">Split-Complementary</option>
+              <option value="tetradic">Tetradic (Square)</option>
+              <option value="monochromatic">Monochromatic</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="color-preview-row" id="palette-output" aria-live="polite"></div>
+        <div class="result-box" id="palette-codes"></div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary btn-sm" id="copy-palette">Copy All HEX Codes</button>
+          <div class="palette-export-wrap">
+            <button class="btn btn-primary btn-sm" id="palette-export-btn">Export ▾</button>
+            <div class="palette-export-dropdown" id="palette-export-dropdown">
+              <button data-format="css">CSS Variables</button>
+              <button data-format="tailwind">Tailwind Config</button>
+              <button data-format="scss">SCSS Variables</button>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="randomize">Randomize</button>
+        </div>
+        <p class="palette-space-hint">Press <kbd>Space</kbd> to randomize</p>
+      </div>
+
+      <div class="card content-section">
+        <h2>About Color Harmonies</h2>
+        <p><strong>Complementary</strong> uses colors opposite on the color wheel: high contrast, bold designs. <strong>Analogous</strong> uses neighboring colors for a cohesive, serene look.</p>
+        <p><strong>Triadic</strong> spaces three colors equally around the wheel: vibrant yet balanced. <strong>Split-complementary</strong> offers contrast with less tension. <strong>Tetradic</strong> uses four colors in a square pattern. <strong>Monochromatic</strong> varies lightness of a single hue.</p>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Color</h2>
+      <div class="related-grid">
+        <a href="/color-picker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></span><span>Color Picker</span></a>
+        <a href="/color-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></span><span>Color Converter</span></a>
+        <a href="/contrast-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></span><span>Contrast Checker</span></a>
+        <a href="/gradient-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></span><span>CSS Gradient Generator</span></a>
+        <a href="/color-blender/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></span><span>Color Blender</span></a>
+      </div>
+      <a href="/color/" class="related-all">All Color tools &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/color-utils.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    var baseColor = document.getElementById('base-color');
+    var baseColorText = document.getElementById('base-color-text');
+    var harmonyType = document.getElementById('harmony-type');
+    var output = document.getElementById('palette-output');
+    var codes = document.getElementById('palette-codes');
+    var exportBtn = document.getElementById('palette-export-btn');
+    var exportDropdown = document.getElementById('palette-export-dropdown');
+
+    function generatePalette() {
+      var hex = baseColor.value;
+      var rgb = ColorUtils.hexToRgb(hex);
+      var hsl = ColorUtils.rgbToHsl(rgb.r, rgb.g, rgb.b);
+      var colors = [];
+      var type = harmonyType.value;
+
+      switch (type) {
+        case 'complementary':
+          colors = [hsl.h, (hsl.h + 180) % 360];
+          break;
+        case 'analogous':
+          colors = [(hsl.h - 30 + 360) % 360, hsl.h, (hsl.h + 30) % 360];
+          break;
+        case 'triadic':
+          colors = [hsl.h, (hsl.h + 120) % 360, (hsl.h + 240) % 360];
+          break;
+        case 'split':
+          colors = [hsl.h, (hsl.h + 150) % 360, (hsl.h + 210) % 360];
+          break;
+        case 'tetradic':
+          colors = [hsl.h, (hsl.h + 90) % 360, (hsl.h + 180) % 360, (hsl.h + 270) % 360];
+          break;
+        case 'monochromatic':
+          colors = [];
+          for (var l = 20; l <= 80; l += 15) {
+            var c = ColorUtils.hslToRgb(hsl.h, hsl.s, l);
+            colors.push(ColorUtils.rgbToHex(c.r, c.g, c.b));
+          }
+          break;
+      }
+
+      if (type !== 'monochromatic') {
+        colors = colors.map(function (h) {
+          var c = ColorUtils.hslToRgb(h, hsl.s, hsl.l);
+          return ColorUtils.rgbToHex(c.r, c.g, c.b);
+        });
+      }
+
+      output.innerHTML = '';
+      colors.forEach(function (c) {
+        var wrap = document.createElement('div');
+        wrap.style.display = 'inline-flex';
+        wrap.style.flexDirection = 'column';
+        wrap.style.alignItems = 'center';
+        var chip = document.createElement('div');
+        chip.className = 'color-chip';
+        chip.style.background = c;
+        chip.title = 'Click to copy ' + c;
+        var label = document.createElement('span');
+        label.className = 'color-chip-label';
+        label.textContent = c;
+        chip.addEventListener('click', (function (hex) {
+          return function () { copyToClipboard(hex); };
+        })(c));
+        wrap.appendChild(chip);
+        wrap.appendChild(label);
+        output.appendChild(wrap);
+      });
+
+      codes.textContent = colors.join('  ');
+      window._paletteColors = colors;
+    }
+
+    function doRandomize() {
+      baseColor.value = ColorUtils.rgbToHex(
+        Math.floor(Math.random() * 256),
+        Math.floor(Math.random() * 256),
+        Math.floor(Math.random() * 256)
+      );
+      baseColorText.value = baseColor.value;
+      generatePalette();
+    }
+
+    function exportAs(format) {
+      var colors = window._paletteColors || [];
+      var text = '';
+      switch (format) {
+        case 'css':
+          text = ':root {\n' + colors.map(function (c, i) {
+            return '  --color-' + (i + 1) + ': ' + c + ';';
+          }).join('\n') + '\n}';
+          break;
+        case 'tailwind':
+          text = 'colors: {\n' + colors.map(function (c, i) {
+            return '  \'color-' + (i + 1) + '\': \'' + c + '\',';
+          }).join('\n') + '\n}';
+          break;
+        case 'scss':
+          text = colors.map(function (c, i) {
+            return '$color-' + (i + 1) + ': ' + c + ';';
+          }).join('\n');
+          break;
+      }
+      if (text) copyToClipboard(text);
+      exportDropdown.classList.remove('open');
+    }
+
+    baseColor.addEventListener('input', function () {
+      baseColorText.value = baseColor.value;
+      generatePalette();
+    });
+
+    baseColorText.addEventListener('input', function () {
+      var parsed = ColorUtils.parseColor(this.value);
+      if (parsed) {
+        baseColor.value = ColorUtils.rgbToHex(parsed.r, parsed.g, parsed.b);
+        generatePalette();
+      }
+    });
+
+    harmonyType.addEventListener('change', generatePalette);
+
+    document.getElementById('copy-palette').addEventListener('click', function () {
+      if (window._paletteColors) copyToClipboard(window._paletteColors.join(', '));
+    });
+
+    document.getElementById('randomize').addEventListener('click', doRandomize);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'Space' && e.target === document.body) {
+        e.preventDefault();
+        doRandomize();
+      }
+    });
+
+    exportBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      exportDropdown.classList.toggle('open');
+    });
+
+    exportDropdown.querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        exportAs(this.getAttribute('data-format'));
+      });
+    });
+
+    document.addEventListener('click', function () {
+      exportDropdown.classList.remove('open');
+    });
+
+    generatePalette();
+  })();
+  </script>
+</body>
+</html>

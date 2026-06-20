@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Praticulus — Free Online Developer & Utility Tools</title>
+  <meta name="description" content="Free online tools for developers and everyone. JSON formatter, UUID, color tools, Base64, password generator and more, 100% client-side, no signup.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Praticulus — Free Online Developer & Utility Tools">
+  <meta property="og:description" content="Free online tools for developers and everyone. JSON formatter, UUID, color tools, Base64, password generator and more, 100% client-side, no signup.">
+  <meta property="og:url" content="https://praticulus.com/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Praticulus",
+    "url": "https://praticulus.com/",
+    "description": "Free online tools for developers and everyone. JSON formatter, UUID generator, color tools, Base64 encoder, password generator, and more.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Iris Digital",
+      "url": "https://irisdigital.tech/"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://praticulus.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/developer/">Developer</a>
+        <a href="/security/">Security</a>
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/generators/">Generators</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">23 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main id="main">
+    <section class="home-hero">
+      <div class="wrap">
+        <p class="eyebrow">Praticulus · 6 hubs · 23 tools</p>
+        <h1>Find the right tool,<br>keep your data to yourself</h1>
+        <p class="lede">Six focused toolboxes for developers and makers. Search any tool, or browse a hub below.</p>
+        <div class="tool-search">
+          <svg class="ic s-ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-search"></use></svg>
+          <input type="search" id="q" autocomplete="off" aria-label="Search 23 tools" placeholder="Search 23 tools — “json”, “qr”, “contrast”…">
+          <kbd aria-hidden="true">/</kbd>
+        </div>
+        <div class="popular-row">
+          <span class="lbl"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-flame"></use></svg> Popular</span>
+          <a href="/qr-generator/" class="chip"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-qr"></use></svg> QR Code Generator</a>
+          <a href="/lorem-ipsum/" class="chip"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg> Lorem Ipsum</a>
+          <a href="/json-formatter/" class="chip"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg> JSON Formatter</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-wide" id="results" hidden aria-live="polite">
+      <p class="results-meta" id="results-meta"></p>
+      <div class="tools-grid" id="results-grid"></div>
+    </section>
+
+    <section class="container-wide" id="browse">
+      <div class="browse-head">
+        <h2>Browse by hub</h2>
+        <span>Each hub opens its full tool list.</span>
+      </div>
+      <div class="hub-grid">
+
+        <a href="/developer/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-code"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Developer <span class="meta-tag">meta</span></div>
+              <div class="hub-card-count">11 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">A curated cross-section for people who ship code.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-braces"></use></svg> JSON Formatter &amp; Validator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-binary"></use></svg> Base64 Encoder / Decoder</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg> UUID Generator</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Developer</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+        <a href="/security/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-shield"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Security</div>
+              <div class="hub-card-count">6 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">Hashing, signing, tokens and secrets, all on-device.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-lock"></use></svg> Password Generator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-hash"></use></svg> Hash Generator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-token"></use></svg> JWT Decoder</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Security</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+        <a href="/color/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-droplet"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Color</div>
+              <div class="hub-card-count">6 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">Pick, convert, blend and check colors for the web.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg> Color Picker</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg> Color Converter</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-palette"></use></svg> Palette Generator</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Color</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+        <a href="/converters/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-swap"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Converters</div>
+              <div class="hub-card-count">2 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">Encode and decode between everyday formats.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-binary"></use></svg> Base64 Encoder / Decoder</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-link"></use></svg> URL Encoder / Decoder</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Converters</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+        <a href="/generators/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-spark"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Generators</div>
+              <div class="hub-card-count">4 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">Spin up IDs, passwords, codes and placeholder data.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-qr"></use></svg> QR Code Generator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg> Lorem Ipsum Generator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-lock"></use></svg> Password Generator</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Generators</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+        <a href="/text/" class="hub-card">
+          <div class="hub-card-head">
+            <span class="cat-badge" aria-hidden="true"><svg class="ic"><use href="/icons.svg?v=20260611a#i-type"></use></svg></span>
+            <div>
+              <div class="hub-card-title">Text</div>
+              <div class="hub-card-count">3 tools</div>
+            </div>
+          </div>
+          <p class="hub-blurb">Write, test and transform text and markup.</p>
+          <div class="peek">
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-paragraph"></use></svg> Lorem Ipsum Generator</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-regex"></use></svg> Regex Tester</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260611a#i-markdown"></use></svg> Markdown Preview</span>
+          </div>
+          <div class="hub-card-foot"><span>Explore Text</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-arrow"></use></svg></div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+    var TOOLS = [
+      { s: 'qr-generator', n: 'QR Code Generator', i: 'qr', d: 'Make QR codes for URLs, Wi-Fi, and vCards. Export PNG or SVG, nothing uploaded.' },
+      { s: 'lorem-ipsum', n: 'Lorem Ipsum Generator', i: 'paragraph', d: 'Generate placeholder text in paragraphs, sentences, or words.' },
+      { s: 'json-formatter', n: 'JSON Formatter & Validator', i: 'braces', d: 'Format, validate, and minify JSON with syntax highlighting and a tree view.' },
+      { s: 'color-picker', n: 'Color Picker', i: 'eyedropper', d: 'Pick any color visually or enter HEX, RGB, HSL. Copy color codes instantly.' },
+      { s: 'password-generator', n: 'Password Generator', i: 'lock', d: 'Generate strong, random passwords with customizable length and character sets.' },
+      { s: 'markdown-preview', n: 'Markdown Preview', i: 'markdown', d: 'Write and preview Markdown in real time. Side-by-side editor with live rendering.' },
+      { s: 'color-converter', n: 'Color Converter', i: 'swatch', d: 'Convert colors between HEX, RGB, HSL, and CMYK with live preview.' },
+      { s: 'diff-checker', n: 'Diff Checker', i: 'diff', d: 'Compare two texts side by side or inline, with word-level highlighting.' },
+      { s: 'color-blender', n: 'Color Blender', i: 'blend', d: 'Blend two colors with adjustable midpoints. Create smooth tonal transitions.' },
+      { s: 'sql-formatter', n: 'SQL Formatter', i: 'database', d: 'Beautify or minify SQL with dialect and indentation options.' },
+      { s: 'yaml-formatter', n: 'YAML Formatter & Validator', i: 'yaml', d: 'Format, validate, and minify YAML 1.2. Error line and column on invalid input.' },
+      { s: 'hash-generator', n: 'Hash Generator', i: 'hash', d: 'Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text.' },
+      { s: 'palette-generator', n: 'Palette Generator', i: 'palette', d: 'Generate harmonious palettes: complementary, triadic, analogous, and more.' },
+      { s: 'uuid-generator', n: 'UUID Generator', i: 'fingerprint', d: 'Generate UUID v4 instantly. Bulk generate and copy with one click.' },
+      { s: 'regex-tester', n: 'Regex Tester', i: 'regex', d: 'Test regular expressions with real-time matching, highlighting, and match details.' },
+      { s: 'gradient-generator', n: 'CSS Gradient Generator', i: 'gradient', d: 'Build linear, radial, or conic CSS gradients visually. Copy the CSS in one click.' },
+      { s: 'url-encoder', n: 'URL Encoder / Decoder', i: 'link', d: 'Encode or decode URLs and query strings. Handles Unicode and percent-encoding.' },
+      { s: 'contrast-checker', n: 'Contrast Checker', i: 'contrast', d: 'Check WCAG 2.1 AA/AAA contrast ratios for accessible color combinations.' },
+      { s: 'base64', n: 'Base64 Encoder / Decoder', i: 'binary', d: 'Encode or decode Base64 strings instantly. Supports text and file input.' },
+      { s: 'hmac-generator', n: 'HMAC Generator', i: 'signature', d: 'Generate HMAC signatures (SHA-256/512) for webhook verification and API auth.' },
+      { s: 'jwt-decoder', n: 'JWT Decoder', i: 'token', d: 'Decode and inspect JWT headers, payloads, and claims. Verify expiry locally.' },
+      { s: 'cert-decoder', n: 'Certificate Decoder', i: 'certificate', d: 'Decode X.509 / PEM certificates: inspect issuer, validity, and SAN entries.' },
+      { s: 'totp-generator', n: 'TOTP Generator', i: 'timer', d: 'Generate time-based one-time passwords from a secret. RFC 6238 compatible.' }
+    ];
+    var input = document.getElementById('q');
+    var browse = document.getElementById('browse');
+    var results = document.getElementById('results');
+    var grid = document.getElementById('results-grid');
+    var meta = document.getElementById('results-meta');
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function card(t) {
+      return '<a href="/' + t.s + '/" class="tool-card"><div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-' + t.i + '"></use></svg></div><h3>' + esc(t.n) + '</h3><p>' + esc(t.d) + '</p></a>';
+    }
+    function render() {
+      var q = input.value.trim();
+      var s = q.toLowerCase();
+      if (!s) { results.hidden = true; browse.hidden = false; grid.innerHTML = ''; return; }
+      var m = TOOLS.filter(function (t) {
+        return t.n.toLowerCase().indexOf(s) >= 0 || t.d.toLowerCase().indexOf(s) >= 0 || t.s.indexOf(s) >= 0;
+      });
+      browse.hidden = true; results.hidden = false;
+      meta.textContent = m.length + ' result' + (m.length === 1 ? '' : 's') + ' for “' + q + '”';
+      grid.innerHTML = m.length ? m.map(card).join('') : '';
+    }
+    input.addEventListener('input', render);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === '/' && !/input|textarea|select/i.test((document.activeElement || {}).tagName || '')) {
+        e.preventDefault(); input.focus();
+      }
+    });
+  })();
+  </script>
+
+  <section class="faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="container-wide">
+      <h2 id="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-question">Are all the tools on Praticulus really free?</h3>
+          <p class="faq-answer">Yes. Every tool is 100% free: no sign-up, no paywall, no usage limits.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Do you store or log the data I paste into the tools?</h3>
+          <p class="faq-answer">No. All tools run entirely in your browser: nothing is sent to any server. Your data never leaves your device.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Can I use Praticulus offline?</h3>
+          <p class="faq-answer">Most tools work after the first load since all logic is client-side JavaScript. Load the page once online, then you can keep using it offline.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Why no ads or sign-up forms?</h3>
+          <p class="faq-answer">Praticulus is part of Iris Digital, a portfolio of useful products. We prefer keeping it clean and fast over monetizing through ads or data collection.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Can I suggest a new tool?</h3>
+          <p class="faq-answer">Yes, reach out via Iris Digital. We add new tools regularly based on feedback from developers and power users.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">Is Praticulus open source?</h3>
+          <p class="faq-answer">Not currently. But the tools are standard client-side implementations with no vendor lock-in or tracking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-ventures: Iris Digital ecosystem -->
+  <section class="cross-ventures" aria-labelledby="cross-ventures-title">
+    <h2 id="cross-ventures-title" class="cross-ventures-title">You might also need</h2>
+    <div class="cross-grid">
+      <a class="cross-card" href="https://mailprobe.dev/" rel="noopener">
+        <span class="cross-card-logo">MailProbe</span>
+        <p class="cross-card-desc">Verify email addresses at scale. Free API tier for developers.</p>
+      </a>
+      <a class="cross-card" href="https://conv2pdf.com/" rel="noopener">
+        <span class="cross-card-logo">Conv2pdf</span>
+        <p class="cross-card-desc">Convert, merge and edit PDFs online. Free tools plus a developer API.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+</body>
+</html>
