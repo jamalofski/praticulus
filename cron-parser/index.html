@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Cron Expression Parser — Explain &amp; Next Runs | Praticulus</title>
+  <meta name="description" content="Parse any cron expression into plain English and see the next 5 run times. Validates syntax field by field, with an inline cheatsheet. Runs entirely in your browser.">
+  <meta name="keywords" content="cron parser, cron expression, crontab, cron to english, cron expression generator, cron next run, cron schedule, crontab guru alternative">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/cron-parser/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cron Expression Parser — Explain &amp; Next Runs | Praticulus">
+  <meta property="og:description" content="Parse any cron expression into plain English and see the next 5 run times. Validates syntax field by field, with an inline cheatsheet.">
+  <meta property="og:url" content="https://praticulus.com/cron-parser/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cron Expression Parser",
+    "url": "https://praticulus.com/cron-parser/",
+    "description": "Parse any cron expression into plain English and see the next 5 run times. Validates syntax field by field, with an inline cheatsheet. Runs entirely in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://praticulus.com/developer/" },
+      { "@type": "ListItem", "position": 3, "name": "Cron Expression Parser", "item": "https://praticulus.com/cron-parser/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">27 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/developer/">Developer Tools</a></li>
+        <li><span aria-current="page">Cron Expression Parser</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-timer"></use></svg></div>
+      <h1>Cron Expression Parser</h1>
+      <p>Paste a cron expression to get a plain-English description and the next 5 run times. Five-field crontab syntax, with named months and weekdays.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Cron expression <span class="label-hint">minute · hour · day-of-month · month · day-of-week</span></label>
+        <input type="text" id="input" class="text-input mono-input" placeholder="*/15 9-17 * * 1-5" autocomplete="off" spellcheck="false" value="0 9 * * 1-5">
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-parse">Parse</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="example-row" id="examples">
+          <span class="example-label">Try:</span>
+          <button class="ex-btn" data-cron="* * * * *">every minute</button>
+          <button class="ex-btn" data-cron="*/5 * * * *">every 5 min</button>
+          <button class="ex-btn" data-cron="0 * * * *">hourly</button>
+          <button class="ex-btn" data-cron="0 0 * * *">daily midnight</button>
+          <button class="ex-btn" data-cron="0 9 * * 1-5">weekdays 9am</button>
+          <button class="ex-btn" data-cron="0 0 1 * *">monthly</button>
+          <button class="ex-btn" data-cron="@daily">@daily</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card d-none" id="result-card">
+        <div class="cron-desc" id="desc"></div>
+        <h2 class="seo-heading mt-1">Next 5 runs <span class="label-hint" id="run-tz"></span></h2>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>#</th><th>Local time</th><th>ISO 8601 (UTC)</th><th>In</th></tr></thead>
+            <tbody id="runs-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">Cron syntax cheatsheet</h2>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead><tr><th>Field</th><th>Allowed values</th><th>Special</th></tr></thead>
+            <tbody>
+              <tr><td>Minute</td><td>0–59</td><td rowspan="5"><code>*</code> any · <code>,</code> list · <code>-</code> range · <code>/</code> step</td></tr>
+              <tr><td>Hour</td><td>0–23</td></tr>
+              <tr><td>Day of month</td><td>1–31</td></tr>
+              <tr><td>Month</td><td>1–12 or JAN–DEC</td></tr>
+              <tr><td>Day of week</td><td>0–6 or SUN–SAT (0 &amp; 7 = Sunday)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="seo-text mt-075">Shortcuts: <code>@yearly</code>, <code>@monthly</code>, <code>@weekly</code>, <code>@daily</code> (<code>@midnight</code>), <code>@hourly</code>. Example: <code>*/15 9-17 * * 1-5</code> runs every 15 minutes, 9am–5pm, Monday to Friday.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">How cron scheduling works</h2>
+        <p class="seo-text">A cron expression has five fields separated by spaces. A job runs when the current minute, hour, month and day all match. The day match is special: when <strong>both</strong> day-of-month and day-of-week are restricted, cron runs if <strong>either</strong> matches — a common source of surprises. Next-run times below are computed in your local timezone.</p>
+      </div>
+    </div>
+
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Developer</h2>
+      <div class="related-grid">
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/csv-viewer/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-table"></use></svg></span><span>CSV Viewer &amp; Formatter</span></a>
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
+        <a href="/diff-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-diff"></use></svg></span><span>Diff Checker</span></a>
+      </div>
+      <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
+    </section>
+    <p><a href="https://github.com/jamalofski/praticulus/blob/main/cron-parser/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+    var input = document.getElementById('input');
+    var status = document.getElementById('status');
+    var resultCard = document.getElementById('result-card');
+    var descEl = document.getElementById('desc');
+    var runsBody = document.getElementById('runs-body');
+    var runTz = document.getElementById('run-tz');
+
+    var MONTHS = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var MONTH_ABBR = { JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6, JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12 };
+    var DOW = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var DOW_ABBR = { SUN: 0, MON: 1, TUE: 2, WED: 3, THU: 4, FRI: 5, SAT: 6 };
+    var MACROS = {
+      '@yearly': '0 0 1 1 *', '@annually': '0 0 1 1 *', '@monthly': '0 0 1 * *',
+      '@weekly': '0 0 * * 0', '@daily': '0 0 * * *', '@midnight': '0 0 * * *', '@hourly': '0 * * * *'
+    };
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    // Expand one field into a sorted array of integers, or throw on bad syntax.
+    function expand(field, min, max, names) {
+      var out = {};
+      field.split(',').forEach(function (part) {
+        var step = 1, range = part;
+        var slash = part.split('/');
+        if (slash.length === 2) { range = slash[0]; step = parseInt(slash[1], 10); if (!(step > 0)) throw 'bad step "' + part + '"'; }
+        else if (slash.length > 2) throw 'bad step "' + part + '"';
+        var lo, hi;
+        if (range === '*') { lo = min; hi = max; }
+        else {
+          var rb = range.split('-');
+          if (rb.length === 1) { lo = hi = nameToNum(rb[0], names, min, max); if (step !== 1) hi = max; }
+          else if (rb.length === 2) { lo = nameToNum(rb[0], names, min, max); hi = nameToNum(rb[1], names, min, max); }
+          else throw 'bad range "' + part + '"';
+        }
+        if (lo < min || hi > max || lo > hi) throw 'out of range "' + part + '"';
+        for (var v = lo; v <= hi; v += step) out[v] = true;
+      });
+      return Object.keys(out).map(Number).sort(function (a, b) { return a - b; });
+    }
+
+    function nameToNum(token, names, min, max) {
+      if (/^\d+$/.test(token)) return parseInt(token, 10);
+      if (names && names[token.toUpperCase()] != null) return names[token.toUpperCase()];
+      throw 'unknown value "' + token + '"';
+    }
+
+    function parse(expr) {
+      expr = expr.trim();
+      if (MACROS[expr.toLowerCase()]) expr = MACROS[expr.toLowerCase()];
+      var f = expr.split(/\s+/);
+      if (f.length !== 5) throw 'Expected 5 fields, got ' + f.length + '. Use: minute hour day-of-month month day-of-week.';
+      var dowRaw = f[4].replace(/7/g, '0');
+      return {
+        minute: expand(f[0], 0, 59, null),
+        hour: expand(f[1], 0, 23, null),
+        dom: expand(f[2], 1, 31, null),
+        month: expand(f[3], 1, 12, MONTH_ABBR),
+        dow: expand(dowRaw, 0, 6, DOW_ABBR),
+        raw: { minute: f[0], hour: f[1], dom: f[2], month: f[3], dow: f[4] }
+      };
+    }
+
+    function matches(date, c) {
+      if (c.minute.indexOf(date.getMinutes()) === -1) return false;
+      if (c.hour.indexOf(date.getHours()) === -1) return false;
+      if (c.month.indexOf(date.getMonth() + 1) === -1) return false;
+      var domR = c.raw.dom !== '*', dowR = c.raw.dow !== '*';
+      var domMatch = c.dom.indexOf(date.getDate()) !== -1;
+      var dowMatch = c.dow.indexOf(date.getDay()) !== -1;
+      if (domR && dowR) return domMatch || dowMatch;
+      if (domR) return domMatch;
+      if (dowR) return dowMatch;
+      return true;
+    }
+
+    function nextRuns(c, count) {
+      var runs = [];
+      var d = new Date();
+      d.setSeconds(0, 0);
+      d.setMinutes(d.getMinutes() + 1);
+      var cap = 366 * 24 * 60 * 5; // safety bound (~5 years of minutes)
+      for (var i = 0; i < cap && runs.length < count; i++) {
+        if (matches(d, c)) runs.push(new Date(d.getTime()));
+        d.setMinutes(d.getMinutes() + 1);
+      }
+      return runs;
+    }
+
+    // ---- Human description ----
+    function listNames(raw, names) {
+      return raw.split(',').map(function (part) {
+        if (part.indexOf('/') !== -1) {
+          var sp = part.split('/');
+          return 'every ' + sp[1] + (sp[0] === '*' ? '' : ' from ' + names(sp[0]));
+        }
+        if (part.indexOf('-') !== -1) {
+          var rb = part.split('-');
+          return names(rb[0]) + ' through ' + names(rb[1]);
+        }
+        return names(part);
+      }).join(', ');
+    }
+
+    function describeTime(raw) {
+      var m = raw.minute, h = raw.hour;
+      if (m === '*' && h === '*') return 'Every minute';
+      if (/^\*\/\d+$/.test(m) && h === '*') return 'Every ' + m.split('/')[1] + ' minutes';
+      if (m === '0' && /^\*\/\d+$/.test(h)) return 'Every ' + h.split('/')[1] + ' hours, on the hour';
+      if (m === '0' && h === '*') return 'Every hour, on the hour';
+      if (/^\d+$/.test(m) && h === '*') return 'At minute ' + m + ' of every hour';
+      if (/^\d+$/.test(m) && /^\d+$/.test(h)) return 'At ' + pad(+h) + ':' + pad(+m);
+      if (/^\*\/\d+$/.test(m) && /^[\d,\-]+$/.test(h)) return 'Every ' + m.split('/')[1] + ' minutes, during hours ' + h;
+      return 'At minute ' + m + ', hour ' + h;
+    }
+
+    function describe(raw) {
+      var s = describeTime(raw);
+      var monthName = function (n) { return MONTHS[+n] || n; };
+      var dowName = function (n) { var x = n === '7' ? '0' : n; return DOW[+x] != null ? DOW[+x] : n; };
+      if (raw.dom !== '*' && raw.dow !== '*') {
+        s += ', on day-of-month ' + listNames(raw.dom, function (x) { return x; }) + ' and on ' + listNames(raw.dow, dowName);
+      } else if (raw.dom !== '*') {
+        s += ', on day-of-month ' + listNames(raw.dom, function (x) { return x; });
+      } else if (raw.dow !== '*') {
+        s += ', on ' + listNames(raw.dow, dowName);
+      }
+      if (raw.month !== '*') s += ', in ' + listNames(raw.month, monthName);
+      return s + '.';
+    }
+
+    function run() {
+      var c;
+      try { c = parse(input.value); }
+      catch (err) {
+        resultCard.classList.add('d-none');
+        status.innerHTML = '<span class="invalid">Invalid: ' + escapeHtml(String(err)) + '</span>';
+        return;
+      }
+      status.innerHTML = '<span class="valid">Valid cron expression.</span>';
+      descEl.textContent = describe(c.raw);
+      var runs = nextRuns(c, 5);
+      runTz = document.getElementById('run-tz');
+      try { runTz.textContent = '· ' + Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+      if (!runs.length) {
+        runsBody.innerHTML = '<tr><td colspan="4" class="cell-error">No run found within the next 5 years.</td></tr>';
+      } else {
+        var now = Date.now();
+        runsBody.innerHTML = runs.map(function (d, i) {
+          var mins = Math.round((d.getTime() - now) / 60000);
+          var inStr = mins < 60 ? mins + ' min' : (mins < 1440 ? Math.round(mins / 60) + ' h' : Math.round(mins / 1440) + ' d');
+          return '<tr><td>' + (i + 1) + '</td><td>' + escapeHtml(d.toLocaleString()) + '</td><td>' + d.toISOString() + '</td><td>' + inStr + '</td></tr>';
+        }).join('');
+      }
+      resultCard.classList.remove('d-none');
+    }
+
+    document.getElementById('examples').addEventListener('click', function (e) {
+      if (e.target.classList.contains('ex-btn')) { input.value = e.target.getAttribute('data-cron'); run(); }
+    });
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+    document.getElementById('btn-parse').addEventListener('click', run);
+    document.getElementById('btn-clear').addEventListener('click', function () {
+      input.value = ''; resultCard.classList.add('d-none'); status.innerHTML = ''; input.focus();
+    });
+
+    run();
+  })();
+  </script>
+</body>
+</html>

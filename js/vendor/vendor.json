@@ -1,7 +1,7 @@
 [
   { "name": "marked", "version": "15.0.12" },
   { "name": "dompurify", "version": "3.4.11" },
-  { "name": "sql-formatter", "version": "15.8.1" },
+  { "name": "sql-formatter", "version": "15.8.2" },
   { "name": "qrcode-generator", "version": "1.4.4" },
   { "name": "js-yaml", "version": "4.2.0" }
 ]

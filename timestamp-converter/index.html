@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Unix Timestamp Converter — Epoch ↔ Date | Praticulus</title>
+  <meta name="description" content="Convert Unix epoch timestamps to human-readable dates and back. Seconds or milliseconds, ISO 8601, UTC, local time and any timezone. Batch convert, runs in your browser.">
+  <meta name="keywords" content="unix timestamp converter, epoch converter, timestamp to date, date to timestamp, epoch to date, unix time, iso 8601 converter, milliseconds timestamp">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/timestamp-converter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Unix Timestamp Converter — Epoch ↔ Date | Praticulus">
+  <meta property="og:description" content="Convert Unix epoch timestamps to human-readable dates and back. Seconds or milliseconds, ISO 8601, UTC, local time and any timezone. Runs in your browser.">
+  <meta property="og:url" content="https://praticulus.com/timestamp-converter/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Unix Timestamp Converter",
+    "url": "https://praticulus.com/timestamp-converter/",
+    "description": "Convert Unix epoch timestamps to human-readable dates and back. Seconds or milliseconds, ISO 8601, UTC, local time and any timezone. Batch convert, runs in your browser.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Converter Tools", "item": "https://praticulus.com/converters/" },
+      { "@type": "ListItem", "position": 3, "name": "Unix Timestamp Converter", "item": "https://praticulus.com/timestamp-converter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">27 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/converters/">Converter Tools</a></li>
+        <li><span aria-current="page">Unix Timestamp Converter</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></div>
+      <h1>Unix Timestamp Converter</h1>
+      <p>Convert Unix epoch ↔ date in both directions. Paste a timestamp (seconds or milliseconds) or a date string, get ISO 8601, UTC, local time and any timezone.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Timestamp or date</label>
+        <div class="input-row">
+          <input type="text" id="input" class="text-input" placeholder="1717200000  ·  2026-06-24T12:00:00Z  ·  June 24 2026" autocomplete="off" spellcheck="false">
+          <button class="btn btn-secondary" id="btn-now">Now</button>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-convert">Convert</button>
+          <button class="btn btn-secondary" id="btn-share">Share link</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card d-none" id="result-card">
+        <div class="kv-list" id="kv-list"></div>
+        <div class="input-row mt-075">
+          <label for="tz" class="inline-label">Timezone</label>
+          <select id="tz" class="select-input"></select>
+        </div>
+        <div class="kv-list mt-075" id="kv-tz"></div>
+      </div>
+
+      <div class="card">
+        <label for="batch">Batch convert <span class="label-hint">one timestamp or date per line</span></label>
+        <textarea id="batch" placeholder="1717200000&#10;1700000000000&#10;2026-01-01"></textarea>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-batch">Convert all</button>
+          <button class="btn btn-secondary btn-sm" id="btn-batch-copy">Copy table (TSV)</button>
+        </div>
+        <div class="table-scroll d-none" id="batch-wrap">
+          <table class="data-table" id="batch-table">
+            <thead><tr><th>Input</th><th>Unix (s)</th><th>ISO 8601 (UTC)</th><th>Local time</th></tr></thead>
+            <tbody id="batch-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is a Unix timestamp?</h2>
+        <p class="seo-text">A Unix timestamp (epoch time) is the number of seconds elapsed since <code>1970-01-01T00:00:00Z</code>, ignoring leap seconds. It is timezone-independent: the same instant has one epoch value everywhere on Earth. Many APIs and databases store time this way.</p>
+        <h3 class="seo-subheading">Seconds vs milliseconds</h3>
+        <ul class="seo-text">
+          <li><strong>Seconds (10 digits):</strong> the classic Unix format, e.g. <code>1717200000</code>. Used by most backends and <code>date +%s</code>.</li>
+          <li><strong>Milliseconds (13 digits):</strong> JavaScript's <code>Date.now()</code>, e.g. <code>1717200000000</code>. This tool auto-detects the unit from the digit count.</li>
+          <li><strong>ISO 8601:</strong> the human-readable standard <code>2026-06-01T00:00:00Z</code> — unambiguous and sortable.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Converters</h2>
+      <div class="related-grid">
+        <a href="/image-compressor/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-image"></use></svg></span><span>Image Compressor</span></a>
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+      </div>
+      <a href="/converters/" class="related-all">All Converters tools &rarr;</a>
+    </section>
+    <p><a href="https://github.com/jamalofski/praticulus/blob/main/timestamp-converter/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+    var input = document.getElementById('input');
+    var status = document.getElementById('status');
+    var resultCard = document.getElementById('result-card');
+    var kvList = document.getElementById('kv-list');
+    var kvTz = document.getElementById('kv-tz');
+    var tzSelect = document.getElementById('tz');
+    var batch = document.getElementById('batch');
+    var batchWrap = document.getElementById('batch-wrap');
+    var batchBody = document.getElementById('batch-body');
+    var lastDate = null;
+
+    var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    // Build timezone list (native list when available, curated fallback).
+    var localTz = 'UTC';
+    try { localTz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch (e) {}
+    var zones;
+    try { zones = (typeof Intl.supportedValuesOf === 'function') ? Intl.supportedValuesOf('timeZone') : null; } catch (e) { zones = null; }
+    if (!zones) {
+      zones = ['UTC', 'America/New_York', 'America/Los_Angeles', 'America/Chicago', 'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Asia/Tokyo', 'Asia/Shanghai', 'Asia/Kolkata', 'Australia/Sydney'];
+    }
+    if (zones.indexOf(localTz) === -1) zones.unshift(localTz);
+    zones.forEach(function (z) {
+      var opt = document.createElement('option');
+      opt.value = z; opt.textContent = z;
+      if (z === localTz) opt.selected = true;
+      tzSelect.appendChild(opt);
+    });
+
+    function parseInput(raw) {
+      raw = raw.trim();
+      if (!raw) return null;
+      if (/^-?\d+$/.test(raw)) {
+        var digits = raw.replace('-', '').length;
+        var num = Number(raw);
+        var ms;
+        if (digits <= 11) ms = num * 1000;        // seconds
+        else if (digits <= 14) ms = num;          // milliseconds
+        else ms = Math.round(num / 1000);         // microseconds
+        var d = new Date(ms);
+        return isNaN(d.getTime()) ? null : d;
+      }
+      var parsed = new Date(raw);
+      return isNaN(parsed.getTime()) ? null : parsed;
+    }
+
+    function relative(date) {
+      var diff = date.getTime() - Date.now();
+      var future = diff > 0;
+      var s = Math.abs(diff) / 1000;
+      var units = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60], ['second', 1]];
+      for (var i = 0; i < units.length; i++) {
+        var v = Math.floor(s / units[i][1]);
+        if (v >= 1) {
+          var lbl = v + ' ' + units[i][0] + (v > 1 ? 's' : '');
+          return future ? 'in ' + lbl : lbl + ' ago';
+        }
+      }
+      return 'just now';
+    }
+
+    function inZone(date, tz) {
+      try {
+        return new Intl.DateTimeFormat('en-GB', {
+          timeZone: tz, weekday: 'short', year: 'numeric', month: 'short', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZoneName: 'short'
+        }).format(date);
+      } catch (e) { return 'Invalid timezone'; }
+    }
+
+    function row(label, value) {
+      return '<div class="kv-row"><span class="kv-label">' + label + '</span>' +
+        '<span class="kv-value">' + escapeHtml(value) + '<button class="kv-copy" type="button" data-copy="' + escapeHtml(value) + '" aria-label="Copy">Copy</button></span></div>';
+    }
+
+    function render(date) {
+      lastDate = date;
+      var secs = Math.floor(date.getTime() / 1000);
+      kvList.innerHTML =
+        row('Unix (seconds)', String(secs)) +
+        row('Unix (milliseconds)', String(date.getTime())) +
+        row('ISO 8601 (UTC)', date.toISOString()) +
+        row('UTC', date.toUTCString()) +
+        row('Local time', date.toString()) +
+        row('Day of week', DAYS[date.getDay()]) +
+        row('Relative', relative(date));
+      renderTz(date);
+      resultCard.classList.remove('d-none');
+      status.innerHTML = '<span class="valid">Parsed successfully.</span>';
+    }
+
+    function renderTz(date) {
+      kvTz.innerHTML = row(tzSelect.value, inZone(date, tzSelect.value));
+    }
+
+    function convert() {
+      var date = parseInput(input.value);
+      if (!date) {
+        resultCard.classList.add('d-none');
+        status.innerHTML = input.value.trim() ? '<span class="invalid">Could not parse that timestamp or date.</span>' : '';
+        return;
+      }
+      render(date);
+    }
+
+    function setNow() {
+      input.value = String(Math.floor(Date.now() / 1000));
+      convert();
+    }
+
+    function share() {
+      var raw = input.value.trim();
+      if (!raw) { showToast('Nothing to share'); return; }
+      location.hash = 't=' + encodeURIComponent(raw);
+      copyToClipboard(location.href, document.getElementById('btn-share'));
+    }
+
+    function clearAll() {
+      input.value = '';
+      resultCard.classList.add('d-none');
+      status.innerHTML = '';
+      if (location.hash) history.replaceState(null, '', location.pathname);
+    }
+
+    function runBatch() {
+      var lines = batch.value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+      if (!lines.length) { batchWrap.classList.add('d-none'); return; }
+      batchBody.innerHTML = lines.map(function (line) {
+        var d = parseInput(line);
+        if (!d) return '<tr><td>' + escapeHtml(line) + '</td><td colspan="3" class="cell-error">unparseable</td></tr>';
+        return '<tr><td>' + escapeHtml(line) + '</td><td>' + Math.floor(d.getTime() / 1000) +
+          '</td><td>' + d.toISOString() + '</td><td>' + escapeHtml(d.toLocaleString()) + '</td></tr>';
+      }).join('');
+      batchWrap.classList.remove('d-none');
+    }
+
+    function copyBatch() {
+      var rows = [['Input', 'Unix (s)', 'ISO 8601 (UTC)', 'Local time'].join('\t')];
+      batch.value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean).forEach(function (line) {
+        var d = parseInput(line);
+        rows.push([line, d ? Math.floor(d.getTime() / 1000) : '', d ? d.toISOString() : '', d ? d.toLocaleString() : ''].join('\t'));
+      });
+      copyToClipboard(rows.join('\n'), document.getElementById('btn-batch-copy'));
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t.classList && t.classList.contains('kv-copy')) copyToClipboard(t.getAttribute('data-copy'), t);
+    });
+
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') convert(); });
+    document.getElementById('btn-convert').addEventListener('click', convert);
+    document.getElementById('btn-now').addEventListener('click', setNow);
+    document.getElementById('btn-share').addEventListener('click', share);
+    document.getElementById('btn-clear').addEventListener('click', clearAll);
+    document.getElementById('btn-batch').addEventListener('click', runBatch);
+    document.getElementById('btn-batch-copy').addEventListener('click', copyBatch);
+    tzSelect.addEventListener('change', function () { if (lastDate) renderTz(lastDate); });
+
+    // Restore from share link, else seed with current time.
+    var m = location.hash.match(/t=([^&]+)/);
+    if (m) { input.value = decodeURIComponent(m[1]); convert(); }
+    else { setNow(); }
+  })();
+  </script>
+</body>
+</html>

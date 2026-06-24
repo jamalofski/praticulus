@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -29,7 +29,7 @@
     "name": "Online Color Tools",
     "url": "https://praticulus.com/color/",
     "description": "Free online color tools that run entirely in your browser. Color picker, converter, blender, palette generator, gradient builder, WCAG contrast checker.",
-    "dateModified": "2026-05-11",
+    "dateModified": "2026-06-25",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
@@ -38,10 +38,10 @@
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/color-picker/", "name": "Color Picker" },
         { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/color-converter/", "name": "Color Converter" },
-        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/palette-generator/", "name": "Palette Generator" },
-        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/contrast-checker/", "name": "WCAG Contrast Checker" },
+        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/color-blender/", "name": "Color Blender" },
+        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/palette-generator/", "name": "Palette Generator" },
         { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/gradient-generator/", "name": "CSS Gradient Generator" },
-        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/color-blender/", "name": "Color Blender" }
+        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/contrast-checker/", "name": "WCAG Contrast Checker" }
       ]
     }
   }
@@ -66,14 +66,14 @@
         <span class="logo-word">Pratic<span>ulus</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="/developer/">Developer</a>
-        <a href="/security/">Security</a>
         <a href="/color/">Color</a>
         <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
         <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">23 tools</span>
+      <span class="nav-pill">27 tools</span>
     </div>
   </header>
 
@@ -91,7 +91,7 @@
     </nav>
 
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-droplet"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></div>
       <h1>Color Tools</h1>
       <p>Pick colors, convert between HEX, RGB, HSL, CMYK, build palettes and gradients, check WCAG contrast. Every tool runs entirely in your browser. Open DevTools → Network and watch: nothing leaves your tab.</p>
     </div>
@@ -105,34 +105,34 @@
     <section class="tools-section" aria-label="Color tools">
       <div class="tools-grid">
         <a href="/color-picker/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-eyedropper"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-eyedropper"></use></svg></div>
           <h3>Color Picker</h3>
           <p>Pick any color visually or enter HEX, RGB, HSL. Copy color codes instantly.</p>
         </a>
         <a href="/color-converter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swatch"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swatch"></use></svg></div>
           <h3>Color Converter</h3>
           <p>Convert colors between HEX, RGB, HSL, HWB and CMYK with live preview.</p>
         </a>
+        <a href="/color-blender/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-blend"></use></svg></div>
+          <h3>Color Blender</h3>
+          <p>Blend two colors and generate intermediate stops. Great for hover states and gradients.</p>
+        </a>
         <a href="/palette-generator/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-palette"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-palette"></use></svg></div>
           <h3>Palette Generator</h3>
           <p>Generate harmonious palettes. Export to CSS variables, Tailwind config or SCSS.</p>
         </a>
-        <a href="/contrast-checker/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-contrast"></use></svg></div>
-          <h3>WCAG Contrast Checker</h3>
-          <p>Check WCAG 2.1 AA/AAA contrast ratios for normal and large text. Accessible by default.</p>
-        </a>
         <a href="/gradient-generator/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-gradient"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-gradient"></use></svg></div>
           <h3>CSS Gradient Generator</h3>
           <p>Build linear, radial, or conic CSS gradients visually. Copy the CSS in one click.</p>
         </a>
-        <a href="/color-blender/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-blend"></use></svg></div>
-          <h3>Color Blender</h3>
-          <p>Blend two colors and generate intermediate stops. Great for hover states and gradients.</p>
+        <a href="/contrast-checker/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-contrast"></use></svg></div>
+          <h3>WCAG Contrast Checker</h3>
+          <p>Check WCAG 2.1 AA/AAA contrast ratios for normal and large text. Accessible by default.</p>
         </a>
       </div>
     </section>
@@ -175,11 +175,11 @@
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
-        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-code"></use></svg></span><span><b>Developer</b><small>11 tools</small></span></a>
-        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
-        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swap"></use></svg></span><span><b>Converters</b><small>2 tools</small></span></a>
-        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
-        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
+        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></span><span><b>Converters</b><small>4 tools</small></span></a>
+        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>14 tools</small></span></a>
+        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
+        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
+        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
       </div>
     </section>
   </main>

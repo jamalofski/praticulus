@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>Online Developer Tools — Free, Privacy-First | Praticulus</title>
-  <meta name="description" content="Free online developer tools running entirely in your browser. JSON &amp; YAML formatters, UUID, regex tester, hash, HMAC, base64, URL encoder, markdown, no signup.">
+  <meta name="description" content="Free online developer tools in your browser: JSON &amp; YAML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
   <meta name="keywords" content="online developer tools, free web developer tools, dev tools online, json formatter, yaml formatter, yaml validator, uuid generator, regex tester, hash generator, hmac generator, base64, url encoder, markdown preview">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://praticulus.com/developer/">
@@ -13,14 +13,14 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Online Developer Tools — Free, Privacy-First | Praticulus">
-  <meta property="og:description" content="Free online developer tools running entirely in your browser. JSON &amp; YAML formatters, UUID, regex tester, hash, HMAC, base64, URL encoder, markdown, no signup.">
+  <meta property="og:description" content="Free online developer tools in your browser: JSON &amp; YAML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
   <meta property="og:url" content="https://praticulus.com/developer/">
   <meta property="og:site_name" content="Praticulus">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -29,24 +29,27 @@
     "name": "Online Developer Tools",
     "url": "https://praticulus.com/developer/",
     "description": "Free online developer tools that run entirely in your browser. JSON and YAML formatters, UUID generator, regex tester, hash, HMAC, base64, URL encoder, markdown preview.",
-    "dateModified": "2026-06-11",
+    "dateModified": "2026-06-25",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Developer Tools",
-      "numberOfItems": 11,
+      "numberOfItems": 14,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/json-formatter/", "name": "JSON Formatter & Validator" },
-        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/uuid-generator/", "name": "UUID Generator" },
-        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" },
-        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
-        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" },
-        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/hash-generator/", "name": "Hash Generator" },
-        { "@type": "ListItem", "position": 7, "url": "https://praticulus.com/hmac-generator/", "name": "HMAC Generator" },
-        { "@type": "ListItem", "position": 8, "url": "https://praticulus.com/markdown-preview/", "name": "Markdown Preview" },
-        { "@type": "ListItem", "position": 9, "url": "https://praticulus.com/sql-formatter/", "name": "SQL Formatter" },
-        { "@type": "ListItem", "position": 10, "url": "https://praticulus.com/diff-checker/", "name": "Diff Checker" },
-        { "@type": "ListItem", "position": 11, "url": "https://praticulus.com/yaml-formatter/", "name": "YAML Formatter & Validator" }
+        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/cron-parser/", "name": "Cron Expression Parser" },
+        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/timestamp-converter/", "name": "Unix Timestamp Converter" },
+        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/csv-viewer/", "name": "CSV Viewer & Formatter" },
+        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/json-formatter/", "name": "JSON Formatter & Validator" },
+        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/markdown-preview/", "name": "Markdown Preview" },
+        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/diff-checker/", "name": "Diff Checker" },
+        { "@type": "ListItem", "position": 7, "url": "https://praticulus.com/sql-formatter/", "name": "SQL Formatter" },
+        { "@type": "ListItem", "position": 8, "url": "https://praticulus.com/hash-generator/", "name": "Hash Generator" },
+        { "@type": "ListItem", "position": 9, "url": "https://praticulus.com/uuid-generator/", "name": "UUID Generator" },
+        { "@type": "ListItem", "position": 10, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" },
+        { "@type": "ListItem", "position": 11, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
+        { "@type": "ListItem", "position": 12, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" },
+        { "@type": "ListItem", "position": 13, "url": "https://praticulus.com/hmac-generator/", "name": "HMAC Generator" },
+        { "@type": "ListItem", "position": 14, "url": "https://praticulus.com/yaml-formatter/", "name": "YAML Formatter & Validator" }
       ]
     }
   }
@@ -71,14 +74,14 @@
         <span class="logo-word">Pratic<span>ulus</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="/developer/">Developer</a>
-        <a href="/security/">Security</a>
         <a href="/color/">Color</a>
         <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
         <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">23 tools</span>
+      <span class="nav-pill">27 tools</span>
     </div>
   </header>
 
@@ -96,73 +99,88 @@
     </nav>
 
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-code"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></div>
       <h1>Developer Tools</h1>
       <p>Format JSON, generate UUIDs, test regex, hash strings, encode Base64 and URLs. Every tool runs entirely in your browser. Open DevTools → Network and watch: nothing leaves your tab.</p>
     </div>
 
     <div class="hub-intro">
       <h2>Built for daily developer workflows</h2>
-      <p>Eleven tools for JSON and YAML, hashing, HMAC signing, regex, encoding and ID generation. Pages target Lighthouse 100 on mobile and load in under 100ms TTI.</p>
+      <p>Fourteen tools for JSON and YAML, cron, CSV, timestamps, hashing, HMAC signing, regex, encoding and ID generation. Pages target Lighthouse 100 on mobile and load in under 100ms TTI.</p>
       <p>Pick a tool below or jump straight to <a href="/json-formatter/">JSON Formatter</a> if that's why you came.</p>
     </div>
 
     <section class="tools-section" aria-label="Developer tools">
       <div class="tools-grid">
+        <a href="/cron-parser/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-timer"></use></svg></div>
+          <h3>Cron Expression Parser</h3>
+          <p>Explain any cron expression in plain English and preview the next 5 run times. Inline cheatsheet.</p>
+        </a>
+        <a href="/timestamp-converter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></div>
+          <h3>Unix Timestamp Converter</h3>
+          <p>Convert epoch ↔ date, seconds or milliseconds, ISO 8601, UTC and any timezone. Batch convert.</p>
+        </a>
+        <a href="/csv-viewer/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-table"></use></svg></div>
+          <h3>CSV Viewer &amp; Formatter</h3>
+          <p>View CSV as a sortable table, auto-detect the delimiter, export to JSON or TSV. Nothing uploaded.</p>
+        </a>
         <a href="/json-formatter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-braces"></use></svg></div>
           <h3>JSON Formatter &amp; Validator</h3>
           <p>Format, validate, and minify JSON with syntax highlighting and tree view.</p>
         </a>
-        <a href="/uuid-generator/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></div>
-          <h3>UUID Generator</h3>
-          <p>Generate UUID v4 instantly. Bulk generate, copy with one click.</p>
-        </a>
-        <a href="/base64/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></div>
-          <h3>Base64 Encoder / Decoder</h3>
-          <p>Encode or decode Base64 strings instantly. Supports text and file input.</p>
-        </a>
-        <a href="/url-encoder/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></div>
-          <h3>URL Encoder / Decoder</h3>
-          <p>Encode or decode URLs and query strings. Handles Unicode and percent-encoding.</p>
-        </a>
-        <a href="/regex-tester/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-regex"></use></svg></div>
-          <h3>Regex Tester</h3>
-          <p>Test regular expressions with live matching, pattern explainer (token-by-token), and replace.</p>
-        </a>
-        <a href="/hash-generator/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></div>
-          <h3>Hash Generator</h3>
-          <p>Generate MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashes from any text or file. Hex or Base64 (SRI ready).</p>
-        </a>
-        <a href="/hmac-generator/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-signature"></use></svg></div>
-          <h3>HMAC Generator</h3>
-          <p>Sign payloads with HMAC-SHA-256 / SHA-512 (and MD5/SHA-1 for legacy). Stripe, GitHub, Slack, Twilio webhooks &amp; JWT.</p>
-        </a>
         <a href="/markdown-preview/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-markdown"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
           <h3>Markdown Preview</h3>
           <p>Write and preview Markdown in real-time. Side-by-side editor with live rendering.</p>
         </a>
-        <a href="/sql-formatter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-database"></use></svg></div>
-          <h3>SQL Formatter</h3>
-          <p>Beautify or minify SQL with dialect, indentation and keyword-case options.</p>
-        </a>
         <a href="/diff-checker/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-diff"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-diff"></use></svg></div>
           <h3>Diff Checker</h3>
           <p>Compare two texts side by side or inline, with word-level highlighting.</p>
         </a>
+        <a href="/sql-formatter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-database"></use></svg></div>
+          <h3>SQL Formatter</h3>
+          <p>Beautify or minify SQL with dialect, indentation and keyword-case options.</p>
+        </a>
+        <a href="/hash-generator/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></div>
+          <h3>Hash Generator</h3>
+          <p>Generate MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashes from any text or file. Hex or Base64 (SRI ready).</p>
+        </a>
+        <a href="/uuid-generator/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-fingerprint"></use></svg></div>
+          <h3>UUID Generator</h3>
+          <p>Generate UUID v4 instantly. Bulk generate, copy with one click.</p>
+        </a>
+        <a href="/regex-tester/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-regex"></use></svg></div>
+          <h3>Regex Tester</h3>
+          <p>Test regular expressions with live matching, pattern explainer (token-by-token), and replace.</p>
+        </a>
+        <a href="/url-encoder/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></div>
+          <h3>URL Encoder / Decoder</h3>
+          <p>Encode or decode URLs and query strings. Handles Unicode and percent-encoding.</p>
+        </a>
+        <a href="/base64/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></div>
+          <h3>Base64 Encoder / Decoder</h3>
+          <p>Encode or decode Base64 strings instantly. Supports text and file input.</p>
+        </a>
+        <a href="/hmac-generator/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-signature"></use></svg></div>
+          <h3>HMAC Generator</h3>
+          <p>Sign payloads with HMAC-SHA-256 / SHA-512 (and MD5/SHA-1 for legacy). Stripe, GitHub, Slack, Twilio webhooks &amp; JWT.</p>
+        </a>
         <a href="/yaml-formatter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-yaml"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-yaml"></use></svg></div>
           <h3>YAML Formatter &amp; Validator</h3>
-          <p>Format, validate, and minify YAML 1.2. Error line/column on invalid input. Runs locally.</p>
+          <p>Format, validate, and minify YAML 1.1 and 1.2. Error line/column on invalid input. Runs locally.</p>
         </a>
       </div>
     </section>
@@ -199,19 +217,19 @@
       <span class="hub-planned-eyebrow">Roadmap</span>
       <h3 id="planned-title">Coming next</h3>
       <ul>
-        <li><strong>Cron Parser</strong>Plain English.</li>
-        <li><strong>CSV Viewer</strong>Sortable table.</li>
         <li><strong>XML Formatter</strong>Pretty + validate.</li>
+        <li><strong>Public API</strong>JSON endpoints.</li>
+        <li><strong>npm CLI</strong>Scriptable tools.</li>
       </ul>
     </aside>
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
-        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
-        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
-        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swap"></use></svg></span><span><b>Converters</b><small>2 tools</small></span></a>
-        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
-        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
+        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
+        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></span><span><b>Converters</b><small>4 tools</small></span></a>
+        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
+        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
+        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
       </div>
     </section>
   </main>

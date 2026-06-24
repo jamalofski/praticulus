@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Image Compressor — Private, In-Browser | Praticulus</title>
+  <meta name="description" content="Compress JPEG, PNG and WebP images in your browser with a quality slider. Batch multiple files, preview before/after, convert formats. No upload — unlike TinyPNG, nothing leaves your device.">
+  <meta name="keywords" content="image compressor, compress image online, compress jpeg, compress png, webp converter, reduce image size, image compressor privacy, offline image compressor">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/image-compressor/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Image Compressor — Private, In-Browser | Praticulus">
+  <meta property="og:description" content="Compress JPEG, PNG and WebP images in your browser with a quality slider. Batch, preview before/after, convert formats. No upload — nothing leaves your device.">
+  <meta property="og:url" content="https://praticulus.com/image-compressor/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Compressor",
+    "url": "https://praticulus.com/image-compressor/",
+    "description": "Compress JPEG, PNG and WebP images in your browser with a quality slider. Batch multiple files, preview before/after, convert formats. No upload — nothing leaves your device.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Converter Tools", "item": "https://praticulus.com/converters/" },
+      { "@type": "ListItem", "position": 3, "name": "Image Compressor", "item": "https://praticulus.com/image-compressor/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">27 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: images are compressed on your device and never uploaded.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container-wide" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/converters/">Converter Tools</a></li>
+        <li><span aria-current="page">Image Compressor</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-image"></use></svg></div>
+      <h1>Image Compressor</h1>
+      <p>Compress JPEG, PNG and WebP images with a quality slider, right in your browser. Batch several files, preview before and after, convert between formats. Nothing is uploaded — unlike services that send your images to a server.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <div class="drop-zone drop-zone-lg" id="drop-zone">
+          <p>Drag &amp; drop images here, or click to browse</p>
+          <p class="drop-hint">JPEG · PNG · WebP — multiple files supported</p>
+          <input type="file" id="file-input" class="d-none" accept="image/*" multiple>
+        </div>
+        <div class="control-row">
+          <div class="range-row">
+            <label for="quality" class="inline-label">Quality</label>
+            <input type="range" id="quality" min="50" max="100" value="80" step="1">
+            <span class="range-val" id="quality-val">80%</span>
+          </div>
+          <label class="inline-label" for="format">Output</label>
+          <select id="format" class="select-input">
+            <option value="auto" selected>Keep format</option>
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WebP</option>
+            <option value="image/png">PNG</option>
+          </select>
+        </div>
+        <p class="status-bar" id="png-note"></p>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card d-none" id="result-card">
+        <div class="stat-bar">
+          <span class="stat" id="total-stat"></span>
+          <button class="btn btn-primary btn-sm" id="btn-all">Download all</button>
+          <button class="btn btn-secondary btn-sm" id="btn-reset">Clear</button>
+        </div>
+        <div id="results"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">Why compress in the browser?</h2>
+        <p class="seo-text">Most online image compressors upload your files to a server, process them, and send them back. For screenshots, ID photos, contracts or product shots, that means your images sit on someone else's machine. This tool uses the browser's <code>Canvas</code> API: the image is decoded, re-encoded at your chosen quality, and handed straight back. No upload, no account, no queue.</p>
+        <h3 class="seo-subheading">JPEG, WebP and PNG</h3>
+        <ul class="seo-text">
+          <li><strong>JPEG / WebP:</strong> lossy: the quality slider trades visual fidelity for size, and WebP is usually smaller than JPEG at the same quality.</li>
+          <li><strong>PNG:</strong> lossless, so the quality slider has little effect. To shrink a PNG photo significantly, convert it to JPEG or WebP using the Output selector.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Converters</h2>
+      <div class="related-grid">
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+      </div>
+      <a href="/converters/" class="related-all">All Converters tools &rarr;</a>
+    </section>
+    <p><a href="https://github.com/jamalofski/praticulus/blob/main/image-compressor/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+    var dropZone = document.getElementById('drop-zone');
+    var fileInput = document.getElementById('file-input');
+    var quality = document.getElementById('quality');
+    var qualityVal = document.getElementById('quality-val');
+    var formatSel = document.getElementById('format');
+    var status = document.getElementById('status');
+    var pngNote = document.getElementById('png-note');
+    var resultCard = document.getElementById('result-card');
+    var resultsEl = document.getElementById('results');
+    var totalStat = document.getElementById('total-stat');
+
+    var items = [];   // { name, outUrl, outSize, outType }
+
+    function formatBytes(n) {
+      if (n < 1024) return n + ' B';
+      if (n < 1048576) return (n / 1024).toFixed(1) + ' KB';
+      return (n / 1048576).toFixed(2) + ' MB';
+    }
+
+    function extFor(type) {
+      if (type === 'image/jpeg') return 'jpg';
+      if (type === 'image/webp') return 'webp';
+      if (type === 'image/png') return 'png';
+      return 'img';
+    }
+
+    function readAsDataURL(file) {
+      return new Promise(function (res, rej) {
+        var r = new FileReader();
+        r.onload = function () { res(r.result); };
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
+    }
+
+    function loadImage(url) {
+      return new Promise(function (res, rej) {
+        var img = new Image();
+        img.onload = function () { res(img); };
+        img.onerror = function () { rej(new Error('decode failed')); };
+        img.src = url;
+      });
+    }
+
+    function blobToDataURL(blob) {
+      return new Promise(function (res, rej) {
+        var r = new FileReader();
+        r.onload = function () { res(r.result); };
+        r.onerror = rej;
+        r.readAsDataURL(blob);
+      });
+    }
+
+    function dataUrlBytes(url) {
+      var b64 = url.split(',')[1] || '';
+      var pad = b64.charAt(b64.length - 1) === '=' ? (b64.charAt(b64.length - 2) === '=' ? 2 : 1) : 0;
+      return Math.round(b64.length * 3 / 4) - pad;
+    }
+
+    async function compressOne(file) {
+      var origUrl = await readAsDataURL(file);
+      var img = await loadImage(origUrl);
+      var type = formatSel.value === 'auto' ? (file.type || 'image/jpeg') : formatSel.value;
+      if (!/^image\/(jpeg|webp|png)$/.test(type)) type = 'image/jpeg';
+      var q = type === 'image/png' ? undefined : (parseInt(quality.value, 10) / 100);
+      var w = img.naturalWidth, h = img.naturalHeight;
+      var outUrl, outSize;
+      if (typeof OffscreenCanvas === 'function' && OffscreenCanvas.prototype.convertToBlob) {
+        var oc = new OffscreenCanvas(w, h);
+        oc.getContext('2d').drawImage(img, 0, 0);
+        var blob = await oc.convertToBlob({ type: type, quality: q });
+        outSize = blob.size;
+        outUrl = await blobToDataURL(blob);
+      } else {
+        var cv = document.createElement('canvas');
+        cv.width = w; cv.height = h;
+        cv.getContext('2d').drawImage(img, 0, 0);
+        outUrl = cv.toDataURL(type, q);
+        outSize = dataUrlBytes(outUrl);
+      }
+      var base = file.name.replace(/\.[^.]+$/, '');
+      return { name: base + '.' + extFor(type), outUrl: outUrl, outSize: outSize, outType: type,
+        origUrl: origUrl, origSize: file.size, w: w, h: h };
+    }
+
+    function renderItem(r) {
+      var saved = r.origSize - r.outSize;
+      var pct = r.origSize ? Math.round(saved / r.origSize * 100) : 0;
+      var badge = saved > 0
+        ? '<span class="save-badge save-good">−' + pct + '%</span>'
+        : '<span class="save-badge save-bad">+' + Math.abs(pct) + '%</span>';
+      var div = document.createElement('div');
+      div.className = 'result-item';
+      div.innerHTML =
+        '<div class="compare-grid">' +
+          '<div class="compare-col"><img class="file-preview-img" src="' + r.origUrl + '" alt="Original"><span class="compare-cap">Original · ' + formatBytes(r.origSize) + '</span></div>' +
+          '<span class="compare-arrow" aria-hidden="true">&rarr;</span>' +
+          '<div class="compare-col"><img class="file-preview-img" src="' + r.outUrl + '" alt="Compressed"><span class="compare-cap">' + extFor(r.outType).toUpperCase() + ' · ' + formatBytes(r.outSize) + ' ' + badge + '</span></div>' +
+        '</div>' +
+        '<div class="result-meta"><span class="result-name">' + escapeHtml(r.name) + ' <span class="dim">' + r.w + '×' + r.h + '</span></span>' +
+        '<a class="btn btn-secondary btn-sm" href="' + r.outUrl + '" download="' + escapeHtml(r.name) + '">Download</a></div>';
+      resultsEl.appendChild(div);
+    }
+
+    async function handleFiles(files) {
+      var list = Array.prototype.slice.call(files).filter(function (f) { return /^image\//.test(f.type); });
+      if (!list.length) { status.innerHTML = '<span class="invalid">No images selected.</span>'; return; }
+      resultsEl.innerHTML = ''; items = [];
+      resultCard.classList.remove('d-none');
+      var origTotal = 0, outTotal = 0;
+      for (var i = 0; i < list.length; i++) {
+        status.innerHTML = '<span class="valid">Compressing ' + (i + 1) + ' / ' + list.length + '…</span>';
+        try {
+          var r = await compressOne(list[i]);
+          renderItem(r);
+          items.push(r);
+          origTotal += r.origSize; outTotal += r.outSize;
+        } catch (e) {
+          var d = document.createElement('div');
+          d.className = 'result-item';
+          d.innerHTML = '<span class="invalid">Could not process ' + escapeHtml(list[i].name) + '.</span>';
+          resultsEl.appendChild(d);
+        }
+      }
+      var savedPct = origTotal ? Math.round((origTotal - outTotal) / origTotal * 100) : 0;
+      totalStat.innerHTML = '<b>' + items.length + '</b> image' + (items.length > 1 ? 's' : '') +
+        ' · ' + formatBytes(origTotal) + ' → ' + formatBytes(outTotal) +
+        ' <span class="save-badge ' + (savedPct >= 0 ? 'save-good">−' + savedPct : 'save-bad">+' + Math.abs(savedPct)) + '%</span>';
+      status.innerHTML = '<span class="valid">Done — ' + items.length + ' compressed.</span>';
+    }
+
+    function updatePngNote() {
+      var t = formatSel.value;
+      var pngActive = t === 'image/png';
+      pngNote.innerHTML = pngActive ? 'PNG is lossless — the quality slider has no effect. Convert to JPEG or WebP for smaller photos.' : '';
+      quality.disabled = pngActive;
+    }
+
+    quality.addEventListener('input', function () { qualityVal.textContent = quality.value + '%'; });
+    formatSel.addEventListener('change', updatePngNote);
+    dropZone.addEventListener('click', function () { fileInput.click(); });
+    fileInput.addEventListener('change', function () { if (fileInput.files.length) handleFiles(fileInput.files); });
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drop-zone-active'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drop-zone-active'); });
+    dropZone.addEventListener('drop', function (e) {
+      e.preventDefault(); dropZone.classList.remove('drop-zone-active');
+      if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);
+    });
+    document.getElementById('btn-all').addEventListener('click', function () {
+      items.forEach(function (r, i) {
+        setTimeout(function () {
+          var a = document.createElement('a');
+          a.href = r.outUrl; a.download = r.name; a.click();
+        }, i * 200);
+      });
+    });
+    document.getElementById('btn-reset').addEventListener('click', function () {
+      resultsEl.innerHTML = ''; items = []; resultCard.classList.add('d-none'); status.innerHTML = ''; fileInput.value = '';
+    });
+
+    updatePngNote();
+  })();
+  </script>
+</body>
+</html>

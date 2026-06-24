@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -57,14 +57,14 @@
         <span class="logo-word">Pratic<span>ulus</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="/developer/">Developer</a>
-        <a href="/security/">Security</a>
         <a href="/color/">Color</a>
         <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
         <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">23 tools</span>
+      <span class="nav-pill">27 tools</span>
     </div>
   </header>
 
@@ -83,7 +83,7 @@
     </nav>
 
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-database"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-database"></use></svg></div>
       <h1>SQL Formatter</h1>
       <p>Paste messy SQL to beautify, indent and align it, or minify it to a single line. Everything runs locally in your browser.</p>
     </div>
@@ -149,11 +149,11 @@
     <section class="related-tools" aria-labelledby="related-title">
       <h2 id="related-title">Related in Developer</h2>
       <div class="related-grid">
-        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
-        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
-        <a href="/uuid-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-fingerprint"></use></svg></span><span>UUID Generator</span></a>
-        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
-        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/cron-parser/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-timer"></use></svg></span><span>Cron Expression Parser</span></a>
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/csv-viewer/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-table"></use></svg></span><span>CSV Viewer &amp; Formatter</span></a>
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
       </div>
       <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
     </section>
@@ -202,7 +202,7 @@
       if (libInjected) return;
       libInjected = true;
       var s = document.createElement('script');
-      s.src = '/js/vendor/sql-formatter.min.js?v=20260612a';
+      s.src = '/js/vendor/sql-formatter.min.js?v=20260622a';
       s.onload = function () { var f = libCb; libCb = null; if (f) f(); };
       s.onerror = function () { libInjected = false; setStatus('invalid', 'Could not load the SQL formatting engine — check your connection.'); };
       document.head.appendChild(s);

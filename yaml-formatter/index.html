@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>YAML Formatter &amp; Validator — Free Online Tool | Praticulus</title>
-  <meta name="description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.">
+  <meta name="description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.1 and 1.2, or compact it to flow style. No signup required.">
   <meta name="keywords" content="yaml formatter, yaml validator, yaml lint, yaml beautifier, format yaml online, validate yaml, yaml syntax checker, yaml minifier">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://praticulus.com/yaml-formatter/">
@@ -13,14 +13,14 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:title" content="YAML Formatter &amp; Validator — Free Online Tool | Praticulus">
-  <meta property="og:description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.">
+  <meta property="og:description" content="Free online YAML formatter, validator, and minifier. Paste your YAML, format it with 2 or 4-space indentation, validate it against YAML 1.1 and 1.2, or compact it to flow style. No signup required.">
   <meta property="og:url" content="https://praticulus.com/yaml-formatter/">
   <meta property="og:site_name" content="Praticulus">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -28,7 +28,7 @@
     "@type": "WebApplication",
     "name": "YAML Formatter and Validator",
     "url": "https://praticulus.com/yaml-formatter/",
-    "description": "Free online YAML formatter, validator, and minifier. Paste your YAML, format it with proper indentation, validate it against YAML 1.2, or compact it to flow style. No signup required.",
+    "description": "Free online YAML formatter, validator, and minifier. Paste your YAML, format it with proper indentation, validate it against YAML 1.1 and 1.2, or compact it to flow style. No signup required.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -57,14 +57,14 @@
         <span class="logo-word">Pratic<span>ulus</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="/developer/">Developer</a>
-        <a href="/security/">Security</a>
         <a href="/color/">Color</a>
         <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
         <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">23 tools</span>
+      <span class="nav-pill">27 tools</span>
     </div>
   </header>
 
@@ -83,7 +83,7 @@
     </nav>
 
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-yaml"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-yaml"></use></svg></div>
       <h1>YAML Formatter &amp; Validator</h1>
       <p>Paste your YAML to format, validate, or compact it instantly. Everything runs locally in your browser.</p>
     </div>
@@ -125,7 +125,7 @@
         <ul class="seo-text">
           <li><strong>Format:</strong> re-indents your YAML cleanly with 2 or 4 spaces and normalizes block style. Tabs are never emitted: YAML forbids tabs for indentation.</li>
           <li><strong>Minify:</strong> collapses the document to compact flow style (<code>{key: value, list: [a, b]}</code>) on a single line, the smallest valid YAML representation.</li>
-          <li><strong>Validate:</strong> parses against YAML 1.2 and reports the exact line and column of the first syntax error.</li>
+          <li><strong>Validate:</strong> parses against the YAML 1.1 and 1.2 specs and reports the exact line and column of the first syntax error.</li>
         </ul>
         <h3 class="seo-subheading">When to use YAML vs JSON</h3>
         <p class="seo-text">Reach for YAML when a human edits the file by hand: configuration, infrastructure-as-code, pipelines. Its comments (<code>#</code>), multiline strings and lack of brackets make it pleasant to read and diff. Reach for JSON when a machine produces and consumes the data (APIs, logs, storage), where strict, bracket-delimited syntax leaves no room for indentation mistakes. Every JSON document is also valid YAML, which is why YAML's flow style looks JSON-like.</p>
@@ -140,11 +140,11 @@
     <section class="related-tools" aria-labelledby="related-title">
       <h2 id="related-title">Related in Developer</h2>
       <div class="related-grid">
-        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
-        <a href="/sql-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-database"></use></svg></span><span>SQL Formatter</span></a>
-        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
-        <a href="/url-encoder/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></span><span>URL Encoder / Decoder</span></a>
-        <a href="/hash-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-hash"></use></svg></span><span>Hash Generator</span></a>
+        <a href="/cron-parser/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-timer"></use></svg></span><span>Cron Expression Parser</span></a>
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/csv-viewer/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-table"></use></svg></span><span>CSV Viewer &amp; Formatter</span></a>
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
       </div>
       <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
     </section>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>CSV Viewer &amp; Formatter — Sortable Table | Praticulus</title>
+  <meta name="description" content="Paste or upload a CSV and view it as a sortable table. Auto-detects the delimiter, exports to JSON or TSV. Files are read locally — nothing is uploaded.">
+  <meta name="keywords" content="csv viewer, csv to json, csv formatter, view csv online, csv to table, csv parser, open csv online, csv to tsv">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/csv-viewer/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSV Viewer &amp; Formatter — Sortable Table | Praticulus">
+  <meta property="og:description" content="Paste or upload a CSV and view it as a sortable table. Auto-detects the delimiter, exports to JSON or TSV. Files are read locally — nothing is uploaded.">
+  <meta property="og:url" content="https://praticulus.com/csv-viewer/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CSV Viewer & Formatter",
+    "url": "https://praticulus.com/csv-viewer/",
+    "description": "Paste or upload a CSV and view it as a sortable table. Auto-detects the delimiter, exports to JSON or TSV. Files are read locally — nothing is uploaded.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://praticulus.com/developer/" },
+      { "@type": "ListItem", "position": 3, "name": "CSV Viewer & Formatter", "item": "https://praticulus.com/csv-viewer/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">27 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your CSV is parsed in your browser and never uploaded.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <main class="container-wide" id="main">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/developer/">Developer Tools</a></li>
+        <li><span aria-current="page">CSV Viewer &amp; Formatter</span></li>
+      </ol>
+    </nav>
+
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-table"></use></svg></div>
+      <h1>CSV Viewer &amp; Formatter</h1>
+      <p>Paste or drop a CSV file to read it as a clean, sortable table. The delimiter is detected automatically. Export to JSON or TSV — everything stays in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Paste CSV</label>
+        <textarea id="input" placeholder="name,role,city&#10;Ada,Engineer,London&#10;Linus,Maintainer,Portland"></textarea>
+        <div class="drop-zone" id="drop-zone">
+          <p>…or drag &amp; drop a .csv file here, or click to browse</p>
+          <input type="file" id="file-input" class="d-none" accept=".csv,.tsv,.txt,text/csv">
+        </div>
+        <div class="control-row">
+          <label class="checkbox-inline"><input type="checkbox" id="has-header" checked> First row is header</label>
+          <label class="inline-label" for="delim">Delimiter</label>
+          <select id="delim" class="select-input">
+            <option value="auto" selected>Auto-detect</option>
+            <option value=",">Comma ,</option>
+            <option value=";">Semicolon ;</option>
+            <option value="&#9;">Tab</option>
+            <option value="|">Pipe |</option>
+          </select>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-parse">View table</button>
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+        <div class="status-bar" id="status"></div>
+      </div>
+
+      <div class="card d-none" id="result-card">
+        <div class="stat-bar" id="stats"></div>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" id="btn-json">Copy JSON</button>
+          <button class="btn btn-secondary btn-sm" id="btn-json-dl">Download JSON</button>
+          <button class="btn btn-secondary btn-sm" id="btn-tsv">Copy TSV</button>
+        </div>
+        <div class="table-scroll table-tall">
+          <table class="data-table" id="table">
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">About CSV and delimiters</h2>
+        <p class="seo-text">CSV (comma-separated values) is the lowest-common-denominator data format, but the separator varies: spreadsheets in some locales use a semicolon, exports often use tabs (TSV) or pipes. This viewer scans the first row, picks the most likely delimiter, and respects quoted fields (<code>"value, with comma"</code>) and escaped quotes (<code>""</code>).</p>
+        <h3 class="seo-subheading">Privacy</h3>
+        <p class="seo-text">The file you drop is read with the browser's <code>FileReader</code> API and parsed in memory. No request is made, nothing is uploaded. Open DevTools → Network and watch: the tab stays silent.</p>
+      </div>
+    </div>
+
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Developer</h2>
+      <div class="related-grid">
+        <a href="/cron-parser/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-timer"></use></svg></span><span>Cron Expression Parser</span></a>
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/json-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-braces"></use></svg></span><span>JSON Formatter &amp; Validator</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
+        <a href="/diff-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-diff"></use></svg></span><span>Diff Checker</span></a>
+      </div>
+      <a href="/developer/" class="related-all">All Developer tools &rarr;</a>
+    </section>
+    <p><a href="https://github.com/jamalofski/praticulus/blob/main/csv-viewer/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function () {
+    'use strict';
+    var input = document.getElementById('input');
+    var status = document.getElementById('status');
+    var resultCard = document.getElementById('result-card');
+    var stats = document.getElementById('stats');
+    var thead = document.getElementById('thead');
+    var tbody = document.getElementById('tbody');
+    var hasHeader = document.getElementById('has-header');
+    var delimSel = document.getElementById('delim');
+    var dropZone = document.getElementById('drop-zone');
+    var fileInput = document.getElementById('file-input');
+
+    var rows = [];        // parsed rows (array of arrays)
+    var headers = [];     // header labels
+    var sortState = { col: -1, dir: 1 };
+
+    function detectDelimiter(text) {
+      var line = text.split(/\r?\n/).filter(function (l) { return l.trim(); })[0] || '';
+      var cands = [',', ';', '\t', '|'];
+      var best = ',', bestCount = -1;
+      cands.forEach(function (d) {
+        var n = line.split(d).length - 1;
+        if (n > bestCount) { bestCount = n; best = d; }
+      });
+      return best;
+    }
+
+    // RFC-4180-ish parser: handles quotes, "" escapes, delimiters and newlines inside quotes.
+    function parseCSV(text, delim) {
+      var out = [], row = [], field = '', i = 0, inQuotes = false;
+      text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      while (i < text.length) {
+        var ch = text[i];
+        if (inQuotes) {
+          if (ch === '"') {
+            if (text[i + 1] === '"') { field += '"'; i += 2; continue; }
+            inQuotes = false; i++; continue;
+          }
+          field += ch; i++; continue;
+        }
+        if (ch === '"') { inQuotes = true; i++; continue; }
+        if (ch === delim) { row.push(field); field = ''; i++; continue; }
+        if (ch === '\n') { row.push(field); out.push(row); row = []; field = ''; i++; continue; }
+        field += ch; i++;
+      }
+      row.push(field); out.push(row);
+      // Drop a trailing empty line.
+      if (out.length && out[out.length - 1].length === 1 && out[out.length - 1][0] === '') out.pop();
+      return out;
+    }
+
+    function render() {
+      var th = '<tr>';
+      headers.forEach(function (h, idx) {
+        var cls = 'sortable' + (sortState.col === idx ? (sortState.dir === 1 ? ' sort-asc' : ' sort-desc') : '');
+        th += '<th class="' + cls + '" data-col="' + idx + '">' + escapeHtml(h) + '</th>';
+      });
+      th += '</tr>';
+      thead.innerHTML = th;
+
+      var body = rows.map(function (r) {
+        var cells = '';
+        for (var c = 0; c < headers.length; c++) cells += '<td>' + escapeHtml(r[c] != null ? r[c] : '') + '</td>';
+        return '<tr>' + cells + '</tr>';
+      }).join('');
+      tbody.innerHTML = body;
+    }
+
+    function process() {
+      var text = input.value;
+      if (!text.trim()) { status.innerHTML = '<span class="invalid">Nothing to parse.</span>'; resultCard.classList.add('d-none'); return; }
+      var delim = delimSel.value === 'auto' ? detectDelimiter(text) : delimSel.value;
+      var grid = parseCSV(text, delim);
+      if (!grid.length) { resultCard.classList.add('d-none'); return; }
+      if (hasHeader.checked) {
+        headers = grid[0];
+        rows = grid.slice(1);
+      } else {
+        var cols = grid.reduce(function (m, r) { return Math.max(m, r.length); }, 0);
+        headers = []; for (var c = 0; c < cols; c++) headers.push('Column ' + (c + 1));
+        rows = grid;
+      }
+      sortState = { col: -1, dir: 1 };
+      var delimName = delim === '\t' ? 'tab' : delim;
+      stats.innerHTML = '<span class="stat"><b>' + rows.length + '</b> rows</span>' +
+        '<span class="stat"><b>' + headers.length + '</b> columns</span>' +
+        '<span class="stat">delimiter <code>' + escapeHtml(delimName) + '</code></span>';
+      render();
+      resultCard.classList.remove('d-none');
+      status.innerHTML = '<span class="valid">Parsed ' + rows.length + ' rows.</span>';
+    }
+
+    function sortBy(col) {
+      if (sortState.col === col) sortState.dir *= -1;
+      else { sortState.col = col; sortState.dir = 1; }
+      var dir = sortState.dir;
+      rows.sort(function (a, b) {
+        var x = a[col] != null ? a[col] : '', y = b[col] != null ? b[col] : '';
+        var nx = parseFloat(x), ny = parseFloat(y);
+        if (!isNaN(nx) && !isNaN(ny) && /^\s*-?[\d.,]+\s*$/.test(x) && /^\s*-?[\d.,]+\s*$/.test(y)) return (nx - ny) * dir;
+        return x.localeCompare(y) * dir;
+      });
+      render();
+    }
+
+    function toJSON() {
+      if (hasHeader.checked) {
+        return JSON.stringify(rows.map(function (r) {
+          var o = {}; headers.forEach(function (h, i) { o[h] = r[i] != null ? r[i] : ''; }); return o;
+        }), null, 2);
+      }
+      return JSON.stringify(rows, null, 2);
+    }
+
+    function toTSV() {
+      return [headers].concat(rows).map(function (r) { return r.join('\t'); }).join('\n');
+    }
+
+    function handleFile(file) {
+      var reader = new FileReader();
+      reader.onload = function (e) { input.value = e.target.result; process(); };
+      reader.readAsText(file);
+    }
+
+    thead.addEventListener('click', function (e) {
+      var th = e.target.closest('th');
+      if (th && th.hasAttribute('data-col')) sortBy(parseInt(th.getAttribute('data-col'), 10));
+    });
+    dropZone.addEventListener('click', function () { fileInput.click(); });
+    fileInput.addEventListener('change', function () { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+    dropZone.addEventListener('dragover', function (e) { e.preventDefault(); dropZone.classList.add('drop-zone-active'); });
+    dropZone.addEventListener('dragleave', function () { dropZone.classList.remove('drop-zone-active'); });
+    dropZone.addEventListener('drop', function (e) {
+      e.preventDefault(); dropZone.classList.remove('drop-zone-active');
+      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+    });
+    document.getElementById('btn-parse').addEventListener('click', process);
+    document.getElementById('btn-clear').addEventListener('click', function () {
+      input.value = ''; resultCard.classList.add('d-none'); status.innerHTML = ''; input.focus();
+    });
+    document.getElementById('btn-json').addEventListener('click', function () { copyToClipboard(toJSON(), this); });
+    document.getElementById('btn-json-dl').addEventListener('click', function () { downloadText(toJSON(), 'data.json'); });
+    document.getElementById('btn-tsv').addEventListener('click', function () { copyToClipboard(toTSV(), this); });
+  })();
+  </script>
+</body>
+</html>

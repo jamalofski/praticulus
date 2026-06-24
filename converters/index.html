@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>Online Converter Tools — Free, Privacy-First | Praticulus</title>
-  <meta name="description" content="Free online converters running in your browser. Base64 encoder, URL encoder. Files stay local, no upload, no server. Format, base and encoding matrices coming next.">
+  <meta name="description" content="Free online converters in your browser: image compressor, Unix timestamp converter, Base64 and URL encoder. Files stay local, no upload, no server.">
   <meta name="keywords" content="online converter tools, base64 encoder decoder, url encoder decoder, percent encoding, file to base64, privacy first converter">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://praticulus.com/converters/">
@@ -13,14 +13,14 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Online Converter Tools — Free, Privacy-First | Praticulus">
-  <meta property="og:description" content="Free online converters running in your browser. Base64 encoder, URL encoder. Files stay local, no upload, no server. Format, base and encoding matrices coming next.">
+  <meta property="og:description" content="Free online converters in your browser: image compressor, Unix timestamp converter, Base64 and URL encoder. Files stay local, no upload, no server.">
   <meta property="og:url" content="https://praticulus.com/converters/">
   <meta property="og:site_name" content="Praticulus">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260608g">
+  <link rel="stylesheet" href="/css/style.css?v=20260624a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -29,15 +29,17 @@
     "name": "Online Converter Tools",
     "url": "https://praticulus.com/converters/",
     "description": "Free online converters that run entirely in your browser. Base64 encoder/decoder, URL encoder/decoder. Files stay local, no upload, no server processing.",
-    "dateModified": "2026-05-11",
+    "dateModified": "2026-06-25",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Converter Tools",
-      "numberOfItems": 2,
+      "numberOfItems": 4,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" },
-        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" }
+        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/image-compressor/", "name": "Image Compressor" },
+        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/timestamp-converter/", "name": "Unix Timestamp Converter" },
+        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
+        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" }
       ]
     }
   }
@@ -62,14 +64,14 @@
         <span class="logo-word">Pratic<span>ulus</span></span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="/developer/">Developer</a>
-        <a href="/security/">Security</a>
         <a href="/color/">Color</a>
         <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
         <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">23 tools</span>
+      <span class="nav-pill">27 tools</span>
     </div>
   </header>
 
@@ -87,28 +89,38 @@
     </nav>
 
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-swap"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></div>
       <h1>Converter Tools</h1>
       <p>Encode and decode Base64, escape URLs, switch between data formats, all in your browser. Files dropped on these pages are read locally via <code>FileReader</code> and never leave your tab.</p>
     </div>
 
     <div class="hub-intro">
-      <h2>Encoders for everyday formats</h2>
-      <p>Two converters live today: Base64 (text and files) and URL Encoder (query-string + path). Format, base and encoding matrices are on the roadmap below.</p>
-      <p>Start with <a href="/base64/">Base64</a> if you have a file or string to encode, or <a href="/url-encoder/">URL Encoder</a> for query-string work.</p>
+      <h2>Encoders, timestamps and image tools</h2>
+      <p>Four tools live today: an Image Compressor (Canvas, no upload), a Unix Timestamp Converter, Base64 (text and files) and URL Encoder (query-string + path). Format, base and encoding matrices are on the roadmap below.</p>
+      <p>Compress a photo with the <a href="/image-compressor/">Image Compressor</a>, decode epoch time in the <a href="/timestamp-converter/">Timestamp Converter</a>, or jump to <a href="/base64/">Base64</a>.</p>
     </div>
 
     <section class="tools-section" aria-label="Converter tools">
       <div class="tools-grid">
-        <a href="/base64/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-binary"></use></svg></div>
-          <h3>Base64 Encoder / Decoder</h3>
-          <p>Encode or decode Base64 strings instantly. Drag and drop files: everything stays local.</p>
+        <a href="/image-compressor/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-image"></use></svg></div>
+          <h3>Image Compressor</h3>
+          <p>Compress JPEG, PNG and WebP with a quality slider. Batch, before/after preview, zero upload.</p>
+        </a>
+        <a href="/timestamp-converter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></div>
+          <h3>Unix Timestamp Converter</h3>
+          <p>Convert epoch ↔ date, seconds or milliseconds, ISO 8601, UTC and any timezone. Batch convert.</p>
         </a>
         <a href="/url-encoder/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-link"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></div>
           <h3>URL Encoder / Decoder</h3>
           <p>Encode or decode URLs and query strings. Handles Unicode and percent-encoding correctly.</p>
+        </a>
+        <a href="/base64/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></div>
+          <h3>Base64 Encoder / Decoder</h3>
+          <p>Encode or decode Base64 strings instantly. Drag and drop files: everything stays local.</p>
         </a>
       </div>
     </section>
@@ -153,11 +165,11 @@
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
-        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-code"></use></svg></span><span><b>Developer</b><small>11 tools</small></span></a>
-        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
-        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
-        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
-        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260611a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
+        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
+        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>14 tools</small></span></a>
+        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
+        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
+        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
       </div>
     </section>
   </main>

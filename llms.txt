@@ -27,6 +27,9 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [SQL Formatter](https://praticulus.com/sql-formatter/)
 - [YAML Formatter & Validator](https://praticulus.com/yaml-formatter/)
 - [Markdown Preview](https://praticulus.com/markdown-preview/)
+- [Cron Expression Parser (plain English + next 5 runs)](https://praticulus.com/cron-parser/)
+- [CSV Viewer & Formatter (sortable table, export JSON/TSV)](https://praticulus.com/csv-viewer/)
+- [Unix Timestamp Converter (epoch ↔ date, timezones)](https://praticulus.com/timestamp-converter/)
 
 ### [Security](https://praticulus.com/security/)
 - [Password Generator](https://praticulus.com/password-generator/)
@@ -47,6 +50,8 @@ Praticulus provides free browser-based tools for developers and technical users.
 ### [Converters](https://praticulus.com/converters/)
 - [Base64 Encoder/Decoder (text and files)](https://praticulus.com/base64/)
 - [URL Encoder/Decoder (percent-encoding, Unicode)](https://praticulus.com/url-encoder/)
+- [Unix Timestamp Converter (epoch ↔ date, ISO 8601, timezones)](https://praticulus.com/timestamp-converter/)
+- [Image Compressor (JPEG/PNG/WebP, in-browser, no upload)](https://praticulus.com/image-compressor/)
 
 ### [Generators](https://praticulus.com/generators/)
 - [Password Generator](https://praticulus.com/password-generator/)
@@ -60,7 +65,7 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
 
 ## Key facts
-- 23 tools available and growing (60+ planned)
+- 27 tools available and growing (60+ planned)
 - Free, no account, no usage limits
 - Zero third-party origins: every script, style, font, and image is served from praticulus.com
 - No cookies, no analytics, no fingerprinting
