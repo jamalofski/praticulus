@@ -2,7 +2,7 @@
 
 **Find the right tool, keep your data to yourself.**
 
-Praticulus is a collection of 23 free online tools for developers and makers, organized into 6 focused hubs. Every tool runs entirely in your browser, so your input never leaves your device. No analytics, no third-party trackers, no signup.
+Praticulus is a collection of 27 free online tools for developers and makers, organized into 6 focused hubs. Every tool runs entirely in your browser, so your input never leaves your device. No analytics, no third-party trackers, no signup.
 
 🔗 **Live site:** https://praticulus.com
 
@@ -28,10 +28,13 @@ Browse by hub on the site (Developer, Security, Color, Converters, Generators, T
 - [Color Converter](https://praticulus.com/color-converter/)
 - [Color Picker](https://praticulus.com/color-picker/)
 - [Contrast Checker](https://praticulus.com/contrast-checker/)
+- [Cron Expression Parser](https://praticulus.com/cron-parser/)
+- [CSV Viewer & Formatter](https://praticulus.com/csv-viewer/)
 - [Diff Checker](https://praticulus.com/diff-checker/)
 - [Gradient Generator](https://praticulus.com/gradient-generator/)
 - [Hash Generator](https://praticulus.com/hash-generator/)
 - [HMAC Generator](https://praticulus.com/hmac-generator/)
+- [Image Compressor](https://praticulus.com/image-compressor/)
 - [JSON Formatter & Validator](https://praticulus.com/json-formatter/)
 - [JWT Decoder](https://praticulus.com/jwt-decoder/)
 - [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
@@ -42,6 +45,7 @@ Browse by hub on the site (Developer, Security, Color, Converters, Generators, T
 - [Regex Tester](https://praticulus.com/regex-tester/)
 - [SQL Formatter](https://praticulus.com/sql-formatter/)
 - [TOTP Generator](https://praticulus.com/totp-generator/)
+- [Unix Timestamp Converter](https://praticulus.com/timestamp-converter/)
 - [URL Encoder / Decoder](https://praticulus.com/url-encoder/)
 - [UUID Generator](https://praticulus.com/uuid-generator/)
 - [YAML Formatter](https://praticulus.com/yaml-formatter/)
@@ -64,7 +68,7 @@ To report a vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## License
 
-[MIT](LICENSE) © 2026 Jamal Tantaoui
+[MIT](LICENSE) © 2026 [Jamal Tantaoui](https://tantaoui.com/)
 
 ---
 
