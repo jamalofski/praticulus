@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Text Case Converter — Free Online Tool | Praticulus</title>
+  <meta name="description" content="Convert text between camelCase, snake_case, kebab-case, PascalCase, UPPERCASE, Title Case and more. Free online case converter that runs entirely in your browser.">
+  <meta name="keywords" content="text case converter, camelcase converter, snake case, kebab case, uppercase lowercase, title case, convert case online, pascalcase, constant case">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/text-case/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Text Case Converter — Free Online Tool | Praticulus">
+  <meta property="og:description" content="Convert text between camelCase, snake_case, kebab-case, PascalCase, UPPERCASE, Title Case and more. Runs entirely in your browser.">
+  <meta property="og:url" content="https://praticulus.com/text-case/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260629a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text Case Converter",
+    "url": "https://praticulus.com/text-case/",
+    "description": "Convert text between camelCase, snake_case, kebab-case, PascalCase, UPPERCASE, Title Case and more. Free online case converter that runs entirely in your browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://praticulus.com/text/" },
+      { "@type": "ListItem", "position": 3, "name": "Text Case Converter", "item": "https://praticulus.com/text-case/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">31 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <div class="container-wide">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/text/">Text Tools</a></li>
+        <li><span aria-current="page">Text Case Converter</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <main class="container" id="main">
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></div>
+      <h1>Text Case Converter</h1>
+      <p>Paste text and read every case at once: camelCase, snake_case, kebab-case, UPPER, Title Case and more. Conversions update live, entirely in your browser.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Input</label>
+        <textarea id="input" placeholder="Type or paste text to convert...">hello world example</textarea>
+        <div class="btn-group">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Results</label>
+        <div class="kv-list" id="results"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">What is a text case converter?</h2>
+        <p class="seo-text">A case converter rewrites the same words in a different capitalization and word-separator style. Developers switch identifiers between the conventions enforced by a language or linter, and writers normalize headings or titles. This tool tokenizes your input, splits on spaces, underscores, hyphens and existing camelCase boundaries, then reassembles each style. It never sends your text anywhere: open DevTools, the Network tab stays empty.</p>
+        <h3 class="seo-subheading">Which case goes where</h3>
+        <ul class="seo-text">
+          <li><strong>camelCase:</strong> JavaScript and Java variables and functions (<code>userName</code>).</li>
+          <li><strong>PascalCase:</strong> class and type names in most languages (<code>UserAccount</code>).</li>
+          <li><strong>snake_case:</strong> Python and Ruby variables, SQL columns (<code>user_name</code>).</li>
+          <li><strong>kebab-case:</strong> URLs, CSS classes and HTML attributes (<code>user-name</code>).</li>
+          <li><strong>CONSTANT_CASE:</strong> environment variables and constants (<code>MAX_RETRIES</code>).</li>
+          <li><strong>Title Case</strong> and <strong>Sentence case:</strong> headings and prose.</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Text</h2>
+      <div class="related-grid">
+        <a href="/word-counter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></span><span>Word Counter</span></a>
+        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown to HTML</span></a>
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+      </div>
+      <a href="/text/" class="related-all">All Text tools &rarr;</a>
+    </section>
+    <p><a class="view-source" href="https://github.com/jamalofski/praticulus/blob/main/text-case/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var results = document.getElementById('results');
+
+    function cap(w) { return w ? w.charAt(0).toUpperCase() + w.slice(1) : w; }
+
+    // Split into lowercase tokens on separators and existing camelCase boundaries.
+    function tokens(s) {
+      return s
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+        .replace(/[^A-Za-z0-9]+/g, ' ')
+        .trim()
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
+    }
+
+    function alternating(s) {
+      var j = 0;
+      return s.split('').map(function (c) {
+        if (/[a-z]/i.test(c)) { var r = (j % 2) ? c.toUpperCase() : c.toLowerCase(); j++; return r; }
+        return c;
+      }).join('');
+    }
+
+    var CASES = [
+      { name: 'UPPERCASE',     fn: function (s) { return s.toUpperCase(); } },
+      { name: 'lowercase',     fn: function (s) { return s.toLowerCase(); } },
+      { name: 'Title Case',    fn: function (s) { return s.toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); }); } },
+      { name: 'Sentence case', fn: function (s) { return s.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, function (c) { return c.toUpperCase(); }); } },
+      { name: 'camelCase',     fn: function (s) { return tokens(s).map(function (w, i) { return i ? cap(w) : w; }).join(''); } },
+      { name: 'PascalCase',    fn: function (s) { return tokens(s).map(cap).join(''); } },
+      { name: 'snake_case',    fn: function (s) { return tokens(s).join('_'); } },
+      { name: 'kebab-case',    fn: function (s) { return tokens(s).join('-'); } },
+      { name: 'CONSTANT_CASE', fn: function (s) { return tokens(s).join('_').toUpperCase(); } },
+      { name: 'aLtErNaTiNg',   fn: alternating }
+    ];
+
+    function render() {
+      var v = input.value;
+      results.innerHTML = CASES.map(function (c) {
+        var out = c.fn(v);
+        return '<div class="kv-row"><span class="kv-label">' + c.name + '</span>' +
+               '<span class="kv-value"><span class="ttext">' + escapeHtml(out) + '</span>' +
+               '<button class="kv-copy" type="button" aria-label="Copy ' + c.name + '">Copy</button></span></div>';
+      }).join('');
+    }
+
+    results.addEventListener('click', function (e) {
+      var btn = e.target.closest('.kv-copy');
+      if (!btn) return;
+      var val = btn.parentNode.querySelector('.ttext').textContent;
+      if (val) copyToClipboard(val, btn);
+    });
+
+    input.addEventListener('input', render);
+    render();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Word Counter — Words, Characters, Reading Time | Praticulus</title>
+  <meta name="description" content="Count words, characters, sentences, paragraphs and reading time as you type. Free online word counter, fully private: your text never leaves your browser.">
+  <meta name="keywords" content="word counter, character counter, word count online, count words, reading time, character count, text counter, words per minute">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://praticulus.com/word-counter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Word Counter — Words, Characters, Reading Time | Praticulus">
+  <meta property="og:description" content="Count words, characters, sentences, paragraphs and reading time as you type. Fully private, runs in your browser.">
+  <meta property="og:url" content="https://praticulus.com/word-counter/">
+  <meta property="og:site_name" content="Praticulus">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://praticulus.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://praticulus.com/og-image.png">
+  <link rel="stylesheet" href="/css/style.css?v=20260629a">
+  <script src="/error-reporter.js?v=20260619a"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Counter",
+    "url": "https://praticulus.com/word-counter/",
+    "description": "Count words, characters, sentences, paragraphs and reading time as you type. Free online word counter, fully private: your text never leaves your browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "browserRequirements": "Requires JavaScript",
+    "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praticulus.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://praticulus.com/text/" },
+      { "@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://praticulus.com/word-counter/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="header">
+    <div class="container-wide header-inner">
+      <a href="/" class="logo" aria-label="Praticulus — home">
+        <span class="logo-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M13 2 4 13.5h5.4L9 22l9-12.5h-5.4L13 2z"/></svg></span>
+        <span class="logo-word">Pratic<span>ulus</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/color/">Color</a>
+        <a href="/converters/">Converters</a>
+        <a href="/developer/">Developer</a>
+        <a href="/generators/">Generators</a>
+        <a href="/security/">Security</a>
+        <a href="/text/">Text</a>
+      </nav>
+      <span class="nav-pill">31 tools</span>
+    </div>
+  </header>
+
+  <div class="trust-badge" role="note" aria-label="Privacy notice">
+    <span class="trust-badge-dot" aria-hidden="true"></span>
+    <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
+  </div>
+
+  <div class="container-wide">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/text/">Text Tools</a></li>
+        <li><span aria-current="page">Word Counter</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <main class="container" id="main">
+    <div class="tool-header">
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></div>
+      <h1>Word Counter</h1>
+      <p>Words, characters, sentences, paragraphs and estimated reading time, updated live as you type. Nothing is uploaded.</p>
+    </div>
+
+    <div class="tool-body">
+      <div class="card">
+        <label for="input">Text</label>
+        <textarea id="input" placeholder="Start typing or paste your text..."></textarea>
+        <div class="btn-group">
+          <button class="btn btn-secondary" id="btn-clear">Clear</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="stat-bar">
+          <span class="stat">Words <b id="s-words">0</b></span>
+          <span class="stat">Characters <b id="s-chars">0</b></span>
+          <span class="stat">Characters (no spaces) <b id="s-chars-ns">0</b></span>
+          <span class="stat">Sentences <b id="s-sent">0</b></span>
+          <span class="stat">Paragraphs <b id="s-para">0</b></span>
+          <span class="stat">Reading time <b id="s-read">0s</b></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Most frequent words</label>
+        <div class="kv-list" id="topwords"></div>
+        <p class="seo-text mt-1" id="topwords-empty">Type some text to see its most frequent words (common stop words are ignored).</p>
+      </div>
+
+      <div class="card">
+        <h2 class="seo-heading">How this word counter works</h2>
+        <p class="seo-text">Everything is measured in your browser as you type, so the count is instant and your text is never uploaded. Words are detected with the Unicode segmentation built into your browser (<code>Intl.Segmenter</code>) when available, which is why scripts without spaces between words, such as Chinese, Japanese or Thai, are still counted correctly rather than treated as a single word.</p>
+        <h3 class="seo-subheading">Reading time</h3>
+        <p class="seo-text">Reading time assumes 238 words per minute, the mean silent reading rate for adults reading English prose in the research literature. It is an estimate: dense technical text reads slower, familiar text faster.</p>
+        <h3 class="seo-subheading">Definitions</h3>
+        <ul class="seo-text">
+          <li><strong>Characters:</strong> every code point, including spaces and line breaks. The no-spaces figure strips all whitespace.</li>
+          <li><strong>Sentences:</strong> runs of text ending in a period, question mark or exclamation mark.</li>
+          <li><strong>Paragraphs:</strong> blocks separated by a blank line.</li>
+        </ul>
+      </div>
+    </div>
+    <section class="related-tools" aria-labelledby="related-title">
+      <h2 id="related-title">Related in Text</h2>
+      <div class="related-grid">
+        <a href="/text-case/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span>Text Case Converter</span></a>
+        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown to HTML</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
+        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-regex"></use></svg></span><span>Regex Tester</span></a>
+      </div>
+      <a href="/text/" class="related-all">All Text tools &rarr;</a>
+    </section>
+    <p><a class="view-source" href="https://github.com/jamalofski/praticulus/blob/main/word-counter/index.html" target="_blank" rel="noopener">View source on GitHub &rarr;</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <p>&copy; 2026 <a href="https://irisdigital.tech/" target="_blank" rel="noopener">Iris Digital</a> &mdash; <a href="/legal/">Legal Notice</a> &middot; <a href="/privacy/">Privacy Policy</a> &middot; <a href="/about/">About</a> &middot; <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="footer-meta">No tracking &middot; No ads on tool pages &middot; <a href="/privacy/">Affiliate disclosure</a></p>
+    </div>
+  </footer>
+
+  <script src="/js/common.js?v=20260411a"></script>
+  <script>
+  (function() {
+    'use strict';
+    var input = document.getElementById('input');
+    var topwords = document.getElementById('topwords');
+    var topwordsEmpty = document.getElementById('topwords-empty');
+    var seg = (window.Intl && Intl.Segmenter) ? new Intl.Segmenter(undefined, { granularity: 'word' }) : null;
+
+    var STOP = {};
+    ('the a an and or but of to in on at for with as by is are was were be been it its this that these those i you he she we they from not no so if then than too very can will just into over out about your their our his her my me us them do does did has have had what which who'
+      ).split(' ').forEach(function (w) { STOP[w] = 1; });
+
+    function wordList(t) {
+      if (seg) {
+        var out = [];
+        var it = seg.segment(t);
+        for (var s of it) { if (s.isWordLike) out.push(s.segment.toLowerCase()); }
+        return out;
+      }
+      var m = t.toLowerCase().match(/[\p{L}\p{N}']+/gu);
+      return m || [];
+    }
+
+    function fmtTime(words) {
+      var secs = Math.round(words / 238 * 60);
+      if (secs < 1) return '0s';
+      if (secs < 60) return secs + 's';
+      var m = Math.floor(secs / 60), s = secs % 60;
+      return s ? m + 'm ' + s + 's' : m + 'm';
+    }
+
+    function update() {
+      var t = input.value;
+      var chars = Array.from(t).length;
+      var charsNs = Array.from(t.replace(/\s/g, '')).length;
+      var words = wordList(t);
+      var wcount = words.length;
+      var sentences = (t.match(/[^.!?…]+[.!?…]+(?:["')\]]+)?/g) || []).filter(function (s) { return s.trim(); }).length;
+      var paragraphs = t.split(/\n\s*\n/).filter(function (p) { return p.trim(); }).length;
+
+      document.getElementById('s-words').textContent = wcount.toLocaleString('en-US');
+      document.getElementById('s-chars').textContent = chars.toLocaleString('en-US');
+      document.getElementById('s-chars-ns').textContent = charsNs.toLocaleString('en-US');
+      document.getElementById('s-sent').textContent = sentences.toLocaleString('en-US');
+      document.getElementById('s-para').textContent = paragraphs.toLocaleString('en-US');
+      document.getElementById('s-read').textContent = fmtTime(wcount);
+
+      var freq = {};
+      words.forEach(function (w) { if (w.length > 1 && !STOP[w]) freq[w] = (freq[w] || 0) + 1; });
+      var top = Object.keys(freq).map(function (w) { return [w, freq[w]]; })
+        .sort(function (a, b) { return b[1] - a[1] || (a[0] < b[0] ? -1 : 1); })
+        .slice(0, 10);
+
+      if (top.length) {
+        topwordsEmpty.classList.add('d-none');
+        topwords.classList.remove('d-none');
+        topwords.innerHTML = top.map(function (e) {
+          return '<div class="kv-row"><span class="kv-label">' + escapeHtml(e[0]) + '</span>' +
+                 '<span class="kv-value">' + e[1] + '</span></div>';
+        }).join('');
+      } else {
+        topwords.classList.add('d-none');
+        topwordsEmpty.classList.remove('d-none');
+      }
+    }
+
+    document.getElementById('btn-clear').addEventListener('click', function () { input.value = ''; input.focus(); update(); });
+    input.addEventListener('input', update);
+    update();
+  })();
+  </script>
+</body>
+</html>

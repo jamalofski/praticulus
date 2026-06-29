@@ -2,7 +2,7 @@
 
 **Find the right tool, keep your data to yourself.**
 
-Praticulus is a collection of 27 free online tools for developers and makers, organized into 6 focused hubs. Every tool runs entirely in your browser, so your input never leaves your device. No analytics, no third-party trackers, no signup.
+Praticulus is a collection of 31 free online tools for developers and makers, organized into 6 focused hubs. Every tool runs entirely in your browser, so your input never leaves your device. No analytics, no third-party trackers, no signup.
 
 🔗 **Live site:** https://praticulus.com
 
@@ -39,15 +39,19 @@ Browse by hub on the site (Developer, Security, Color, Converters, Generators, T
 - [JWT Decoder](https://praticulus.com/jwt-decoder/)
 - [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
 - [Markdown Preview](https://praticulus.com/markdown-preview/)
+- [Markdown to HTML](https://praticulus.com/markdown-to-html/)
 - [Palette Generator](https://praticulus.com/palette-generator/)
 - [Password Generator](https://praticulus.com/password-generator/)
 - [QR Code Generator](https://praticulus.com/qr-generator/)
 - [Regex Tester](https://praticulus.com/regex-tester/)
 - [SQL Formatter](https://praticulus.com/sql-formatter/)
+- [Text Case Converter](https://praticulus.com/text-case/)
 - [TOTP Generator](https://praticulus.com/totp-generator/)
 - [Unix Timestamp Converter](https://praticulus.com/timestamp-converter/)
 - [URL Encoder / Decoder](https://praticulus.com/url-encoder/)
 - [UUID Generator](https://praticulus.com/uuid-generator/)
+- [Word Counter](https://praticulus.com/word-counter/)
+- [XML Formatter](https://praticulus.com/xml-formatter/)
 - [YAML Formatter](https://praticulus.com/yaml-formatter/)
 
 ## Privacy

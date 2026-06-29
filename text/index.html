@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>Online Text Tools — Free, Privacy-First | Praticulus</title>
-  <meta name="description" content="Free online text tools running entirely in your browser. Regex tester, Markdown preview (GFM), lorem ipsum, no signup, no upload, no analytics.">
-  <meta name="keywords" content="online text tools, regex tester online, markdown preview, markdown editor, lorem ipsum, gfm github flavored markdown, privacy first text tools, client side text editor">
+  <meta name="description" content="Free online text tools in your browser: word counter, text case converter, Markdown to HTML, regex tester and Markdown preview. No signup, no upload.">
+  <meta name="keywords" content="online text tools, word counter, character counter, text case converter, camelcase snake case, markdown to html, regex tester online, markdown preview, lorem ipsum">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://praticulus.com/text/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Online Text Tools — Free, Privacy-First | Praticulus">
-  <meta property="og:description" content="Free online text tools running entirely in your browser. Regex tester, Markdown preview (GFM), lorem ipsum, no signup, no upload, no analytics.">
+  <meta property="og:description" content="Free online text tools in your browser: word counter, text case converter, Markdown to HTML, regex tester and Markdown preview. No signup, no upload.">
   <meta property="og:url" content="https://praticulus.com/text/">
   <meta property="og:site_name" content="Praticulus">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <link rel="stylesheet" href="/css/style.css?v=20260629a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -28,17 +28,21 @@
     "@type": "CollectionPage",
     "name": "Online Text Tools",
     "url": "https://praticulus.com/text/",
-    "description": "Free online text tools running entirely in your browser. Regex tester, Markdown preview (GFM), lorem ipsum, no signup, no upload, no analytics.",
-    "dateModified": "2026-05-25",
+    "description": "Free online text tools in your browser: word counter, text case converter, Markdown to HTML, regex tester and Markdown preview. No signup, no upload.",
+    "dateModified": "2026-06-29",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Text Tools",
-      "numberOfItems": 3,
+      "numberOfItems": 7,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/lorem-ipsum/", "name": "Lorem Ipsum Generator" },
-        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/markdown-preview/", "name": "Markdown Preview" },
-        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" }
+        { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/word-counter/", "name": "Word Counter" },
+        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/text-case/", "name": "Text Case Converter" },
+        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/markdown-to-html/", "name": "Markdown to HTML Converter" },
+        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/markdown-preview/", "name": "Markdown Preview" },
+        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" },
+        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/xml-formatter/", "name": "XML Formatter" },
+        { "@type": "ListItem", "position": 7, "url": "https://praticulus.com/lorem-ipsum/", "name": "Lorem Ipsum Generator" }
       ]
     }
   }
@@ -70,7 +74,7 @@
         <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">27 tools</span>
+      <span class="nav-pill">31 tools</span>
     </div>
   </header>
 
@@ -79,32 +83,44 @@
     <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
   </div>
 
-  <main class="container-wide" id="main">
+  <div class="container-wide">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
         <li><span aria-current="page">Text Tools</span></li>
       </ol>
     </nav>
+  </div>
 
+  <main class="container-wide" id="main">
     <div class="tool-header">
       <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></div>
       <h1>Text Tools</h1>
-      <p>Test regular expressions, preview Markdown with GitHub Flavored syntax, generate placeholder copy, all in your browser. Open DevTools → Network and confirm: nothing about your text leaves your tab.</p>
+      <p>Count words, convert case, turn Markdown into HTML, test regular expressions and generate placeholder copy, all in your browser. Open DevTools → Network and confirm: nothing about your text leaves your tab.</p>
     </div>
 
     <div class="hub-intro">
       <h2>For writers, devs and everyone in between</h2>
-      <p>Three text tools focused on the common dev/writer workflows: live regex evaluation, real-time Markdown rendering (CommonMark + GitHub Flavored Markdown), and on-demand placeholder text. No spell or grammar checking: that's a separate category Praticulus stays out of (see FAQ).</p>
-      <p>Start with <a href="/regex-tester/">Regex Tester</a> for pattern work, <a href="/markdown-preview/">Markdown Preview</a> for writing, or <a href="/lorem-ipsum/">Lorem Ipsum Generator</a> for filler copy.</p>
+      <p>A growing set of text utilities for everyday dev and writer workflows: word and character counting, case conversion, Markdown rendering and HTML export, regex evaluation, and placeholder text. No spell or grammar checking, that's a separate category Praticulus stays out of (see FAQ).</p>
+      <p>Jump to the <a href="/word-counter/">Word Counter</a>, the <a href="/text-case/">Text Case Converter</a>, or <a href="/markdown-to-html/">Markdown to HTML</a>.</p>
     </div>
 
     <section class="tools-section" aria-label="Text tools">
       <div class="tools-grid">
-        <a href="/lorem-ipsum/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></div>
-          <h3>Lorem Ipsum Generator</h3>
-          <p>Generate placeholder text in paragraphs, sentences, or words.</p>
+        <a href="/word-counter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></div>
+          <h3>Word Counter</h3>
+          <p>Count words, characters, sentences and reading time as you type.</p>
+        </a>
+        <a href="/text-case/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></div>
+          <h3>Text Case Converter</h3>
+          <p>Convert between camelCase, snake_case, kebab-case, UPPER and more.</p>
+        </a>
+        <a href="/markdown-to-html/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
+          <h3>Markdown to HTML</h3>
+          <p>Convert Markdown (GFM) to clean HTML, with optional Tailwind classes.</p>
         </a>
         <a href="/markdown-preview/" class="tool-card">
           <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
@@ -116,6 +132,16 @@
           <h3>Regex Tester</h3>
           <p>Test regular expressions with real-time matching, highlighting, and match details.</p>
         </a>
+        <a href="/xml-formatter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></div>
+          <h3>XML Formatter</h3>
+          <p>Format, minify and validate XML with a privacy-first browser parser.</p>
+        </a>
+        <a href="/lorem-ipsum/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></div>
+          <h3>Lorem Ipsum Generator</h3>
+          <p>Generate placeholder text in paragraphs, sentences, or words.</p>
+        </a>
       </div>
     </section>
 
@@ -124,7 +150,7 @@
       <div class="faq-list">
         <div class="faq-item">
           <h3 class="faq-question">Does the Markdown preview support GitHub Flavored Markdown (GFM)?</h3>
-          <p class="faq-answer">Yes, tables, task lists, strikethrough, and fenced code blocks with syntax highlighting via Prism.js (self-hosted, see <a href="/privacy/">privacy</a>).</p>
+          <p class="faq-answer">Yes, tables, task lists, strikethrough, and fenced code blocks with syntax highlighting via Prism.js (self-hosted, see <a href="/privacy/">privacy</a>). The same GFM parser powers <a href="/markdown-to-html/">Markdown to HTML</a>.</p>
         </div>
         <!-- @maj-after: tool-engagement-url-state -->
         <div class="faq-item">
@@ -133,35 +159,25 @@
         </div>
         <div class="faq-item">
           <h3 class="faq-question">Will my text content be saved or sent anywhere?</h3>
-          <p class="faq-answer">No. The only write is to <code>localStorage</code>, for preferences (theme, editor options), explicitly opt-in, never the content itself. Open DevTools → Network before typing, you'll see zero outbound requests.</p>
+          <p class="faq-answer">No. The only writes are to <code>localStorage</code>: your preferences and, on the editor tools, a local autosave of your draft. That data stays on your device. Open DevTools → Network before typing and you'll see zero outbound requests.</p>
         </div>
         <div class="faq-item">
           <h3 class="faq-question">Why no spell-checker or grammar tool?</h3>
           <p class="faq-answer">Out of scope. Praticulus focuses on dev/utility tools (parsing, formats, encoding, generation). Spell and grammar checking is a distinct category with dedicated players (LanguageTool, Grammarly) that do it better than we ever would.</p>
         </div>
-        <!-- @maj-after: tool-saturation-text-v1 -->
         <div class="faq-item">
-          <h3 class="faq-question">When will text case converter and word counter be available?</h3>
-          <p class="faq-answer">Planned, see Coming next on this page and <code>tool-saturation-text-v1</code> in our roadmap. Dedicated HTML entity encode/decode pages are also planned via <code>tool-longtail-encoding-matrix</code>.</p>
+          <h3 class="faq-question">Does the word counter handle non-Latin scripts like Chinese, Japanese or Arabic?</h3>
+          <p class="faq-answer">Yes. The <a href="/word-counter/">Word Counter</a> uses your browser's Unicode segmentation (<code>Intl.Segmenter</code>) where available, so scripts without spaces between words, such as Chinese, Japanese or Thai, are counted by word rather than as one long token.</p>
         </div>
       </div>
     </section>
 
-    <aside class="hub-planned" aria-labelledby="planned-title">
-      <span class="hub-planned-eyebrow">Roadmap</span>
-      <h3 id="planned-title">Coming next</h3>
-      <ul>
-        <li><strong>Text Case Converter</strong>camelCase, snake_case, kebab.</li>
-        <li><strong>Word Counter</strong>Words, chars, reading time.</li>
-        <li><strong>Markdown → HTML</strong>CommonMark + GFM export.</li>
-      </ul>
-    </aside>
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
         <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
         <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></span><span><b>Converters</b><small>4 tools</small></span></a>
-        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>14 tools</small></span></a>
+        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>15 tools</small></span></a>
         <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
         <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
       </div>

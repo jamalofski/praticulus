@@ -26,6 +26,7 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [Diff Checker](https://praticulus.com/diff-checker/)
 - [SQL Formatter](https://praticulus.com/sql-formatter/)
 - [YAML Formatter & Validator](https://praticulus.com/yaml-formatter/)
+- [XML Formatter (format, minify, validate, well-formed)](https://praticulus.com/xml-formatter/)
 - [Markdown Preview](https://praticulus.com/markdown-preview/)
 - [Cron Expression Parser (plain English + next 5 runs)](https://praticulus.com/cron-parser/)
 - [CSV Viewer & Formatter (sortable table, export JSON/TSV)](https://praticulus.com/csv-viewer/)
@@ -60,12 +61,16 @@ Praticulus provides free browser-based tools for developers and technical users.
 - [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
 
 ### [Text](https://praticulus.com/text/)
+- [Word Counter (words, characters, sentences, reading time)](https://praticulus.com/word-counter/)
+- [Text Case Converter (camelCase, snake_case, kebab-case, and more)](https://praticulus.com/text-case/)
+- [Markdown to HTML Converter (GFM, optional Tailwind classes)](https://praticulus.com/markdown-to-html/)
 - [Markdown Preview](https://praticulus.com/markdown-preview/)
 - [Regex Tester & Explainer](https://praticulus.com/regex-tester/)
+- [XML Formatter (format, minify, validate)](https://praticulus.com/xml-formatter/)
 - [Lorem Ipsum Generator](https://praticulus.com/lorem-ipsum/)
 
 ## Key facts
-- 27 tools available and growing (60+ planned)
+- 31 tools available and growing (60+ planned)
 - Free, no account, no usage limits
 - Zero third-party origins: every script, style, font, and image is served from praticulus.com
 - No cookies, no analytics, no fingerprinting

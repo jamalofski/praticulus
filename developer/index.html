@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
   <title>Online Developer Tools — Free, Privacy-First | Praticulus</title>
-  <meta name="description" content="Free online developer tools in your browser: JSON &amp; YAML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
-  <meta name="keywords" content="online developer tools, free web developer tools, dev tools online, json formatter, yaml formatter, yaml validator, uuid generator, regex tester, hash generator, hmac generator, base64, url encoder, markdown preview">
+  <meta name="description" content="Free online developer tools in your browser: JSON, YAML &amp; XML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
+  <meta name="keywords" content="online developer tools, free web developer tools, dev tools online, json formatter, yaml formatter, xml formatter, uuid generator, regex tester, hash generator, hmac generator, base64, url encoder, markdown preview">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://praticulus.com/developer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Online Developer Tools — Free, Privacy-First | Praticulus">
-  <meta property="og:description" content="Free online developer tools in your browser: JSON &amp; YAML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
+  <meta property="og:description" content="Free online developer tools in your browser: JSON, YAML &amp; XML formatters, cron parser, CSV viewer, timestamp converter, UUID, regex, hash, base64. No signup.">
   <meta property="og:url" content="https://praticulus.com/developer/">
   <meta property="og:site_name" content="Praticulus">
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260624a">
+  <link rel="stylesheet" href="/css/style.css?v=20260629a">
   <script src="/error-reporter.js?v=20260619a"></script>
   <script type="application/ld+json">
   {
@@ -28,13 +28,13 @@
     "@type": "CollectionPage",
     "name": "Online Developer Tools",
     "url": "https://praticulus.com/developer/",
-    "description": "Free online developer tools that run entirely in your browser. JSON and YAML formatters, UUID generator, regex tester, hash, HMAC, base64, URL encoder, markdown preview.",
-    "dateModified": "2026-06-25",
+    "description": "Free online developer tools that run entirely in your browser. JSON, YAML and XML formatters, UUID generator, regex tester, hash, HMAC, base64, URL encoder, markdown preview.",
+    "dateModified": "2026-06-29",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Developer Tools",
-      "numberOfItems": 14,
+      "numberOfItems": 15,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/cron-parser/", "name": "Cron Expression Parser" },
         { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/timestamp-converter/", "name": "Unix Timestamp Converter" },
@@ -49,7 +49,8 @@
         { "@type": "ListItem", "position": 11, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
         { "@type": "ListItem", "position": 12, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" },
         { "@type": "ListItem", "position": 13, "url": "https://praticulus.com/hmac-generator/", "name": "HMAC Generator" },
-        { "@type": "ListItem", "position": 14, "url": "https://praticulus.com/yaml-formatter/", "name": "YAML Formatter & Validator" }
+        { "@type": "ListItem", "position": 14, "url": "https://praticulus.com/yaml-formatter/", "name": "YAML Formatter & Validator" },
+        { "@type": "ListItem", "position": 15, "url": "https://praticulus.com/xml-formatter/", "name": "XML Formatter" }
       ]
     }
   }
@@ -81,7 +82,7 @@
         <a href="/security/">Security</a>
         <a href="/text/">Text</a>
       </nav>
-      <span class="nav-pill">27 tools</span>
+      <span class="nav-pill">31 tools</span>
     </div>
   </header>
 
@@ -90,14 +91,16 @@
     <span class="trust-badge-text"><strong>100% client-side</strong>: your input never leaves your browser.<a href="/privacy/">Verify</a></span>
   </div>
 
-  <main class="container-wide" id="main">
+  <div class="container-wide">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
         <li><span aria-current="page">Developer Tools</span></li>
       </ol>
     </nav>
+  </div>
 
+  <main class="container-wide" id="main">
     <div class="tool-header">
       <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></div>
       <h1>Developer Tools</h1>
@@ -106,7 +109,7 @@
 
     <div class="hub-intro">
       <h2>Built for daily developer workflows</h2>
-      <p>Fourteen tools for JSON and YAML, cron, CSV, timestamps, hashing, HMAC signing, regex, encoding and ID generation. Pages target Lighthouse 100 on mobile and load in under 100ms TTI.</p>
+      <p>Fifteen tools for JSON, YAML and XML, cron, CSV, timestamps, hashing, HMAC signing, regex, encoding and ID generation. Pages target Lighthouse 100 on mobile and load in under 100ms TTI.</p>
       <p>Pick a tool below or jump straight to <a href="/json-formatter/">JSON Formatter</a> if that's why you came.</p>
     </div>
 
@@ -182,6 +185,11 @@
           <h3>YAML Formatter &amp; Validator</h3>
           <p>Format, validate, and minify YAML 1.1 and 1.2. Error line/column on invalid input. Runs locally.</p>
         </a>
+        <a href="/xml-formatter/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></div>
+          <h3>XML Formatter</h3>
+          <p>Format, minify and validate XML with the browser's native parser. Mixed content safe.</p>
+        </a>
       </div>
     </section>
 
@@ -199,12 +207,12 @@
         </div>
         <div class="faq-item">
           <h3 class="faq-question">Are the regex, JSON and Base64 engines spec-compliant?</h3>
-          <p class="faq-answer">They use native browser APIs (<code>JSON.parse</code>, ECMAScript <code>RegExp</code>, <code>atob</code>/<code>btoa</code>, Web Crypto API for hashes). Behavior is identical to what your production JS runtime will produce.</p>
+          <p class="faq-answer">They use native browser APIs (<code>JSON.parse</code>, ECMAScript <code>RegExp</code>, <code>atob</code>/<code>btoa</code>, Web Crypto API for hashes, and <code>DOMParser</code> for XML). Behavior is identical to what your production JS runtime will produce.</p>
         </div>
         <!-- @maj-after: tool-engagement-url-state -->
         <div class="faq-item">
           <h3 class="faq-question">Can I share a formatted result with a teammate via URL?</h3>
-          <p class="faq-answer">Not yet on every tool. URL sharing (state encoded in the hash fragment) is planned across 9 tools. See <code>tool-engagement-url-state</code> in the roadmap.</p>
+          <p class="faq-answer">On some tools, yes. The XML Formatter and Regex Tester encode their state in the URL hash; URL sharing is being extended across the other tools. See <code>tool-engagement-url-state</code> in the roadmap.</p>
         </div>
         <div class="faq-item">
           <h3 class="faq-question">Where can I see the source code of the tools?</h3>
@@ -217,7 +225,7 @@
       <span class="hub-planned-eyebrow">Roadmap</span>
       <h3 id="planned-title">Coming next</h3>
       <ul>
-        <li><strong>XML Formatter</strong>Pretty + validate.</li>
+        <li><strong>Pipeline</strong>Chain tools by URL.</li>
         <li><strong>Public API</strong>JSON endpoints.</li>
         <li><strong>npm CLI</strong>Scriptable tools.</li>
       </ul>
@@ -229,7 +237,7 @@
         <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></span><span><b>Converters</b><small>4 tools</small></span></a>
         <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
         <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
-        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>3 tools</small></span></a>
+        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>7 tools</small></span></a>
       </div>
     </section>
   </main>
