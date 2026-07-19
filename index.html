@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
   <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260619a"></script>
+  <script src="/error-reporter.js?v=20260715a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -193,9 +193,9 @@
           </div>
           <p class="hub-blurb">Write, test and transform text and markup.</p>
           <div class="peek">
-            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260624a#i-hash"></use></svg> Word Counter</span>
-            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260624a#i-type"></use></svg> Text Case Converter</span>
             <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg> Markdown to HTML</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260624a#i-hash"></use></svg> Word Counter</span>
+            <span class="peek-row"><svg class="ic"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg> Markdown Preview</span>
           </div>
           <div class="hub-card-foot"><span>Explore Text</span><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-arrow"></use></svg></div>
         </a>
@@ -213,15 +213,19 @@
       { s: 'cron-parser', n: 'Cron Expression Parser', i: 'timer', d: 'Explain any cron expression in plain English and preview the next 5 run times.' },
       { s: 'lorem-ipsum', n: 'Lorem Ipsum Generator', i: 'paragraph', d: 'Generate placeholder text in paragraphs, sentences, or words.' },
       { s: 'timestamp-converter', n: 'Unix Timestamp Converter', i: 'clock', d: 'Convert Unix epoch to date and back. Seconds or milliseconds, ISO 8601, UTC and any timezone.' },
+      { s: 'markdown-to-html', n: 'Markdown to HTML Converter', i: 'markdown', d: 'Convert Markdown (GFM) to clean HTML, with optional Tailwind classes and live preview.' },
       { s: 'csv-viewer', n: 'CSV Viewer & Formatter', i: 'table', d: 'View CSV as a sortable table, auto-detect the delimiter, export to JSON or TSV.' },
       { s: 'json-formatter', n: 'JSON Formatter & Validator', i: 'braces', d: 'Format, validate, and minify JSON with syntax highlighting and a tree view.' },
       { s: 'color-picker', n: 'Color Picker', i: 'eyedropper', d: 'Pick any color visually or enter HEX, RGB, HSL. Copy color codes instantly.' },
+      { s: 'word-counter', n: 'Word Counter', i: 'hash', d: 'Count words, characters, sentences, paragraphs and reading time as you type.' },
       { s: 'password-generator', n: 'Password Generator', i: 'lock', d: 'Generate strong, random passwords with customizable length and character sets.' },
       { s: 'markdown-preview', n: 'Markdown Preview', i: 'markdown', d: 'Write and preview Markdown in real time. Side-by-side editor with live rendering.' },
-      { s: 'color-converter', n: 'Color Converter', i: 'swatch', d: 'Convert colors between HEX, RGB, HSL, and CMYK with live preview.' },
       { s: 'diff-checker', n: 'Diff Checker', i: 'diff', d: 'Compare two texts side by side or inline, with word-level highlighting.' },
+      { s: 'color-converter', n: 'Color Converter', i: 'swatch', d: 'Convert colors between HEX, RGB, HSL, and CMYK with live preview.' },
+      { s: 'xml-formatter', n: 'XML Formatter', i: 'code', d: 'Format, minify and validate XML in your browser. Mixed content safe.' },
       { s: 'color-blender', n: 'Color Blender', i: 'blend', d: 'Blend two colors with adjustable midpoints. Create smooth tonal transitions.' },
       { s: 'sql-formatter', n: 'SQL Formatter', i: 'database', d: 'Beautify or minify SQL with dialect and indentation options.' },
+      { s: 'text-case', n: 'Text Case Converter', i: 'type', d: 'Convert text between camelCase, snake_case, kebab-case, UPPER, Title Case and more.' },
       { s: 'hash-generator', n: 'Hash Generator', i: 'hash', d: 'Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text.' },
       { s: 'palette-generator', n: 'Palette Generator', i: 'palette', d: 'Generate harmonious palettes: complementary, triadic, analogous, and more.' },
       { s: 'uuid-generator', n: 'UUID Generator', i: 'fingerprint', d: 'Generate UUID v4 instantly. Bulk generate and copy with one click.' },
@@ -234,11 +238,7 @@
       { s: 'jwt-decoder', n: 'JWT Decoder', i: 'token', d: 'Decode and inspect JWT headers, payloads, and claims. Verify expiry locally.' },
       { s: 'cert-decoder', n: 'Certificate Decoder', i: 'certificate', d: 'Decode X.509 / PEM certificates: inspect issuer, validity, and SAN entries.' },
       { s: 'totp-generator', n: 'TOTP Generator', i: 'timer', d: 'Generate time-based one-time passwords from a secret. RFC 6238 compatible.' },
-      { s: 'yaml-formatter', n: 'YAML Formatter & Validator', i: 'yaml', d: 'Format, validate, and minify YAML 1.1 and 1.2. Error line and column on invalid input.' },
-      { s: 'word-counter', n: 'Word Counter', i: 'hash', d: 'Count words, characters, sentences, paragraphs and reading time as you type.' },
-      { s: 'text-case', n: 'Text Case Converter', i: 'type', d: 'Convert text between camelCase, snake_case, kebab-case, UPPER, Title Case and more.' },
-      { s: 'markdown-to-html', n: 'Markdown to HTML Converter', i: 'markdown', d: 'Convert Markdown (GFM) to clean HTML, with optional Tailwind classes and live preview.' },
-      { s: 'xml-formatter', n: 'XML Formatter', i: 'code', d: 'Format, minify and validate XML in your browser. Mixed content safe.' }
+      { s: 'yaml-formatter', n: 'YAML Formatter & Validator', i: 'yaml', d: 'Format, validate, and minify YAML 1.1 and 1.2. Error line and column on invalid input.' }
     ];
     var input = document.getElementById('q');
     var browse = document.getElementById('browse');

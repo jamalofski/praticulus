@@ -21,7 +21,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
   <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260619a"></script>
+  <script src="/error-reporter.js?v=20260715a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -205,8 +205,24 @@
       libInjected = true;
       var s = document.createElement('script');
       s.src = '/js/vendor/sql-formatter.min.js?v=20260622a';
-      s.onload = function () { var f = libCb; libCb = null; if (f) f(); };
-      s.onerror = function () { libInjected = false; setStatus('invalid', 'Could not load the SQL formatting engine — check your connection.'); };
+      // #3797/#3861: hide extension-injected define()/module so the UMD lib attaches to window.
+      // Clearing fails silently on a non-writable/getter-only define — then strip .amd instead.
+      var _d = window.define, _m = window.module, _e = window.exports, _o = null, _amd;
+      try { window.define = window.module = window.exports = undefined; } catch (e) {}
+      if (typeof window.define === 'function' && window.define.amd) {
+        _o = window.define; _amd = _o.amd;
+        try { _o.amd = undefined; if (_o.amd) delete _o.amd; } catch (e) {}
+      }
+      function restoreDefs() {
+        try { window.define = _d; } catch (e) {}
+        try { window.module = _m; } catch (e) {}
+        try { window.exports = _e; } catch (e) {}
+        if (_o) { try { _o.amd = _amd; } catch (e) {} }
+      }
+      function libFailed() { libInjected = false; setStatus('invalid', 'Could not load the SQL formatting engine — check your connection.'); }
+      // A 200 is not enough: the global is still missing if something captured the UMD wrapper.
+      s.onload = function () { restoreDefs(); if (!window.sqlFormatter) { libFailed(); return; } var f = libCb; libCb = null; if (f) f(); };
+      s.onerror = function () { restoreDefs(); libFailed(); };
       document.head.appendChild(s);
     }
 

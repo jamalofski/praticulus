@@ -13,7 +13,7 @@
 
   var sent = {};
   var MAX_PER_TYPE = 10;
-  var counts = { error: 0, rejection: 0, csp: 0 };
+  var counts = { error: 0, rejection: 0, csp: 0, resource: 0 };
 
   // Allowlist : on ne reporte qu'une erreur dont l'origine est démontrablement la nôtre.
   // Le stack est la source de vérité quand il existe — il liste les vraies frames d'exécution.
@@ -71,6 +71,35 @@
       k: stack ? stack.slice(0, 1024) : null
     });
   });
+
+  // Échec de chargement d'une ressource : l'event est dispatché sur l'élément et ne bouillonne
+  // pas — seule la phase capture au niveau window le voit, d'où ce second listener. Sans lui un
+  // <script src> bloqué (bloqueur de contenu, proxy, réseau) est muet : on ne recevait que le
+  // « X is not defined » en aval, indistinguable d'un global capturé par une extension (#3861).
+  // Script et stylesheet seulement : leur échec casse la page. Une <img> manquante est
+  // cosmétique et le dashboard loge tout client en level 'high' — ce serait du bruit.
+  var RESOURCE_URL_ATTR = { SCRIPT: 'src', LINK: 'href' };
+
+  window.addEventListener('error', function (e) {
+    var el = e.target;
+    // Les erreurs JS ciblent window : déjà traitées par le listener ci-dessus.
+    if (!el || el === window || !el.tagName) return;
+
+    var attr = RESOURCE_URL_ATTR[el.tagName];
+    if (!attr) return;
+
+    // Même règle d'origine que le reste : une ressource tierce qui échoue n'est pas notre bug.
+    var url = el[attr] || '';
+    if (url.indexOf(location.origin) !== 0) return;
+
+    send('resource', {
+      m: ('Failed to load ' + el.tagName.toLowerCase() + ': ' + url.slice(location.origin.length)).slice(0, 512),
+      s: url,
+      l: null,
+      c: null,
+      k: null
+    });
+  }, true);
 
   window.addEventListener('unhandledrejection', function (e) {
     var reason = e.reason;
