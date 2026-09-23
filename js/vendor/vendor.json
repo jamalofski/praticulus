@@ -1,7 +1,7 @@
 [
-  { "name": "marked", "version": "18.0.6" },
-  { "name": "dompurify", "version": "3.4.12" },
-  { "name": "sql-formatter", "version": "15.8.2" },
-  { "name": "qrcode-generator", "version": "2.0.4" },
-  { "name": "js-yaml", "version": "5.2.1" }
+  { "name": "marked", "version": "18.0.13", "file": "marked.min.js", "esBaseline": 2022 },
+  { "name": "dompurify", "version": "3.4.15", "file": "purify.min.js" },
+  { "name": "sql-formatter", "version": "15.8.2", "file": "sql-formatter.min.js" },
+  { "name": "qrcode-generator", "version": "2.0.4", "file": "qrcode.min.js" },
+  { "name": "js-yaml", "version": "5.4.2", "file": "js-yaml.min.js" }
 ]

@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,7 +86,7 @@
 
   <main class="container" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-link"></use></svg></div>
       <h1>URL Encoder / Decoder</h1>
       <p>Encode or decode URLs and query strings. Handles Unicode, special characters, and percent-encoding.</p>
     </div>
@@ -120,7 +120,7 @@
 
       <div class="card">
         <h2 class="seo-heading">What is URL Encoding?</h2>
-        <p class="seo-text">URL encoding (percent-encoding) replaces unsafe characters in URLs with a <code>%</code> followed by two hexadecimal digits. For example, a space becomes <code>%20</code>, and <code>&amp;</code> becomes <code>%26</code>. This ensures URLs are transmitted correctly across the internet.</p>
+        <p class="seo-text">URL encoding (percent-encoding) replaces unsafe characters in URLs with a <code>%</code> followed by two hexadecimal digits. For example, a space becomes <code>%20</code>, and <code>&amp;</code> becomes <code>%26</code>. This ensures URLs are transmitted correctly across the internet. Building a slug rather than escaping one? Normalise it to kebab-case first with the <a href="/text-case/">Text Case Converter</a>, then percent-encode what remains.</p>
         <h3 class="seo-subheading">encodeURI vs encodeURIComponent</h3>
         <ul class="seo-text">
           <li><strong>Encode (encodeURI):</strong> Encodes a full URI, preserving characters like <code>:</code>, <code>/</code>, <code>?</code>, <code>#</code></li>
@@ -130,11 +130,13 @@
       </div>
     </div>
     <section class="related-tools" aria-labelledby="related-title">
-      <h2 id="related-title">Related in Converters</h2>
+      <h2 id="related-title">Related tools</h2>
       <div class="related-grid">
-        <a href="/image-compressor/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-image"></use></svg></span><span>Image Compressor</span></a>
-        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
-        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+        <a href="/base64/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-binary"></use></svg></span><span>Base64 Encoder / Decoder</span></a>
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
+        <a href="/csv-viewer/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-table"></use></svg></span><span>CSV Viewer &amp; Formatter</span></a>
+        <a href="/image-compressor/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-image"></use></svg></span><span>Image Compressor</span></a>
+        <a href="/cron-parser/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-timer"></use></svg></span><span>Cron Expression Parser</span></a>
       </div>
       <a href="/converters/" class="related-all">All Converters tools &rarr;</a>
     </section>
@@ -148,121 +150,7 @@
     </div>
   </footer>
 
-  <script src="/js/common.js?v=20260411a"></script>
-  <script>
-  (function() {
-    'use strict';
-    var input = document.getElementById('input');
-    var output = document.getElementById('output');
-    var status = document.getElementById('status');
-    var urlPartsCard = document.getElementById('url-parts-card');
-    var urlParts = document.getElementById('url-parts');
-    var lastMode = 'encode';
-
-    function isEncoded(str) {
-      return /%[0-9A-Fa-f]{2}/.test(str);
-    }
-
-    function liveProcess() {
-      var val = input.value;
-      if (!val.trim()) {
-        output.textContent = 'Result will appear here...';
-        status.innerHTML = '';
-        urlPartsCard.classList.add('d-none');
-        return;
-      }
-      if (isEncoded(val)) {
-        lastMode = 'decode';
-        doDecodeURL();
-      } else {
-        lastMode = 'encode';
-        doEncodeURL();
-      }
-      parseURL(val);
-    }
-
-    function parseURL(str) {
-      try {
-        var decoded = str;
-        try { decoded = decodeURIComponent(str); } catch(e) {}
-        var url = new URL(decoded);
-        var parts = [
-          { label: 'Scheme', value: url.protocol.replace(':', '') },
-          { label: 'Host', value: url.hostname },
-          { label: 'Port', value: url.port || '(default)' },
-          { label: 'Path', value: url.pathname },
-          { label: 'Query', value: url.search || '(none)' },
-          { label: 'Fragment', value: url.hash || '(none)' }
-        ];
-        urlParts.innerHTML = parts.map(function(p) {
-          return '<div class="url-part-row"><span class="url-part-label">' + p.label + '</span><span class="url-part-value">' + escapeHtml(p.value) + '</span></div>';
-        }).join('');
-        urlPartsCard.classList.remove('d-none');
-      } catch (e) {
-        urlPartsCard.classList.add('d-none');
-      }
-    }
-
-    function doEncodeURL() {
-      try {
-        var result = encodeURI(input.value);
-        output.textContent = result;
-        status.innerHTML = '<span class="valid">Encoded (encodeURI) — ' + result.length + ' chars</span>';
-      } catch (e) {
-        status.innerHTML = '<span class="invalid">Error: ' + escapeHtml(e.message) + '</span>';
-      }
-    }
-
-    function doDecodeURL() {
-      try {
-        var result = decodeURIComponent(input.value.trim());
-        output.textContent = result;
-        status.innerHTML = '<span class="valid">Decoded — ' + result.length + ' chars</span>';
-      } catch (e) {
-        status.innerHTML = '<span class="invalid">Error: Invalid encoded string</span>';
-      }
-    }
-
-    function encodeComponent() {
-      try {
-        var result = encodeURIComponent(input.value);
-        output.textContent = result;
-        status.innerHTML = '<span class="valid">Encoded (encodeURIComponent) — ' + result.length + ' chars</span>';
-      } catch (e) {
-        status.innerHTML = '<span class="invalid">Error: ' + escapeHtml(e.message) + '</span>';
-      }
-    }
-
-    function swapIO() {
-      var out = output.textContent;
-      if (out && out !== 'Result will appear here...') {
-        input.value = out;
-        output.textContent = '';
-        status.innerHTML = '';
-        liveProcess();
-      }
-    }
-
-    function clearAll() {
-      input.value = '';
-      output.textContent = 'Result will appear here...';
-      status.innerHTML = '';
-      urlPartsCard.classList.add('d-none');
-    }
-
-    function copyOutput() {
-      navigator.clipboard.writeText(output.textContent);
-      showToast('Copied!');
-    }
-
-    input.addEventListener('input', liveProcess);
-    document.getElementById('btn-encode').addEventListener('click', function() { lastMode = 'encode'; doEncodeURL(); });
-    document.getElementById('btn-decode').addEventListener('click', function() { lastMode = 'decode'; doDecodeURL(); });
-    document.getElementById('btn-encode-component').addEventListener('click', encodeComponent);
-    document.getElementById('btn-swap').addEventListener('click', swapIO);
-    document.getElementById('btn-clear').addEventListener('click', clearAll);
-    document.getElementById('btn-copy').addEventListener('click', copyOutput);
-  })();
-  </script>
+  <script src="/js/common.js?v=20260824a"></script>
+  <script src="/js/tools/url-encoder.js?v=20260824a"></script>
 </body>
 </html>

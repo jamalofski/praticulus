@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,17 +29,19 @@
     "name": "Online Converter Tools",
     "url": "https://praticulus.com/converters/",
     "description": "Free online converters that run entirely in your browser. Base64 encoder/decoder, URL encoder/decoder. Files stay local, no upload, no server processing.",
-    "dateModified": "2026-06-25",
+    "dateModified": "2026-09-23",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Converter Tools",
-      "numberOfItems": 4,
+      "numberOfItems": 6,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/image-compressor/", "name": "Image Compressor" },
         { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/timestamp-converter/", "name": "Unix Timestamp Converter" },
-        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
-        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" }
+        { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/markdown-to-html/", "name": "Markdown to HTML" },
+        { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/csv-viewer/", "name": "CSV Viewer & Formatter" },
+        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/url-encoder/", "name": "URL Encoder / Decoder" },
+        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/base64/", "name": "Base64 Encoder / Decoder" }
       ]
     }
   }
@@ -91,36 +93,46 @@
 
   <main class="container-wide" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-swap"></use></svg></div>
       <h1>Converter Tools</h1>
       <p>Encode and decode Base64, escape URLs, switch between data formats, all in your browser. Files dropped on these pages are read locally via <code>FileReader</code> and never leave your tab.</p>
     </div>
 
     <div class="hub-intro">
       <h2>Encoders, timestamps and image tools</h2>
-      <p>Four tools live today: an Image Compressor (Canvas, no upload), a Unix Timestamp Converter, Base64 (text and files) and URL Encoder (query-string + path). Format, base and encoding matrices are on the roadmap below.</p>
-      <p>Compress a photo with the <a href="/image-compressor/">Image Compressor</a>, decode epoch time in the <a href="/timestamp-converter/">Timestamp Converter</a>, or jump to <a href="/base64/">Base64</a>.</p>
+      <p>Six tools live today: an Image Compressor (Canvas, no upload), a Unix Timestamp Converter, Base64 (text and files), URL Encoder (query-string + path), Markdown to HTML and a CSV Viewer that exports JSON or TSV. Format, base and encoding matrices are on the roadmap below.</p>
+      <p>Compress a photo with the <a href="/image-compressor/">Image Compressor</a>, decode epoch time in the <a href="/timestamp-converter/">Timestamp Converter</a>, turn a table into JSON with the <a href="/csv-viewer/">CSV Viewer</a>, or jump to <a href="/base64/">Base64</a>.</p>
     </div>
 
     <section class="tools-section" aria-label="Converter tools">
       <div class="tools-grid">
         <a href="/image-compressor/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-image"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-image"></use></svg></div>
           <h3>Image Compressor</h3>
           <p>Compress JPEG, PNG and WebP with a quality slider. Batch, before/after preview, zero upload.</p>
         </a>
         <a href="/timestamp-converter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-clock"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-clock"></use></svg></div>
           <h3>Unix Timestamp Converter</h3>
           <p>Convert epoch ↔ date, seconds or milliseconds, ISO 8601, UTC and any timezone. Batch convert.</p>
         </a>
+        <a href="/markdown-to-html/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></div>
+          <h3>Markdown to HTML</h3>
+          <p>Convert Markdown (GFM) to clean HTML. Live preview, optional Tailwind classes, nothing uploaded.</p>
+        </a>
+        <a href="/csv-viewer/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-table"></use></svg></div>
+          <h3>CSV Viewer &amp; Formatter</h3>
+          <p>Open CSV as a sortable table, auto-detect the delimiter, export to JSON or TSV.</p>
+        </a>
         <a href="/url-encoder/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-link"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-link"></use></svg></div>
           <h3>URL Encoder / Decoder</h3>
           <p>Encode or decode URLs and query strings. Handles Unicode and percent-encoding correctly.</p>
         </a>
         <a href="/base64/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-binary"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-binary"></use></svg></div>
           <h3>Base64 Encoder / Decoder</h3>
           <p>Encode or decode Base64 strings instantly. Drag and drop files: everything stays local.</p>
         </a>
@@ -138,40 +150,25 @@
           <h3 class="faq-question">Can I convert binary files (images, PDFs) to Base64?</h3>
           <p class="faq-answer">Yes, the <a href="/base64/">Base64 encoder</a> accepts files via drag and drop. The file is read with <code>FileReader</code> in your browser; nothing is uploaded.</p>
         </div>
-        <!-- @maj-after: tool-longtail-format-matrix -->
-        <div class="faq-item">
-          <h3 class="faq-question">Why no JSON ↔ YAML / TOML / XML / CSV conversions yet?</h3>
-          <p class="faq-answer">Planned. We're building 20 dedicated <code>/&lt;format-a&gt;-to-&lt;format-b&gt;/</code> pages (JSON ↔ YAML, JSON ↔ TOML, CSV ↔ JSON, etc.) so each conversion ranks on its own keyword. See <code>tool-longtail-format-matrix</code> on our roadmap.</p>
-        </div>
         <div class="faq-item">
           <h3 class="faq-question">Are there size limits on conversions?</h3>
           <p class="faq-answer">Limited by browser RAM, not by us. A 50 MB file converted to Base64 stays manageable on a modern device; beyond that, latency becomes noticeable. No request leaves your tab regardless of size.</p>
         </div>
-        <!-- @maj-after: tool-moat-api-publique -->
         <div class="faq-item">
           <h3 class="faq-question">Can I batch-convert multiple inputs at once?</h3>
-          <p class="faq-answer">Not in the current UI. For high-volume or scripted workflows, the planned public API (<code>api.praticulus.com/v1</code>) will be the right fit. Until then, each tool handles one payload at a time.</p>
+          <p class="faq-answer">No. Each tool handles one payload at a time.</p>
         </div>
       </div>
     </section>
 
-    <aside class="hub-planned" aria-labelledby="planned-title">
-      <span class="hub-planned-eyebrow">Roadmap</span>
-      <h3 id="planned-title">Coming next</h3>
-      <ul>
-        <li><strong>Format matrix</strong>JSON ↔ YAML/TOML/XML/CSV.</li>
-        <li><strong>Base matrix</strong>Base64/hex/binary/ascii.</li>
-        <li><strong>Encoding pages</strong>HTML, Unicode, Punycode.</li>
-      </ul>
-    </aside>
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
-        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
-        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>15 tools</small></span></a>
-        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
-        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
-        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span><b>Text</b><small>7 tools</small></span></a>
+        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
+        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-code"></use></svg></span><span><b>Developer</b><small>16 tools</small></span></a>
+        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
+        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
+        <a href="/text/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-type"></use></svg></span><span><b>Text</b><small>8 tools</small></span></a>
       </div>
     </section>
   </main>

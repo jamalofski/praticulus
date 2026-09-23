@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,7 +85,7 @@
 
   <main class="container" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-hash"></use></svg></div>
       <h1>Word Counter</h1>
       <p>Words, characters, sentences, paragraphs and estimated reading time, updated live as you type. Nothing is uploaded.</p>
     </div>
@@ -118,7 +118,7 @@
 
       <div class="card">
         <h2 class="seo-heading">How this word counter works</h2>
-        <p class="seo-text">Everything is measured in your browser as you type, so the count is instant and your text is never uploaded. Words are detected with the Unicode segmentation built into your browser (<code>Intl.Segmenter</code>) when available, which is why scripts without spaces between words, such as Chinese, Japanese or Thai, are still counted correctly rather than treated as a single word.</p>
+        <p class="seo-text">Everything is measured in your browser as you type, so the count is instant and your text is never uploaded. Words are detected with the Unicode segmentation built into your browser (<code>Intl.Segmenter</code>) when available, which is why scripts without spaces between words, such as Chinese, Japanese or Thai, are still counted correctly rather than treated as a single word. Counting something narrower than a word — every occurrence of a pattern, say — is a job for the <a href="/regex-tester/">Regex Tester</a>, which reports the match count as you type.</p>
         <h3 class="seo-subheading">Reading time</h3>
         <p class="seo-text">Reading time assumes 238 words per minute, the mean silent reading rate for adults reading English prose in the research literature. It is an estimate: dense technical text reads slower, familiar text faster.</p>
         <h3 class="seo-subheading">Definitions</h3>
@@ -130,12 +130,13 @@
       </div>
     </div>
     <section class="related-tools" aria-labelledby="related-title">
-      <h2 id="related-title">Related in Text</h2>
+      <h2 id="related-title">Related tools</h2>
       <div class="related-grid">
-        <a href="/text-case/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span>Text Case Converter</span></a>
-        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown to HTML</span></a>
-        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
-        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-regex"></use></svg></span><span>Regex Tester</span></a>
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></span><span>Markdown to HTML Converter</span></a>
+        <a href="/markdown-preview/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></span><span>Markdown Preview</span></a>
+        <a href="/diff-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-diff"></use></svg></span><span>Diff Checker</span></a>
+        <a href="/text-case/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-type"></use></svg></span><span>Text Case Converter</span></a>
       </div>
       <a href="/text/" class="related-all">All Text tools &rarr;</a>
     </section>
@@ -149,77 +150,7 @@
     </div>
   </footer>
 
-  <script src="/js/common.js?v=20260411a"></script>
-  <script>
-  (function() {
-    'use strict';
-    var input = document.getElementById('input');
-    var topwords = document.getElementById('topwords');
-    var topwordsEmpty = document.getElementById('topwords-empty');
-    var seg = (window.Intl && Intl.Segmenter) ? new Intl.Segmenter(undefined, { granularity: 'word' }) : null;
-
-    var STOP = {};
-    ('the a an and or but of to in on at for with as by is are was were be been it its this that these those i you he she we they from not no so if then than too very can will just into over out about your their our his her my me us them do does did has have had what which who'
-      ).split(' ').forEach(function (w) { STOP[w] = 1; });
-
-    function wordList(t) {
-      if (seg) {
-        var out = [];
-        var it = seg.segment(t);
-        for (var s of it) { if (s.isWordLike) out.push(s.segment.toLowerCase()); }
-        return out;
-      }
-      var m = t.toLowerCase().match(/[\p{L}\p{N}']+/gu);
-      return m || [];
-    }
-
-    function fmtTime(words) {
-      var secs = Math.round(words / 238 * 60);
-      if (secs < 1) return '0s';
-      if (secs < 60) return secs + 's';
-      var m = Math.floor(secs / 60), s = secs % 60;
-      return s ? m + 'm ' + s + 's' : m + 'm';
-    }
-
-    function update() {
-      var t = input.value;
-      var chars = Array.from(t).length;
-      var charsNs = Array.from(t.replace(/\s/g, '')).length;
-      var words = wordList(t);
-      var wcount = words.length;
-      var sentences = (t.match(/[^.!?…]+[.!?…]+(?:["')\]]+)?/g) || []).filter(function (s) { return s.trim(); }).length;
-      var paragraphs = t.split(/\n\s*\n/).filter(function (p) { return p.trim(); }).length;
-
-      document.getElementById('s-words').textContent = wcount.toLocaleString('en-US');
-      document.getElementById('s-chars').textContent = chars.toLocaleString('en-US');
-      document.getElementById('s-chars-ns').textContent = charsNs.toLocaleString('en-US');
-      document.getElementById('s-sent').textContent = sentences.toLocaleString('en-US');
-      document.getElementById('s-para').textContent = paragraphs.toLocaleString('en-US');
-      document.getElementById('s-read').textContent = fmtTime(wcount);
-
-      var freq = {};
-      words.forEach(function (w) { if (w.length > 1 && !STOP[w]) freq[w] = (freq[w] || 0) + 1; });
-      var top = Object.keys(freq).map(function (w) { return [w, freq[w]]; })
-        .sort(function (a, b) { return b[1] - a[1] || (a[0] < b[0] ? -1 : 1); })
-        .slice(0, 10);
-
-      if (top.length) {
-        topwordsEmpty.classList.add('d-none');
-        topwords.classList.remove('d-none');
-        topwords.innerHTML = top.map(function (e) {
-          return '<div class="kv-row"><span class="kv-label">' + escapeHtml(e[0]) + '</span>' +
-                 '<span class="kv-value">' + e[1] + '</span></div>';
-        }).join('');
-      } else {
-        topwords.classList.add('d-none');
-        topwordsEmpty.classList.remove('d-none');
-      }
-    }
-
-    document.getElementById('btn-clear').addEventListener('click', function () { input.value = ''; input.focus(); update(); });
-    input.addEventListener('input', update);
-    update();
-  })();
-  </script>
+  <script src="/js/common.js?v=20260824a"></script>
+  <script src="/js/tools/word-counter.js?v=20260824a"></script>
 </body>
 </html>

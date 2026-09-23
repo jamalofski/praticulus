@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,7 +85,7 @@
 
   <main class="container" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-fingerprint"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-fingerprint"></use></svg></div>
       <h1>UUID Generator</h1>
       <p>Generate random UUID v4 identifiers. Click to copy, or bulk generate as many as you need.</p>
     </div>
@@ -135,18 +135,20 @@
 
       <div class="card">
         <h2 class="seo-heading">What is a UUID?</h2>
-        <p class="seo-text">A UUID (Universally Unique Identifier) is a 128-bit identifier that is unique across space and time. UUID v4 is randomly generated, making collisions virtually impossible. UUIDs are commonly used as database primary keys, session tokens, API identifiers, and more.</p>
+        <p class="seo-text">A UUID (Universally Unique Identifier) is a 128-bit identifier that is unique across space and time. UUID v4 is randomly generated, making collisions virtually impossible. UUIDs are commonly used as database primary keys, session tokens, API identifiers, and more. When they end up in a migration script, the <a href="/sql-formatter/">SQL Formatter</a> keeps the resulting <code>INSERT</code> readable.</p>
         <h3 class="seo-subheading">UUID v4 Format</h3>
         <p class="seo-text font-mono">xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx</p>
         <p class="seo-text mt-1">Where x is a random hex digit, 4 indicates version 4, and y is one of 8, 9, a, or b.</p>
       </div>
     </div>
     <section class="related-tools" aria-labelledby="related-title">
-      <h2 id="related-title">Related in Generators</h2>
+      <h2 id="related-title">Related tools</h2>
       <div class="related-grid">
-        <a href="/qr-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-qr"></use></svg></span><span>QR Code Generator</span></a>
-        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
-        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/password-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-lock"></use></svg></span><span>Password Generator</span></a>
+        <a href="/qr-generator/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-qr"></use></svg></span><span>QR Code Generator</span></a>
+        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+        <a href="/cron-parser/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-timer"></use></svg></span><span>Cron Expression Parser</span></a>
+        <a href="/timestamp-converter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-clock"></use></svg></span><span>Unix Timestamp Converter</span></a>
       </div>
       <a href="/generators/" class="related-all">All Generators tools &rarr;</a>
     </section>
@@ -160,177 +162,12 @@
     </div>
   </footer>
 
-  <script src="/js/common.js?v=20260411a"></script>
+  <script src="/js/common.js?v=20260824a"></script>
   <!-- UUIDv1 isolé dans son propre bloc : c'est le seul code de la page qui
        exige BigInt (ES2020), hors baseline ES2018 de la flotte. Séparé pour
        qu'un moteur sans BigInt n'emporte pas v4, v7 et la validation dans son
        erreur de parsing — sans ça, toute la page tombait. Cf. STANDARDS.md. -->
-  <script data-es-baseline="es2020">
-  window.__uuidV1Factory = function (randomBytes, bytesToHex) {
-    return function uuidv1() {
-      var now = Date.now();
-      var gregorianOffset = 122192928000000000;
-      var ts = BigInt(now) * 10000n + BigInt(gregorianOffset);
-      var timeLow = Number(ts & 0xFFFFFFFFn);
-      var timeMid = Number((ts >> 32n) & 0xFFFFn);
-      var timeHi = Number((ts >> 48n) & 0x0FFFn) | 0x1000;
-      var clockSeq = (randomBytes(2)[0] << 8 | randomBytes(2)[1]) & 0x3FFF | 0x8000;
-      var node = randomBytes(6);
-      return timeLow.toString(16).padStart(8, '0') +
-        '-' + timeMid.toString(16).padStart(4, '0') +
-        '-' + timeHi.toString(16).padStart(4, '0') +
-        '-' + clockSeq.toString(16).padStart(4, '0') +
-        '-' + bytesToHex(node);
-    };
-  };
-  </script>
-  <script>
-  (function() {
-    'use strict';
-    var currentVersion = '4';
-
-    function randomBytes(n) {
-      var arr = new Uint8Array(n);
-      crypto.getRandomValues(arr);
-      return arr;
-    }
-
-    function bytesToHex(bytes) {
-      return Array.from(bytes, function(b) { return b.toString(16).padStart(2, '0'); }).join('');
-    }
-
-    function uuidv4() {
-      var b = randomBytes(16);
-      b[6] = (b[6] & 0x0f) | 0x40;
-      b[8] = (b[8] & 0x3f) | 0x80;
-      var h = bytesToHex(b);
-      return h.substr(0,8)+'-'+h.substr(8,4)+'-'+h.substr(12,4)+'-'+h.substr(16,4)+'-'+h.substr(20,12);
-    }
-
-    // Fourni par le bloc <script> précédent. Absent si le moteur n'a pas BigInt :
-    // ce bloc-là n'a alors pas parsé, et v1 est retiré de l'interface plus bas.
-    var uuidv1 = window.__uuidV1Factory ? window.__uuidV1Factory(randomBytes, bytesToHex) : null;
-
-    function uuidv7() {
-      var now = Date.now();
-      var b = randomBytes(16);
-      b[0] = (now / 1099511627776) & 0xFF;
-      b[1] = (now / 4294967296) & 0xFF;
-      b[2] = (now / 16777216) & 0xFF;
-      b[3] = (now / 65536) & 0xFF;
-      b[4] = (now / 256) & 0xFF;
-      b[5] = now & 0xFF;
-      b[6] = (b[6] & 0x0F) | 0x70;
-      b[8] = (b[8] & 0x3F) | 0x80;
-      var h = bytesToHex(b);
-      return h.substr(0,8)+'-'+h.substr(8,4)+'-'+h.substr(12,4)+'-'+h.substr(16,4)+'-'+h.substr(20,12);
-    }
-
-    function generateUUID() {
-      switch (currentVersion) {
-        case '1': return uuidv1 ? uuidv1() : uuidv4();
-        case '7': return uuidv7();
-        default: return uuidv4();
-      }
-    }
-
-    function formatUUID(uuid) {
-      if ($('#opt-no-dashes').checked) uuid = uuid.replace(/-/g, '');
-      if ($('#opt-uppercase').checked) uuid = uuid.toUpperCase();
-      if ($('#opt-braces').checked) uuid = '{' + uuid + '}';
-      return uuid;
-    }
-
-    function generateSingle() {
-      $('#single-uuid').textContent = formatUUID(generateUUID());
-    }
-
-    function copySingle() {
-      var uuid = $('#single-uuid').textContent;
-      if (uuid) {
-        navigator.clipboard.writeText(uuid);
-        $('#copy-status').innerHTML = '<span class="valid">Copied!</span>';
-        setTimeout(function() { $('#copy-status').innerHTML = ''; }, 1500);
-      }
-    }
-
-    function generateBulk() {
-      var count = Math.min(parseInt($('#bulk-count').value) || 10, 1000);
-      var uuids = Array.from({ length: count }, function() { return formatUUID(generateUUID()); });
-      $('#bulk-output').value = uuids.join('\n');
-    }
-
-    function copyBulk() {
-      var text = $('#bulk-output').value;
-      if (text) navigator.clipboard.writeText(text);
-    }
-
-    function downloadBulk() {
-      var text = $('#bulk-output').value;
-      if (text) downloadText(text, 'uuids.txt');
-    }
-
-    function validateUUID() {
-      var val = $('#validate-input').value.trim();
-      var result = $('#validate-result');
-      if (!val) { result.innerHTML = ''; return; }
-      var clean = val.replace(/^\{|\}$/g, '');
-      var match = clean.match(/^([0-9a-f]{8})-?([0-9a-f]{4})-?([0-9a-f])([0-9a-f]{3})-?([0-9a-f])([0-9a-f]{3})-?([0-9a-f]{12})$/i);
-      if (!match) {
-        result.innerHTML = '<span class="invalid">✗ Invalid UUID format</span>';
-        return;
-      }
-      var version = parseInt(match[3], 16);
-      var variantNibble = parseInt(match[5], 16);
-      var variant;
-      if ((variantNibble & 0x8) === 0) variant = 'NCS';
-      else if ((variantNibble & 0xC) === 0x8) variant = 'RFC 4122';
-      else if ((variantNibble & 0xE) === 0xC) variant = 'Microsoft';
-      else variant = 'Reserved';
-      result.innerHTML = '<span class="valid">✓ Valid UUID</span> — Version ' + version + ', Variant: ' + variant;
-    }
-
-    // Version toggle buttons
-    var versionBtns = $$('.uuid-version-btn');
-
-    // Pas de BigInt → v1 est impossible à calculer. On désactive l'option au
-    // lieu de laisser un bouton qui rendrait silencieusement un v4.
-    if (!uuidv1) {
-      versionBtns.forEach(function(btn) {
-        if (btn.getAttribute('data-version') !== '1') return;
-        btn.disabled = true;
-        btn.title = 'Requires a browser with BigInt support';
-      });
-    }
-
-    versionBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        currentVersion = btn.getAttribute('data-version');
-        versionBtns.forEach(function(b) {
-          b.classList.remove('active', 'btn-primary');
-          b.classList.add('btn-secondary');
-        });
-        btn.classList.add('active', 'btn-primary');
-        btn.classList.remove('btn-secondary');
-        generateSingle();
-      });
-    });
-
-    // Format option change → regenerate
-    ['opt-uppercase', 'opt-no-dashes', 'opt-braces'].forEach(function(id) {
-      $('#' + id).addEventListener('change', generateSingle);
-    });
-
-    $('#validate-input').addEventListener('input', validateUUID);
-    $('#btn-generate').addEventListener('click', generateSingle);
-    $('#btn-copy-single').addEventListener('click', copySingle);
-    $('#single-uuid').addEventListener('click', copySingle);
-    $('#btn-bulk-generate').addEventListener('click', generateBulk);
-    $('#btn-bulk-copy').addEventListener('click', copyBulk);
-    $('#btn-bulk-download').addEventListener('click', downloadBulk);
-
-    generateSingle();
-  })();
-  </script>
+  <script src="/js/tools/uuid-generator-bigint.js?v=20260824a"></script>
+  <script src="/js/tools/uuid-generator.js?v=20260824a"></script>
 </body>
 </html>

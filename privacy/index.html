@@ -18,8 +18,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,9 +68,9 @@
       <h2 id="verify">Verify it yourself</h2>
       <p>Trust shouldn't rely on what we say. Open your browser DevTools (F12 or Cmd+Opt+I) and check:</p>
       <ul>
-        <li><strong>Network tab</strong> — paste your data into any tool. You should see <em>zero</em> outbound requests carrying your input. The only requests on most pages are HTML, CSS, JS, favicon, and the og-image — all served from <code>praticulus.com</code>.</li>
+        <li><strong>Network tab</strong> — paste your data into any tool. You should see <em>zero</em> outbound requests carrying your input. The only requests are the page's own files (HTML, CSS, JavaScript, fonts, icons), all served from <code>praticulus.com</code>.</li>
         <li><strong>Application &rarr; Cookies</strong> — empty. We set none.</li>
-        <li><strong>Application &rarr; Local Storage / Session Storage</strong> — empty unless you opted into a client-side preference (e.g. saved palettes), in which case the data lives only on your device.</li>
+        <li><strong>Application &rarr; Local Storage / Session Storage</strong> — empty, except on the two Markdown tools, which autosave your draft there so you don't lose it. That data never leaves your device.</li>
         <li><strong>Console</strong> — no third-party scripts, no fingerprinting libraries.</li>
       </ul>
 
@@ -84,10 +84,10 @@
       <p>We do not use Google Analytics, Meta Pixel, Plausible, Fathom, or any other tracking service. Your usage of Praticulus is anonymous.</p>
 
       <h2>No external font services</h2>
-      <p>This site uses the system font stack only. No Google Fonts, no Adobe Fonts, no third-party font requests.</p>
+      <p>The three fonts (Hanken Grotesk, Space Grotesk, JetBrains Mono) are self-hosted on <code>praticulus.com</code>. No Google Fonts, no Adobe Fonts, no third-party font requests.</p>
 
       <h2>Client-side error reports</h2>
-      <p>A lightweight script (<code>error-reporter.js</code>) reports JavaScript errors to our own server using <code>navigator.sendBeacon</code>. The payload contains the error message, the page URL, and the user-agent, never the data you entered into a tool. The endpoint lives on infrastructure we own; nothing is shared with third parties.</p>
+      <p>A lightweight script (<code>error-reporter.js</code>) reports JavaScript errors to our own server using <code>navigator.sendBeacon</code>. The payload contains the error message, the stack trace and the page path (no query string, no URL fragment), and like any request it carries your user-agent. It never contains the data you entered into a tool. The endpoint lives on infrastructure we own; nothing is shared with third parties.</p>
 
       <h2>Open source: audit it yourself</h2>
       <p>Trust should not rely on what we say. The full source behind Praticulus is public at <a href="https://github.com/jamalofski/praticulus" target="_blank" rel="noopener">github.com/jamalofski/praticulus</a> under the MIT license, so every claim on this page is auditable line by line.</p>
@@ -96,10 +96,10 @@
       <p>The <a href="/color-picker/">Color Picker</a> exposes a "Pick from screen" button on supported browsers (Chrome, Edge, Opera) that uses the native <a href="https://developer.mozilla.org/en-US/docs/Web/API/EyeDropper" target="_blank" rel="noopener"><code>window.EyeDropper</code></a> API. The browser asks for an explicit permission gesture, reads one pixel locally, and returns its HEX value to the page. No screen capture, no image data, no network call.</p>
 
       <h2>Server logs</h2>
-      <p>Our web server (nginx) records standard access logs: IP address, user-agent, requested URL, timestamp, HTTP status code. They are used for security monitoring, rotated regularly, and never shared.</p>
+      <p>Our web server records standard access logs: IP address, user-agent, requested URL, timestamp, HTTP status code. They are used for security monitoring, rotated regularly, and never shared.</p>
 
       <h2>No personal data collected</h2>
-      <p>There is no account system, no registration, and no form on this site that collects personal information. The data you input into tools is processed locally and discarded when you close the tab.</p>
+      <p>There is no account system, no registration, and no form on this site that collects personal information. The data you input into tools is processed locally and never sent to a server; apart from the Markdown drafts mentioned above, it is gone when you close the tab.</p>
 
       <h2>Affiliate disclosure</h2>
       <p>Praticulus currently displays no affiliate links. If we add them in the future (clearly marked, only on cheatsheets and articles, never on tool pages), this disclosure will be updated and a notice will appear next to each affiliate link.</p>
@@ -110,7 +110,7 @@
       <h2>Contact</h2>
       <p>Questions about this privacy policy: <a href="mailto:contact@praticulus.com">contact@praticulus.com</a>.</p>
 
-      <p class="legal-updated"><em>Last updated: April 2026</em></p>
+      <p class="legal-updated"><em>Last updated: September 2026</em></p>
     </div>
   </main>
 

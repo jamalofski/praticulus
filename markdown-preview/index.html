@@ -20,9 +20,9 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <link rel="stylesheet" href="/css/prism-tomorrow.min.css?v=20260427a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <link rel="stylesheet" href="/css/prism-tomorrow.min.css?v=20260824a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -87,7 +87,7 @@
 
   <main class="container-wide" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></div>
       <h1>Markdown Preview</h1>
       <p>Write Markdown on the left, see the rendered preview on the right. Live and instant rendering, no signup required.</p>
     </div>
@@ -171,13 +171,14 @@ Made with ⚡ by [Praticulus](https://praticulus.com)</textarea>
       </div>
     </div>
     <section class="related-tools" aria-labelledby="related-title">
-      <h2 id="related-title">Related in Text</h2>
+      <h2 id="related-title">Related tools</h2>
       <div class="related-grid">
-        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></span><span>Markdown to HTML</span></a>
-        <a href="/word-counter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></span><span>Word Counter</span></a>
-        <a href="/text-case/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></span><span>Text Case Converter</span></a>
-        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-regex"></use></svg></span><span>Regex Tester</span></a>
-        <a href="/lorem-ipsum/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></span><span>Lorem Ipsum Generator</span></a>
+        <a href="/diff-checker/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-diff"></use></svg></span><span>Diff Checker</span></a>
+        <a href="/regex-tester/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-regex"></use></svg></span><span>Regex Tester</span></a>
+        <a href="/markdown-to-html/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></span><span>Markdown to HTML Converter</span></a>
+        <a href="/xml-formatter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-code"></use></svg></span><span>XML Formatter</span></a>
+        <a href="/text-case/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-type"></use></svg></span><span>Text Case Converter</span></a>
+        <a href="/word-counter/" class="related-card"><span class="rc-ic"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-hash"></use></svg></span><span>Word Counter</span></a>
       </div>
       <a href="/text/" class="related-all">All Text tools &rarr;</a>
     </section>
@@ -191,81 +192,15 @@ Made with ⚡ by [Praticulus](https://praticulus.com)</textarea>
     </div>
   </footer>
 
-  <script>/* #3797/#3861: an extension-injected define()/module captures vendored UMD libs before they reach
-     window. Clearing those bindings fails silently when the extension made them non-writable or getter-only,
-     so when define survives we strip its .amd marker to force the UMD wrapper down its global branch. */
-  (function(){var w=window,s={d:w.define,m:w.module,e:w.exports},o=null;
-  try{w.define=w.module=w.exports=undefined;}catch(e){}
-  if(typeof w.define==='function'&&w.define.amd){o=w.define;s.amd=o.amd;try{o.amd=undefined;if(o.amd)delete o.amd;}catch(e){}}
-  w.__ug=function(){try{w.define=s.d;}catch(e){}try{w.module=s.m;}catch(e){}try{w.exports=s.e;}catch(e){}if(o){try{o.amd=s.amd;}catch(e){}}};})();</script>
-  <script src="/js/vendor/marked.min.js?v=20260713a"></script>
-  <script src="/js/vendor/purify.min.js?v=20260713a"></script>
-  <script src="/js/prism/prism.min.js?v=20260427a"></script>
-  <script>window.Prism=window.Prism||{};window.Prism.manual=true;</script>
-  <script src="/js/prism/plugins/autoloader/prism-autoloader.min.js?v=20260427a"></script>
-  <script>window.__ug();window.__ug=undefined;</script>
-  <script>if(window.Prism&&Prism.plugins&&Prism.plugins.autoloader){Prism.plugins.autoloader.languages_path='/js/prism/components/';}</script>
-  <script src="/js/common.js?v=20260411a"></script>
-  <script>
-  (function() {
-    'use strict';
-
-    var STORAGE_KEY = 'tp-md-content';
-    var DEFAULT_CONTENT = document.getElementById('editor').value;
-    var editor = document.getElementById('editor');
-    var preview = document.getElementById('preview');
-    var saveTimer = null;
-
-    // A content blocker, proxy or flaky network can keep the vendored bundle from loading.
-    // Say so instead of dying on the first marked call (#3861).
-    if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
-      preview.innerHTML = '<div class="status-bar"><span class="invalid">Could not load the Markdown engine — check your connection or content blocker, then reload.</span></div>';
-      return;
-    }
-
-    marked.setOptions({ gfm: true, breaks: true });
-
-    // Restore from localStorage
-    var saved = localStorage.getItem(STORAGE_KEY);
-    if (saved !== null) { editor.value = saved; }
-
-    function renderPreview() {
-      preview.innerHTML = DOMPurify.sanitize(marked.parse(editor.value));
-      if (typeof Prism !== 'undefined') { Prism.highlightAllUnder(preview); }
-    }
-
-    function scheduleSave() {
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(function() {
-        localStorage.setItem(STORAGE_KEY, editor.value);
-      }, 500);
-    }
-
-    editor.addEventListener('input', function() {
-      renderPreview();
-      scheduleSave();
-    });
-
-    document.getElementById('btn-clear').addEventListener('click', function() {
-      localStorage.removeItem(STORAGE_KEY);
-      editor.value = DEFAULT_CONTENT;
-      renderPreview();
-    });
-
-    document.getElementById('btn-copy-md').addEventListener('click', function() {
-      navigator.clipboard.writeText(editor.value);
-    });
-
-    document.getElementById('btn-copy-html').addEventListener('click', function() {
-      navigator.clipboard.writeText(preview.innerHTML);
-    });
-
-    document.getElementById('btn-download-html').addEventListener('click', function() {
-      downloadText(preview.innerHTML, 'preview.html');
-    });
-
-    renderPreview();
-  })();
-  </script>
+  <script src="/js/umd-guard.js?v=20260824a"></script>
+  <script src="/js/vendor/marked.min.js?v=20260913a"></script>
+  <script src="/js/vendor/purify.min.js?v=20260913a"></script>
+  <script src="/js/prism/prism.min.js?v=20260824a"></script>
+  <script src="/js/prism-manual.js?v=20260824a"></script>
+  <script src="/js/prism/plugins/autoloader/prism-autoloader.min.js?v=20260824a"></script>
+  <script src="/js/umd-unguard.js?v=20260824a"></script>
+  <script src="/js/prism-autoloader.js?v=20260824a"></script>
+  <script src="/js/common.js?v=20260824a"></script>
+  <script src="/js/tools/markdown-preview.js?v=20260824a"></script>
 </body>
 </html>

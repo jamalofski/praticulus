@@ -20,8 +20,8 @@
   <meta property="og:image" content="https://praticulus.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://praticulus.com/og-image.png">
-  <link rel="stylesheet" href="/css/style.css?v=20260629a">
-  <script src="/error-reporter.js?v=20260715a"></script>
+  <link rel="stylesheet" href="/css/style.css?v=20260923a">
+  <script src="/error-reporter.js?v=20260824a"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,20 +29,21 @@
     "name": "Online Text Tools",
     "url": "https://praticulus.com/text/",
     "description": "Free online text tools in your browser: word counter, text case converter, Markdown to HTML, regex tester and Markdown preview. No signup, no upload.",
-    "dateModified": "2026-06-30",
+    "dateModified": "2026-09-23",
     "publisher": { "@type": "Organization", "name": "Iris Digital", "url": "https://irisdigital.tech/" },
     "mainEntity": {
       "@type": "ItemList",
       "name": "Text Tools",
-      "numberOfItems": 7,
+      "numberOfItems": 8,
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "url": "https://praticulus.com/lorem-ipsum/", "name": "Lorem Ipsum Generator" },
-        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/markdown-to-html/", "name": "Markdown to HTML Converter" },
+        { "@type": "ListItem", "position": 2, "url": "https://praticulus.com/markdown-to-html/", "name": "Markdown to HTML" },
         { "@type": "ListItem", "position": 3, "url": "https://praticulus.com/word-counter/", "name": "Word Counter" },
         { "@type": "ListItem", "position": 4, "url": "https://praticulus.com/markdown-preview/", "name": "Markdown Preview" },
-        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/xml-formatter/", "name": "XML Formatter" },
-        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/text-case/", "name": "Text Case Converter" },
-        { "@type": "ListItem", "position": 7, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" }
+        { "@type": "ListItem", "position": 5, "url": "https://praticulus.com/diff-checker/", "name": "Diff Checker" },
+        { "@type": "ListItem", "position": 6, "url": "https://praticulus.com/xml-formatter/", "name": "XML Formatter" },
+        { "@type": "ListItem", "position": 7, "url": "https://praticulus.com/text-case/", "name": "Text Case Converter" },
+        { "@type": "ListItem", "position": 8, "url": "https://praticulus.com/regex-tester/", "name": "Regex Tester" }
       ]
     }
   }
@@ -94,51 +95,56 @@
 
   <main class="container-wide" id="main">
     <div class="tool-header">
-      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></div>
+      <div class="th-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-type"></use></svg></div>
       <h1>Text Tools</h1>
       <p>Count words, convert case, turn Markdown into HTML, test regular expressions and generate placeholder copy, all in your browser. Open DevTools → Network and confirm: nothing about your text leaves your tab.</p>
     </div>
 
     <div class="hub-intro">
       <h2>For writers, devs and everyone in between</h2>
-      <p>A growing set of text utilities for everyday dev and writer workflows: word and character counting, case conversion, Markdown rendering and HTML export, regex evaluation, and placeholder text. No spell or grammar checking, that's a separate category Praticulus stays out of (see FAQ).</p>
+      <p>A set of text utilities for everyday dev and writer workflows: word and character counting, case conversion, Markdown rendering and HTML export, regex evaluation, side-by-side diffing, and placeholder text. No spell or grammar checking, that's a separate category Praticulus stays out of (see FAQ).</p>
       <p>Jump to the <a href="/word-counter/">Word Counter</a>, the <a href="/text-case/">Text Case Converter</a>, or <a href="/markdown-to-html/">Markdown to HTML</a>.</p>
     </div>
 
     <section class="tools-section" aria-label="Text tools">
       <div class="tools-grid">
         <a href="/lorem-ipsum/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-paragraph"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-paragraph"></use></svg></div>
           <h3>Lorem Ipsum Generator</h3>
           <p>Generate placeholder text in paragraphs, sentences, or words.</p>
         </a>
         <a href="/markdown-to-html/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></div>
           <h3>Markdown to HTML</h3>
           <p>Convert Markdown (GFM) to clean HTML, with optional Tailwind classes.</p>
         </a>
         <a href="/word-counter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-hash"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-hash"></use></svg></div>
           <h3>Word Counter</h3>
           <p>Count words, characters, sentences and reading time as you type.</p>
         </a>
         <a href="/markdown-preview/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-markdown"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-markdown"></use></svg></div>
           <h3>Markdown Preview</h3>
           <p>Write and preview Markdown in real-time. Side-by-side editor with live rendering.</p>
         </a>
+        <a href="/diff-checker/" class="tool-card">
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-diff"></use></svg></div>
+          <h3>Diff Checker</h3>
+          <p>Compare two texts side by side or inline, with word-level highlighting.</p>
+        </a>
         <a href="/xml-formatter/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-code"></use></svg></div>
           <h3>XML Formatter</h3>
           <p>Format, minify and validate XML with a privacy-first browser parser.</p>
         </a>
         <a href="/text-case/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-type"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-type"></use></svg></div>
           <h3>Text Case Converter</h3>
           <p>Convert between camelCase, snake_case, kebab-case, UPPER and more.</p>
         </a>
         <a href="/regex-tester/" class="tool-card">
-          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-regex"></use></svg></div>
+          <div class="icon"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-regex"></use></svg></div>
           <h3>Regex Tester</h3>
           <p>Test regular expressions with real-time matching, highlighting, and match details.</p>
         </a>
@@ -152,10 +158,9 @@
           <h3 class="faq-question">Does the Markdown preview support GitHub Flavored Markdown (GFM)?</h3>
           <p class="faq-answer">Yes, tables, task lists, strikethrough, and fenced code blocks with syntax highlighting via Prism.js (self-hosted, see <a href="/privacy/">privacy</a>). The same GFM parser powers <a href="/markdown-to-html/">Markdown to HTML</a>.</p>
         </div>
-        <!-- @maj-after: tool-engagement-url-state -->
         <div class="faq-item">
           <h3 class="faq-question">Can I share a regex pattern via URL?</h3>
-          <p class="faq-answer">Yes on Regex Tester (state encoded in the URL hash). URL sharing will be extended to the other text tools. See <code>tool-engagement-url-state</code> in our roadmap.</p>
+          <p class="faq-answer">Yes: Regex Tester encodes its state in the URL hash (Share button), and so do Diff Checker and XML Formatter.</p>
         </div>
         <div class="faq-item">
           <h3 class="faq-question">Will my text content be saved or sent anywhere?</h3>
@@ -175,11 +180,11 @@
     <section class="explore-hubs" aria-labelledby="explore-title">
       <div class="explore-head"><h2 id="explore-title">Explore other hubs</h2><a href="/" class="explore-back">Back to home &rarr;</a></div>
       <div class="explore-grid">
-        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
-        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-swap"></use></svg></span><span><b>Converters</b><small>4 tools</small></span></a>
-        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-code"></use></svg></span><span><b>Developer</b><small>15 tools</small></span></a>
-        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
-        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260624a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
+        <a href="/color/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-droplet"></use></svg></span><span><b>Color</b><small>6 tools</small></span></a>
+        <a href="/converters/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-swap"></use></svg></span><span><b>Converters</b><small>6 tools</small></span></a>
+        <a href="/developer/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-code"></use></svg></span><span><b>Developer</b><small>16 tools</small></span></a>
+        <a href="/generators/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-spark"></use></svg></span><span><b>Generators</b><small>4 tools</small></span></a>
+        <a href="/security/" class="explore-card"><span class="cat-badge" aria-hidden="true"><svg class="ic" aria-hidden="true"><use href="/icons.svg?v=20260824a#i-shield"></use></svg></span><span><b>Security</b><small>6 tools</small></span></a>
       </div>
     </section>
   </main>
