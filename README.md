@@ -56,11 +56,11 @@ Browse by hub on the site (Developer, Security, Color, Converters, Generators, T
 
 ## Privacy
 
-Trust should not rely on what we say. Every tool runs in your browser, and this repository holds the exact source behind it, so you can open DevTools and confirm that your input never leaves the page. The one network call Praticulus makes is an anonymous JavaScript error report (the error message and page URL, never your input), sent to our own infrastructure to help fix bugs and described in full in the [privacy policy](https://praticulus.com/privacy/).
+Trust should not rely on what we say. Every tool runs in your browser, and this repository holds the exact source behind it, so you can open DevTools and confirm that your input never leaves the page. The one network call Praticulus makes is an anonymous JavaScript error report (the error message, stack trace and page path, never your input), sent to our own infrastructure to help fix bugs and described in full in the [privacy policy](https://praticulus.com/privacy/).
 
 ## Tech
 
-Praticulus is intentionally simple: static HTML, CSS, and vanilla JavaScript, with no build step and no framework. Third-party libraries (for example syntax highlighting or Markdown rendering) are self-hosted and loaded only on the pages that need them. Each tool lives in its own folder as a single `index.html`.
+Praticulus is intentionally simple: static HTML, CSS, and vanilla JavaScript, with no build step and no framework. Third-party libraries (for example syntax highlighting or Markdown rendering) are self-hosted and loaded only on the pages that need them. Each tool is a folder with its `index.html`, and its logic lives in `js/tools/<tool>.js`: the Content-Security-Policy blocks inline scripts.
 
 ## Contributing
 

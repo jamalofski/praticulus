@@ -15,19 +15,20 @@ Pull requests that add a CDN, a tracker, or an external data call are not merged
 
 ## Adding a tool
 
-Each tool is a single self-contained page:
+Each tool is one page and one script:
 
 ```
 <tool-slug>/index.html
+js/tools/<tool-slug>.js
 ```
 
-Use an existing tool such as `base64/` or `json-formatter/` as a template. Keep the markup, the shared CSS classes, and the privacy posture consistent with the rest of the site. Logic is inline or in self-hosted JavaScript, with no build step, so you can open the file in a browser and iterate directly.
+Use an existing tool such as `base64/` or `json-formatter/` as a template. Keep the markup, the shared CSS classes, and the privacy posture consistent with the rest of the site. Logic goes in `js/tools/<tool-slug>.js`, never inline: the Content-Security-Policy (`script-src 'self'`) blocks inline scripts and inline event handlers. There is no build step: serve the folder with any static file server and iterate.
 
 ## Style
 
 - No inline `onclick`; wire events in JavaScript.
 - No unused CSS classes, and one `@media` block per breakpoint.
-- System font stack by default.
+- Fonts are self-hosted in `fonts/`; never load a font or any other asset from a third-party origin.
 - Plain, factual English copy, with no marketing filler.
 
 ## Proposing an idea
