@@ -24,16 +24,35 @@
   // ce bloc-là n'a alors pas parsé, et v1 est retiré de l'interface plus bas.
   var uuidv1 = window.__uuidV1Factory ? window.__uuidV1Factory(randomBytes, bytesToHex) : null;
 
+  // Un lot tient dans une ou deux millisecondes : sans compteur, ses UUID ne
+  // diffèrent que par de l'aléatoire et sortent dans le désordre. Les 12 bits
+  // de rand_a portent donc un compteur monotone (RFC 9562 §6.2, méthode 1).
+  var v7LastMs = -1;
+  var v7Seq = 0;
+
   function uuidv7() {
     var now = Date.now();
     var b = randomBytes(16);
-    b[0] = (now / 1099511627776) & 0xFF;
-    b[1] = (now / 4294967296) & 0xFF;
-    b[2] = (now / 16777216) & 0xFF;
-    b[3] = (now / 65536) & 0xFF;
-    b[4] = (now / 256) & 0xFF;
-    b[5] = now & 0xFF;
-    b[6] = (b[6] & 0x0F) | 0x70;
+    // Départ sur 11 bits aléatoires : le bit haut reste libre, soit au moins
+    // 2048 incréments avant de déborder sur la milliseconde suivante.
+    var seed = ((b[6] & 0x07) << 8) | b[7];
+    if (now > v7LastMs) {
+      v7LastMs = now;
+      v7Seq = seed;
+    } else if (++v7Seq > 0xFFF) {
+      // Même milliseconde (ou horloge qui recule) et compteur plein.
+      v7LastMs++;
+      v7Seq = seed;
+    }
+    var ms = v7LastMs;
+    b[0] = (ms / 1099511627776) & 0xFF;
+    b[1] = (ms / 4294967296) & 0xFF;
+    b[2] = (ms / 16777216) & 0xFF;
+    b[3] = (ms / 65536) & 0xFF;
+    b[4] = (ms / 256) & 0xFF;
+    b[5] = ms & 0xFF;
+    b[6] = 0x70 | (v7Seq >> 8);
+    b[7] = v7Seq & 0xFF;
     b[8] = (b[8] & 0x3F) | 0x80;
     var h = bytesToHex(b);
     return h.substr(0,8)+'-'+h.substr(8,4)+'-'+h.substr(12,4)+'-'+h.substr(16,4)+'-'+h.substr(20,12);

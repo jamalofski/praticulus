@@ -31,7 +31,7 @@
     if (libInjected) return;
     libInjected = true;
     var s = document.createElement('script');
-    s.src = '/js/vendor/sql-formatter.min.js?v=20260824a';
+    s.src = '/js/vendor/sql-formatter.min.js?v=20260927a';
     // #3797/#3861: hide extension-injected define()/module so the UMD lib attaches to window.
     // Clearing fails silently on a non-writable/getter-only define — then strip .amd instead.
     var _d = window.define, _m = window.module, _e = window.exports, _o = null, _amd;
